@@ -1,0 +1,91 @@
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+    height: 100vh;
+    width: 100vw;
+
+    opacity: 1;
+    pointer-events: all;
+    transition: all .3s ease-out;
+
+}
+
+.modal__overlay--closed {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    background-color: #fff;
+
+    transform: translate(-50%, -50%);
+    
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+    text-align: center;
+    width: 90%;
+
+    padding: 20px;
+
+    border-radius: 20px;
+    transition: all .5s;
+}
+
+.modal--closed{
+    transform: translate(-50%, 100%);
+}
+
+
+
+
+.modal__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.modal__img{
+    width: 300px;
+}
+
+.modal__description>p {
+    width: 100%;
+}
+
+.modal__description {
+    display: flex;
+    justify-content: center;
+}
+
+.modal__closeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__closeBtn>svg {
+    color: #000;
+    width: 40px;
+    height: auto;
+
+}

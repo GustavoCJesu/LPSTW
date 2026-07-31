@@ -1,0 +1,9 @@
+.mobile__cta{
+    align-self: center;
+    color: #fff;
+    background-color: #279963;
+    padding: 10px 30px;
+    border-radius: 100px;
+    font-weight: 800;
+    margin: 20px 0;
+}

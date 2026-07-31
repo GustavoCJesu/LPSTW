@@ -1,0 +1,54 @@
+.software__container {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+.software__section__title{
+    line-height: 1;
+}
+
+.software__topic__description {
+    text-align: justify;
+}
+
+.software__topics{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+
+}
+.software__topics__bottom{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.software__singleTopic{
+    background-color: #279963;
+    color: white;
+    padding: 2px 30px;
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.software__singleTopic__bottom{
+    background-color: #279963;
+    color: white;
+    padding: 2px 30px;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.software__singleTopic--active{
+    height: 40px;
+    font-weight: 900;
+
+}

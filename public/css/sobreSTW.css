@@ -1,0 +1,44 @@
+.aboutUs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.aboutUs__title, .aboutUs__description{
+    align-self: center;
+    text-align: center;
+}
+
+.aboutUs__cardsGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+
+    justify-items: center;
+    align-items: center;
+}
+
+.aboutUs__card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+    font-size: .8rem;
+}
+.aboutUs__card svg{
+    color: #fff;
+    background-color: #279963; 
+}
+.aboutUs__icon__cta{
+    padding: 5px;
+    background-color: #279963;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
