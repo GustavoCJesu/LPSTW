@@ -1,0 +1,97 @@
+.evidence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0F3D26;
+    padding: 40px 0;
+    overflow: hidden;
+    gap: 20px;
+}
+
+.evidence__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    color: #fff;
+    text-align: center;
+}
+
+.evidence__title>h1 {
+    font-size: 25px;
+    line-height: 1;
+    width: 90vw;
+
+    color: white;
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 2),
+        0 0 40px rgba(255, 255, 255, 0.4),
+        0 0 80px rgba(255, 255, 255, 0.3),
+        0 0 140px rgba(255, 255, 255, 0.2),
+        0 0 200px rgba(255, 255, 255, 0.1);
+}
+
+
+.evidence__title>p {
+    line-height: 1;
+    text-align: center;
+    width: 90vw;
+}
+
+.evidence__carrossel {
+    overflow: hidden;
+    display: flex;
+    align-self: self-start;
+    justify-self: start;
+}
+
+
+.evidence__track {
+    display: flex;
+    flex-shrink: 0;
+
+    width: max-content;
+}
+
+.evidence__card {
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 20px;
+    border-radius: 2px;
+}
+
+.evidence__stars svg {
+    color: #ffcb0c;
+    fill: #ffcb0c;
+}
+
+.evidence__description {
+    text-align: start;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 1rem 0;
+}
+
+.evidence__profile {
+    display: flex;
+    gap: 10px;
+    line-height: 1.2;
+    align-items: center;
+}
+
+.evidence__userPhoto {
+    border: solid rgba(0, 0, 0, 0.5) 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+}

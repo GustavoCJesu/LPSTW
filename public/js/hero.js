@@ -51,6 +51,14 @@ track.addEventListener("touchend", (e) => {
     }
 });
 
+
+dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        const id = dot.dataset.id
+        Carrossel(id)
+    })
+})
+
 function Carrossel(id) {
 
     if (id != undefined) {

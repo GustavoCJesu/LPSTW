@@ -1,4 +1,9 @@
 const menu = document.querySelector(".header__menu")
+const btn = document.querySelector('#header__btn__menu')
+
+btn.addEventListener('click', ()=>{
+    toggleMenu()
+})
 
 
 

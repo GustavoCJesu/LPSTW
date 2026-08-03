@@ -23,9 +23,9 @@
         </div>
 
         <div class="hero__dots">
-            <button onclick="Carrossel(0)" class="hero__dot hero__dot--active"></button>
-            <button onclick="Carrossel(1)" class="hero__dot"></button>
-            <button onclick="Carrossel(2)" class="hero__dot"></button>
+            <button data-id="0" class="hero__dot hero__dot--active"></button>
+            <button data-id="1" class="hero__dot"></button>
+            <button data-id="2" class="hero__dot"></button>
         </div>
     </div>
     <div class="hero__numbers">

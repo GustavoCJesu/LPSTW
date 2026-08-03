@@ -1,4 +1,4 @@
-<button onclick="closeModal()" class="modal__overlay modal__overlay--closed">
+<button class="modal__overlay modal__overlay--closed">
     <div class="modal modal--closed">
         <div class="modal__head">
             <img class="modal__img" src="/icons/ilustracoes/sobreSTW/ilu1_SobreSTW.svg" />

@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@0;1&display=swap');
+
 /* Reset */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -50,7 +54,15 @@ button {
     -webkit-tap-highlight-color: transparent;
 }
 
+input {
+    box-sizing: border-box;
+    border: solid rgba(0,0,0,0.5) 1px;
+    border-radius: 2px;
+}
+
 /* Titulos */
 h1 {
     font-size: 25px;
+    font-family: "Ropa Sans", sans-serif;
+    font-weight: 700;   
 }

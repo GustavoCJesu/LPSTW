@@ -3,7 +3,7 @@
         <a href="/" class="header__logo">
             <img src="/images/logo/logo.png" alt="STW">
         </a>
-        <button class="header__menu-button" aria-label="Abrir menu" onclick="toggleMenu()">
+        <button id="header__btn__menu" class="header__menu-button" aria-label="Abrir menu">
             <i id="menu-icon--Menu" class="header__menu-icon" data-lucide="menu"></i>
             <i id="menu-icon--X" class="header__menu-icon menu__icon--disabled" data-lucide="x"></i>
         </button>
@@ -13,20 +13,20 @@
         <nav class="nav__menu">
             <ul class="header__menu-list">
                 <li class="header__menu-item">
-                    <a href="#">O que é a STW</a>
+                    <a href="#aboutUs">O que é a STW</a>
                 </li>
 
                 <li class="header__menu-item">
-                    <a href="#">Nosso Software Web</a>
+                    <a href="#software">Nosso Software Web</a>
                 </li>
 
                 <li class="header__menu-item">
-                    <a href="#">Nossos Produtos</a>
+                    <a href="#products">Nossos Produtos</a>
                 </li>
             </ul>
         </nav>
-        <button class="header__cta">
-            <p>Entre em contato</p>
-        </button>
+        <a href="#form" class="header__cta">
+            Entre em contato!
+        </a>
     </div>
 </header>

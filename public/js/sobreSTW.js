@@ -22,13 +22,28 @@ const modalDate = {
 }
 
 
-function openModal(id){
+const aboutUsTopicBtns = document.querySelectorAll('.aboutUs__topic')
+
+const modalOverlay = document.querySelector(".modal__overlay")
+const modal = document.querySelector('.modal')
+
+aboutUsTopicBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const id = btn.dataset.id
+        openModal(id)
+    })
+})
+
+modal.addEventListener('click',()=>{
+    closeModal()
+})
+
+
+function openModal(id) {
     console.log(id)
 
     const date = modalDate[id]
 
-    const modalOverlay = document.querySelector(".modal__overlay")
-    const modal = document.querySelector('.modal')
     modalOverlay.classList.toggle('modal__overlay--closed')
     modal.classList.toggle('modal--closed')
 
@@ -42,7 +57,7 @@ function openModal(id){
 
 }
 
-function closeModal(id){
+function closeModal() {
     const modalOverlay = document.querySelector(".modal__overlay")
     const modal = document.querySelector('.modal')
 
