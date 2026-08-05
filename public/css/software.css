@@ -4,12 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:20px;
+    gap: 20px;
+    height: auto;
 }
 
 
 
-.software__section__title{
+.software__section__title {
     line-height: 1;
 }
 
@@ -18,25 +19,31 @@
     width: 300px;
 }
 
-.software__img{
+.software__img {
     border: solid #279963 2px;
-    height: 100%;
-    width: 100%;
 }
 
-.software__topics{
+.software__topics {
     display: flex;
     justify-content: space-between;
     align-items: end;
     height: 50px;
 }
-.software__topics__bottom{
+
+.software__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.software__topics__bottom {
     display: flex;
     justify-content: space-evenly;
     align-items: start;
 }
 
-.software__singleTopic{
+.software__singleTopic {
     background-color: #279963;
     color: white;
     gap: 2px;
@@ -51,18 +58,69 @@
     transition: all .3s ease;
 }
 
-/* .software__singleTopic__bottom{
-    background-color: #279963;
-    color: white;
-    padding: 2px 30px;
-    border-radius: 0 0 5px 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.software__singleTopic--active{
+.software__singleTopic--active {
     height: 35px;
     font-weight: 900;
 
+}
+
+
+@media (min-width: 1024px) {
+
+    .software__container{
+        width: 100%;
+        max-width: var(--container-max);
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .software__topics__img{
+        width: 100%;
+        display: flex;
+        justify-content: center
+    }
+
+    .software__singleTopic{
+        font-size: 1rem;
+    }
+
+    .software__section__description{
+        font-size: 1.3rem;
+    }
+
+    .software__topics__text{
+
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+
+        & > img {
+            width: 100%;
+        }
+    }
+
+    .software__text{
+        width: 40%;
+        text-align: start;
+        justify-content: space-around;
+        align-items: start;
+
+        padding: 50px;
+
+        & > a {
+            align-self: flex-start;
+            
+        }
+    }
+    
+    .software__topic__title{
+        width: 100%;
+        font-size: 2.5rem;
+
+    }
+
+    .software__topic__description {
+        width: 100%;
+        font-size: 1.2rem;
+    }
 }

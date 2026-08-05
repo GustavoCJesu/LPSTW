@@ -1,28 +1,27 @@
-.footer{
+.footer {
     background-color: #1D5239;
     text-align: center;
     color: #fff;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
-.footer__contact{
+.footer__contact {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
 }
 
-.footer__img{
+.footer__img {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
-.footer__img > img{
+.footer__img>img {
     width: 150px;
     align-self: center;
 }
@@ -31,10 +30,46 @@
     background-color: #fff;
 }
 
-.footer__contact__email{
+.footer__quickAccess{
+
+    margin: 10px 0;
+
+}
+
+.footer__contact__email {
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+}
+
+.footer__contact__partner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__partnerCompany {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer__partnerCompany>img {
+
+    height: 28px;
+}
+
+@media (min-width: 1024px) {
+
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .footer__contact__partner {
+        max-width: var(--container-max);
+        width: 100%;
+        margin: 0 auto;
+    }
 }

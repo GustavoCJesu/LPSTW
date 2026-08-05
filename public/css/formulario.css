@@ -1,4 +1,4 @@
-.form{
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,19 +7,19 @@
     text-align: center;
 }
 
-.form__container__topic{
+.form__container__topic {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.form__title{
+.form__title {
     width: 90%;
-    text-align: center;
+    text-align: start;
 }
 
-.form__title > p{
+.form__title>p {
     font-size: 14px;
 }
 
@@ -30,85 +30,106 @@
     align-items: center;
 }
 
-.form__topic{
+.form__topic {
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 10px;
-    border: solid rgba(0,0,0,0.3) 2px;
+    border: solid rgba(0, 0, 0, 0.3) 2px;
     padding: 10px 20px;
     margin: 10px;
     border-radius: 5px;
     width: 90%;
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
-.form__topic__title{
+.form__topic__title {
     background-color: #279963;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
     padding: 5px;
-    
+    text-align: center;
+
 }
 
-.form__topic__title > h2 {
+.form__topic__title>h2 {
     font-size: 25px;
     border-radius: 100%;
     height: 35px;
     width: 35px;
-    text-align: center;
 
     color: #fff;
 }
 
-.form__text__topic{
+.form__text__topic {
     line-height: 1.3;
-    text-align: left;
 }
 
-.form__text__topic > h2{
+.form__text__topic>h2 {
     font-size: 16px;
 }
 
-.form__text__topic > p{
+.form__text__topic>p {
     font-size: 12px;
 }
 
-.form__container{
+.form__container {
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-.form__container__title{
+.form__container__title {
     width: 80%;
 }
 
-.form__inputs{
+.form__inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
-.form__input{
+.form__feedback {
     width: 100%;
-    
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
 }
 
-.form__input > input{
+.form__feedback--sucesso {
+    background-color: #e3f9e5;
+    color: #1b7a2c;
+}
+
+.form__feedback--erro {
+    background-color: #fde8e8;
+    color: #b91c1c;
+}
+
+.form__input {
+    width: 100%;
+
+}
+
+.form__input>input {
     height: 40px;
     width: 100%;
     padding: 0 5px;
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 
     transition: all .2s;
+
+    border-radius: 5px;
 }
 
-.inputFocus{
+.inputFocus {
     transition: all .4s ease;
     outline: none;
 }
@@ -119,17 +140,18 @@
     box-shadow: 2px 2px 2px 1px rgba(39, 153, 99, 0.3);
 }
 
-.form__line__input{
+.form__line__input {
     display: flex;
     gap: 10px;
-    
+
 }
 
-.form__line__input > input{
+.form__line__input>input {
     width: 50%;
     height: 40px;
     padding: 0 5px;
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 .form__input__mensage {
@@ -137,6 +159,89 @@
     min-height: 100px;
     text-align: start;
     padding: 5px;
-    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
+@media (min-width: 1024px) {
+
+    .form__container__topic {
+        height: auto;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .form {
+        flex-direction: row;
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 50px;
+        align-items: start;
+    }
+
+    .form__container__topic {
+        width: 50%;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .form__container__title{
+        text-align: center;
+        justify-items: center;
+
+        & h1 {
+            width: max-content;
+        }
+    }
+
+    .form__container {
+        width: 50%;
+
+    }
+
+    .form__title{
+        
+        & > h1 {
+            width: max-content;
+        }
+    }
+
+    .form__title>p {
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.7)
+    }
+
+    .form__inputs {
+        gap: 20px
+    }
+
+    .form__input>input {
+        width: 100%;
+        font-size: 17px;
+    }
+
+    .form__line__input>input {
+
+        font-size: 17px;
+
+    }
+
+    .form__input__mensage {
+        font-size: 17px;
+        min-height: 250px;
+    }
+
+    .form__text__topic {
+        line-height: 1.3;
+        text-align: left;
+    }
+
+    .form__text__topic>h2 {
+        font-size: 25px;
+    }
+
+    .form__text__topic>p {
+        font-size: 20px;
+    }
+
+}

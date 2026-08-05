@@ -1,5 +1,5 @@
 const track = document.querySelector('.evidence__track')
-
+track.innerHTML += track.innerHTML
 
 let position = 0
 const speed = 1
@@ -10,17 +10,14 @@ let pause = false
 
 track.addEventListener('pointerdown', () => {
     pause = true
-    console.log(pause)
 })
 
 track.addEventListener('pointerup', () => {
     pause = false
-    console.log(pause)
 })
 
 track.addEventListener('pointercancel', () => {
     pause = false
-    console.log(pause)
 })
 
 function animate() {

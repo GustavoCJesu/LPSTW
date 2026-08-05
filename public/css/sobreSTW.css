@@ -1,4 +1,4 @@
-.aboutUs{
+.aboutUs {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -7,38 +7,118 @@
     gap: 20px;
 }
 
-.aboutUs__title, .aboutUs__description{
+.aboutUs__card>p {
+    display: none;
+}
+
+.aboutUs__title,
+.aboutUs__description {
     align-self: center;
     text-align: center;
 }
 
-.aboutUs__cardsGrid{
+.aboutUs__cardsGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: 16px;
+    place-content: center;
+    gap: 100px 0;
 
     justify-items: center;
     align-items: center;
 }
 
-.aboutUs__card{
+.aboutUs__card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     line-height: 1;
-    font-size: .8rem;
+
+    & > h2 {
+        color:#279963
+    }
 }
-.aboutUs__card svg{
+
+.aboutUs__card>h2>br {
+
+    display: block;
+
+}
+
+.aboutUs__card>svg {
     color: #fff;
-    background-color: #279963; 
+    background-color: #279963;
 }
-.aboutUs__icon__cta{
+
+.aboutUs__icon__cta {
+
     padding: 5px;
     background-color: #279963;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+
+@media (min-width: 1024px) {
+
+    .aboutUs__icon__cta {
+        display: none;
+    }
+
+    .aboutUs__card>h2>br {
+
+        display: none;
+
+    }
+
+
+    .aboutUs__card>p {
+        display: inline-block;
+    }
+
+    .aboutUs__topic {
+        width: 90%;
+        pointer-events: none;
+    }
+
+    .aboutUs__cardsGrid {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        column-gap: 60px;
+        row-gap: 60px;
+        justify-content: center;
+    }
+
+    .aboutUs__card {
+        font-size: 1.1rem;
+        transition: all .3s ease;
+
+
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+
+    .aboutUs__card>img {
+        width: 300px;
+    }
+
+
+
+    .aboutUs__card>p {
+        width: 90%;
+        text-align: center;
+    }
+
+    .aboutUs__title {
+        font-size: 35px;
+        line-height: 1;
+    }
 }

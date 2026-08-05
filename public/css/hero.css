@@ -1,21 +1,26 @@
-.hero{
+.hero__headLine {
+    display: none;
+}
+
+.hero {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
 
-.hero__img{
+
+.hero__img {
     width: 200px;
 }
 
-.hero__topTitle{
+.hero__topTitle {
     align-self: flex-start;
     padding: 10px;
     color: #1D5239
 }
 
-.hero__viewrPoint{
+.hero__viewrPoint {
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -37,13 +42,13 @@
     align-items: center;
 }
 
-.hero__title{
+.hero__title {
     text-align: center;
     font-size: 25px;
 
 }
 
-.hero__dot{
+.hero__dot {
     width: 15px;
     height: 15px;
     background-color: rgba(29, 82, 57, 0.5);
@@ -51,12 +56,12 @@
     transition: transform .1s ease;
 }
 
-.hero__dot--active{
+.hero__dot--active {
     background-color: rgba(29, 82, 57, 1);
     transform: scale(1.2);
 }
 
-.hero__numbers{
+.hero__numbers__mobile {
     display: flex;
     justify-content: center;
     background-color: #1D5239;
@@ -64,20 +69,77 @@
     padding: 10px;
     color: #fff;
     border-radius: 5px;
-    width: 95%;
 }
 
-.hero__numbers--topic{
+.hero__numbers--topic {
     display: flex;
     flex-direction: column;
     width: 110px;
     text-align: center;
 }
 
-.hero__numbers--topic > h3{
+.hero__numbers--topic>h3 {
     font-size: 25px;
 }
-.hero__numbers--topic > p{
+
+.hero__numbers--topic>p {
     font-size: 12px;
 }
 
+
+@media (min-width: 1024px) {
+
+    .hero__numbers__mobile,
+    .hero__title,
+    .hero__cta {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: row;
+        position: relative;
+        max-width: var(--container-max);
+        margin: 0 auto;
+    }
+
+    .hero__topTitle {
+        font-weight: 1000;
+        font-family: 'Ropa Sans';        
+        font-size: 50px;
+
+        
+    }
+
+    .hero__headLine {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        align-content: space-around;
+        padding-left: 40px;
+
+        gap: 40px;
+
+        & > a {
+            align-self: flex-start;
+            margin: 40px 0;
+            padding: 20px 40px;
+            font-size: 2rem;
+        }
+    }
+
+    .hero__headLine>h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+
+    .hero__headLine>p {
+        font-size: 1.2rem
+    }
+
+    .hero__img {
+        width: 70%;
+    }
+}

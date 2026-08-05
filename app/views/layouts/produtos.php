@@ -78,7 +78,7 @@ require_once __DIR__ . "/../components/cardProduct.php"
 <section id="products" class="products">
     <div class="products__title">
         <h1>
-            QUAIS SÃO OS NOSSO PRODUTOS?
+            QUAIS SÃO OS <span class="destaque">NOSSO PRODUTOS?</span>
         </h1>
         <p>
             Conheça as soluções da STW

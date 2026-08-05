@@ -7,6 +7,8 @@
 
     <title>STW - Soluções para Gestão de EPIs</title>
 
+    <link rel="icon" href="/favicon.ico">
+
     <!-- CSS layouts -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/header.css">
@@ -22,6 +24,7 @@
     <link rel="stylesheet" href="/css/componentsCSS/ctaMobile.css">
     <link rel="stylesheet" href="/css/componentsCSS/modal.css">
     <link rel="stylesheet" href="/css/componentsCSS/cardProduct.css">
+    <link rel="stylesheet" href="/css/componentsCSS/numbers.css">
 
     <!--lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>

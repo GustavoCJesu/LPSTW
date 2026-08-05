@@ -30,7 +30,6 @@ track.addEventListener("touchend", (e) => {
     const endX = e.changedTouches[0].clientX;
     const distance = startX - endX;
 
-    console.log(distance);
 
     if (distance > 50) {
         currentProduct++
@@ -46,15 +45,11 @@ function toggleProduct(id) {
 
     if(id < 0) {
         currentProduct = products.length - 1
-        // console.log(currentProduct)
     }else if(id > products.length - 1){
         currentProduct = 0
-        // console.log(currentProduct)
     }
 
     track.style.transform = `translateX(-${currentProduct * 100}%)`
-
-    console.log(currentProduct)
 
 }
 

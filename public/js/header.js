@@ -16,5 +16,4 @@ function toggleMenu() {
 
     menuIcon.classList.toggle("menu__icon--disabled")
     XIcon.classList.toggle("menu__icon--disabled")
-    console.log(menuIcon.isConnected)
 }

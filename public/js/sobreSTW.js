@@ -40,7 +40,6 @@ modal.addEventListener('click',()=>{
 
 
 function openModal(id) {
-    console.log(id)
 
     const date = modalDate[id]
 

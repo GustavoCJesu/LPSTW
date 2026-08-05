@@ -1,10 +1,11 @@
 const image = document.querySelector('.hero__img')
 const track = document.querySelector(".hero__track")
 const dots = document.querySelectorAll(".hero__dot")
+const slides = document.querySelectorAll('.hero__slide')
+
+console.log(image, track, dots, slides)
 
 const active = "hero__dot--active"
-
-let interval
 
 var slide = 0
 var currentDot = 0
@@ -17,68 +18,52 @@ track.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
 });
 
+console.log('JS Hero funcionando')
+
 track.addEventListener("touchend", (e) => {
     const endX = e.changedTouches[0].clientX;
     const distance = startX - endX;
-
-    console.log(distance);
-
     if (distance > 50) {
-        if (lastDot == dots.length - 1) {
-            dots[lastDot].classList.toggle(active)
-            lastDot = 0
-            track.style.transform = `translateX(-${lastDot * 100}%)`
-            dots[lastDot].classList.toggle(active)
-        } else {
-            dots[lastDot].classList.toggle(active)
-            lastDot++
-            track.style.transform = `translateX(-${lastDot * 100}%)`
-            dots[lastDot].classList.toggle(active)
-        }
-
+        currentDot++
+        toggleSlide(currentDot)
     } else if (distance < -50) {
-        if (lastDot == 0) {
-            dots[lastDot].classList.toggle(active)
-            lastDot = 2
-            track.style.transform = `translateX(-${lastDot * 100}%)`
-            dots[lastDot].classList.toggle(active)
-        } else {
-            dots[lastDot].classList.toggle(active)
-            lastDot--
-            track.style.transform = `translateX(-${lastDot * 100}%)`
-            dots[lastDot].classList.toggle(active)
-        }
+        currentDot--
+        toggleSlide(currentDot)
     }
 });
 
+function toggleSlide(id) {
+
+    console.log('Função chamada')
+    // console.log('---------------------')
+    // console.log('ID: ', id)
+    // console.log('CurrentDot: ', currentDot)
+    // console.log('LastDot: ', lastDot)
+    // console.log('---------------------')
+
+    if (id > slides.length - 1) {
+        currentDot = 0
+    }else if(id < 0){
+        currentDot = slides.length - 1
+    }
+
+    dots[currentDot].classList.toggle(active)
+    track.style.transform = `translateX(-${currentDot * 100}%)`
+    dots[lastDot].classList.toggle(active)
+    lastDot = currentDot
+}
 
 dots.forEach(dot => {
     dot.addEventListener('click', () => {
-        const id = dot.dataset.id
-        Carrossel(id)
+        currentDot = dot.dataset.id
+        toggleSlide(currentDot)
     })
-})
+});
 
-function Carrossel(id) {
-
-    if (id != undefined) {
-        dots[id].classList.toggle(active)
-        dots[lastDot].classList.toggle(active)
-        lastDot = id
-        track.style.transform = `translateX(-${id * 100}%)`
-    } else {
-        if (lastDot == dots.length - 1) {
-            dots[lastDot].classList.toggle(active)
-            lastDot = 0
-            track.style.transform = `translateX(-${lastDot * 100}%)`
-            dots[lastDot].classList.toggle(active)
-        } else {
-            dots[lastDot].classList.toggle(active)
-            lastDot++
-            track.style.transform = `translateX(-${lastDot * 100}%)`
-            dots[lastDot].classList.toggle(active)
-        }
-    }
-
+function automaticToggle() {
+    currentDot++
+    toggleSlide(currentDot)
 }
-setInterval(Carrossel, 5000)
+
+
+setInterval(automaticToggle, 5000)

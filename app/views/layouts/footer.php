@@ -5,7 +5,7 @@
             Software e máquinas de liberação inteligente de EPIs para sua operação.
         </p>
     </div>
-    <div>
+    <div class="footer__quickAccess">
         <h3>
             Acesso Rapido
         </h3>
@@ -22,10 +22,16 @@
         </ul>
     </div>
     <hr class="footer__hr">
-    <div>
+    <div class="footer__contact__partner">
         <div class="footer__contact">
             <h3>Contato</h3>
-            <div class="footer__contact__email"><i data-lucide="Mail"></i><p>contato@stw.com.br</p></div>
+            <div class="footer__contact__email"><i data-lucide="Mail"></i>
+                <p>contato@stw.com.br</p>
+            </div>
+        </div>
+        <div class="footer__partnerCompany">
+            <img src="/images/logo/logo.png">
+            <img src="/images/logo/logo.png">
         </div>
     </div>
     <h5>© 2026 STW — Safe to Work. Todos os direitos reservados.</h5>
