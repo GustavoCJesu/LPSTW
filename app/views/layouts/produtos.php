@@ -85,9 +85,12 @@ require_once __DIR__ . "/../components/cardProduct.php"
         </p>
     </div>
     <div class="product__list">
-        <?php foreach ($products as $product): ?>
+        <?php
+        $id = 0;
+        foreach ($products as $product): ?>
             <div class="products__card">
-                <?php ProductCard($product) ?>
+                <?php ProductCard($product, $id);
+                $id++; ?>
             </div>
         <?php endforeach; ?>
     </div>
@@ -95,5 +98,5 @@ require_once __DIR__ . "/../components/cardProduct.php"
         <button data-id='0' class="product__single__brt"><i data-lucide="ChevronLeft"></i></button>
         <button data-id='1' class="product__single__brt"><i data-lucide="ChevronRight"></i></button>
     </div>
-    
+
 </section>

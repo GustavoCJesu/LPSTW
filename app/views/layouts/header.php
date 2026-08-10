@@ -16,7 +16,7 @@
         </li>
 
         <li >
-            <a class="header__menu-item" href="#software">Nosso Software Web</a>
+            <a class="header__menu-item" href="#software">Software Web</a>
         </li>
 
         <li>
@@ -43,7 +43,7 @@
                     </li>
                 </ul>
             </nav>
-            <a href="#form" class="header__cta">
+            <a href="#leadForm" class="header__cta">
                 Entre em contato!
             </a>
         </div>

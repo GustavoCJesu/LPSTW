@@ -7,29 +7,32 @@
         <div class="software__topics__text">
             <div class="software__topics">
                 <div data-id="0" class="software__singleTopic software__singleTopic--active">
-                    Relatorio
+                    <span class="software__singleTopic__label">Inicio</span>
                 </div>
                 <div data-id="1" class="software__singleTopic">
-                    GHE
+                    <span class="software__singleTopic__label">GHE</span>
                 </div>
                 <div data-id="2" class="software__singleTopic">
-                    Entrega Online
+                    <span class="software__singleTopic__label">Relatorios</span>
                 </div>
                 <div data-id="3" class="software__singleTopic">
-                    Projetos
+                    <span class="software__singleTopic__label">Dashboard</span>
+                </div>
+                <div data-id="4" class="software__singleTopic">
+                    <span class="software__singleTopic__label">Registro</span>
                 </div>
             </div>
-            <img class="software__img" src="/images/Dashboard.png" />
+            <img class="software__img js-expandable" src="/images/inicio.webp" alt="Print da tela inicial do dashboard STW" />
         </div>
         <div class="software__text">
             <h1 class="software__topic__title">
-                Dashboard
+                Inicio
             </h1>
             <p class="software__topic__description">
-                Tenha uma visão completa da operação em tempo real, acompanhando entregas, retiradas, indicadores de consumo e informações importantes para uma gestão mais eficiente dos EPIs.
+                Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.
             </p>
             <?php $text = "Solicitar um orçamento!";
-            $link = "https://www.youtube.com/";
+            $link = "#leadForm";
             require __DIR__ . "/../components/ctaMobile.php" ?>
         </div>
     </div>

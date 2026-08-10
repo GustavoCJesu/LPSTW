@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Services\TrelloService;
+use LDAP\Result;
 
 class FormReader
 {
@@ -26,10 +27,19 @@ class FormReader
 
         $result = $trelloService->createCard($data);
 
-        // if($result){
-        //     var_dump('Foi');
-        // }else if(!$result){
-        //     var_dump('Não foi :/');
-        // }
+        header('Content-Type: Application/json');
+
+        if ($result) {
+            echo json_encode([
+                    'success' => true,
+                    'message' => 'Card criado com sucesso'
+                ]);
+                return;
+        }
+
+        echo json_encode([
+            'success' => false,
+            'message' => 'Não foi possível criar o card'
+        ]);
     }
 }

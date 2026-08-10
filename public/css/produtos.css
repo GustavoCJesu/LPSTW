@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     margin: 20px 0;
+    overflow: hidden;
 }
 
 .product__list {
@@ -61,13 +62,14 @@
         flex-direction: row;
         justify-content: space-around;
         align-items: start;
+        padding: 20px 0;
     }
 
     .products__card {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        max-width: 450px;
+        max-width: 260px;
         min-width: 0;
 
         transition: all .3s ease;
@@ -77,6 +79,14 @@
             transform: scale(1.05);
 
         }
+    }
+
+}
+
+@media (min-width: 1600px) {
+
+    .products__card {
+        max-width: 450px;
     }
 
 }

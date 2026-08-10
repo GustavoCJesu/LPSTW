@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="/css/componentsCSS/modal.css">
     <link rel="stylesheet" href="/css/componentsCSS/cardProduct.css">
     <link rel="stylesheet" href="/css/componentsCSS/numbers.css">
+    <link rel="stylesheet" href="/css/componentsCSS/feedbackCard.css">
+    <link rel="stylesheet" href="/css/componentsCSS/lightbox.css">
 
     <!--lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>

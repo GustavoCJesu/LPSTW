@@ -48,21 +48,21 @@
             </p>
         </div>
         <div>
-            <form class="form__inputs" method="POST" action="/sendForm">
+            <form class="form__inputs" id="leadForm">
                 <div class="form__input">
-                    <input class="inputFocus" type="text" name="nome" placeholder="Nome completo*" required>
+                    <input class="inputFocus" id="nome" type="text" name="nome" placeholder="Nome completo*" required>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" type="text" name="cnpj" placeholder="CNPJ da empresa*" required>
+                    <input class="inputFocus" id="cnpj" type="text" name="cnpj" placeholder="CNPJ da empresa*" required>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" type="email" name="email" placeholder="Email corporativo" required/>
+                    <input class="inputFocus" id="email" type="email" name="email" placeholder="Email corporativo*" required/>
                 </div>
                 <div class="form__line__input">
-                    <input class="inputFocus" type="text" name="telefone" placeholder="Telefone*" />
-                    <input class="inputFocus" type="text" name="colaboradores" placeholder="N° Colaboradores*"  />
+                    <input class="inputFocus" id="telefone" type="text" name="telefone" placeholder="Telefone" />
+                    <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="N° Colaboradores" />
                 </div>
-                <textarea class="form__input__mensage inputFocus" name="mensagem" placeholder="Mensagem"></textarea>
+                <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem"></textarea>
                 <button class="mobile__cta" type="submit">
                     ENVIAR <i data-lucide="MoveRight"></i>
                 </button>

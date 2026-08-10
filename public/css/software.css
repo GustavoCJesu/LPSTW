@@ -16,10 +16,17 @@
 
 .software__topic__description {
     text-align: justify;
-    width: 300px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.software__topics__img {
+    width: 100%;
 }
 
 .software__img {
+    width: 100%;
+    height: auto;
     border: solid #279963 2px;
 }
 
@@ -52,10 +59,20 @@
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    width: 24%;
+    width: 90px;
+    padding: 0 4px;
 
     height: 25px;
     transition: all .3s ease;
+
+    cursor: pointer;
+}
+
+.software__singleTopic__label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .software__singleTopic--active {
@@ -82,15 +99,17 @@
 
     .software__singleTopic{
         font-size: 1rem;
+        width: 18%;
     }
 
     .software__section__description{
         font-size: 1.3rem;
+        text-align: start;
     }
 
     .software__topics__text{
 
-        width: 40%;
+        width: 55%;
         display: flex;
         flex-direction: column;
 
@@ -100,12 +119,12 @@
     }
 
     .software__text{
-        width: 40%;
+        width: 35%;
         text-align: start;
         justify-content: space-around;
         align-items: start;
 
-        padding: 50px;
+        padding: 50px 20px;
 
         & > a {
             align-self: flex-start;
@@ -122,5 +141,6 @@
     .software__topic__description {
         width: 100%;
         font-size: 1.2rem;
+        text-align: start;
     }
 }

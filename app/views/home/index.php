@@ -8,6 +8,9 @@
     require_once __DIR__ . '/../components/modal.php';
     require_once __DIR__ . '/../layouts/produtos.php';
     require_once __DIR__ . '/../layouts/depoimentos.php';
-    require_once __DIR__ . '/../layouts/formulario.php';    
+    require_once __DIR__ . '/../layouts/formulario.php';
+    require_once __DIR__ . '/../components/feedbackCard.php';
+    require_once __DIR__ . '/../components/lightbox.php';
     require_once __DIR__ . '/../layouts/footer.php';
+    
 ?> 

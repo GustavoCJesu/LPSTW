@@ -50,6 +50,6 @@
         </button>
     </div>
     <?php $text = "Entre em contato";
-    $link = "https://www.youtube.com/";
+    $link = "#leadForm";
     require __DIR__ . "/../components/ctaMobile.php" ?>
 </section>

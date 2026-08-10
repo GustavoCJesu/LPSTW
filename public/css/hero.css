@@ -45,7 +45,6 @@
 .hero__title {
     text-align: center;
     font-size: 25px;
-
 }
 
 .hero__dot {
@@ -63,7 +62,7 @@
 
 .hero__numbers__mobile {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #1D5239;
     margin: 10px;
     padding: 10px;
@@ -74,7 +73,8 @@
 .hero__numbers--topic {
     display: flex;
     flex-direction: column;
-    width: 110px;
+    flex: 1;
+    min-width: 0;
     text-align: center;
 }
 
@@ -84,6 +84,7 @@
 
 .hero__numbers--topic>p {
     font-size: 12px;
+    color:#fff
 }
 
 

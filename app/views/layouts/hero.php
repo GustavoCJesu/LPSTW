@@ -7,7 +7,7 @@
         <p>
             Automatize a gestão de EPIs, acompanhe cada entrega em tempo real e reduza desperdícios com uma plataforma completa.
         </p>
-        <?php $text = 'Conheça nossas soluções!'; $link = 'youtube.com' ; require __DIR__ . '/../components/ctaMobile.php' ?>
+        <?php $text = 'Conheça nossas soluções!'; $link = '#leadForm' ; require __DIR__ . '/../components/ctaMobile.php' ?>
     </div>
     <div class="hero__viewrPoint">
         <div class="hero__track">
@@ -27,7 +27,7 @@
                 <h1 class="hero__title">
                     Controle em tempo real
                 </h1>
-                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg1.svg" alt="Banner" />
+                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg2.svg" alt="Banner" />
             </div>
         </div>
 
@@ -52,6 +52,6 @@
         </div>
     </div>
     <div class="hero__cta">
-        <?php $text = "Conheça nossas soluções!"; $link = "https://www.youtube.com/"; require __DIR__ . "/../components/ctaMobile.php"?>
+        <?php $text = "Conheça nossas soluções!"; $link = "#leadForm"; require __DIR__ . "/../components/ctaMobile.php"?>
     </div>
 </section>

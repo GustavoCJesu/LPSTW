@@ -30,13 +30,14 @@
             </div>
         </div>
         <div class="footer__partnerCompany">
-            <img src="/images/logo/logo.png">
-            <img src="/images/logo/logo.png">
+            <img src="/images/logo/logoSempher.png">
+            <img src="/images/logo/logoASW.png">
         </div>
     </div>
     <h5>© 2026 STW — Safe to Work. Todos os direitos reservados.</h5>
 </section>
 
+<script src="https://unpkg.com/imask"></script>
 <script type="module" src="/js/app.js"></script>
 </body>
 

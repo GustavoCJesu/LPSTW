@@ -1,24 +1,35 @@
 const topicData = {
     0: {
-        title: "Dashboard",
-        description: "Tenha uma visão completa da operação em tempo real, acompanhando entregas, retiradas, indicadores de consumo e informações importantes para uma gestão mais eficiente dos EPIs.",
+        title: "Inicio",
+        description: "Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.",
+        img: '/images/inicio.webp'
     },
     1: {
         title: "GHE",
-        description: "Organize os Grupos Homogêneos de Exposição e defina quais EPIs cada colaborador pode acessar de acordo com sua função, garantindo controle e conformidade no fornecimento.",
+        description: "Configure os Grupos Homogêneos de Exposição e defina quais EPIs cada categoria pode utilizar, com regras de quantidade, período de uso e alertas de vencimento personalizados por grupo.",
+        img: '/images/ghe.webp'
     },
     2: {
-        title: "Entrega Online",
-        description: "Automatize a entrega de EPIs com registros digitais, controle de retiradas e acompanhamento do histórico de cada colaborador, reduzindo processos manuais e aumentando a eficiência.",
+        title: "Relatorios",
+        description: "Acesse um catálogo completo de relatórios: retiradas, saldos, vencimentos e pendências por colaborador, além de entregas por responsável e abastecimento das máquinas.",
+        img: '/images/relatorios.webp'
     },
     3: {
-        title: "Projetos",
-        description: "Gerencie diferentes operações e projetos com configurações personalizadas, mantendo o controle dos equipamentos, equipes e necessidades específicas de cada ambiente.",
+        title: "Dashboard",
+        description: "Acompanhe indicadores em tempo real com gráficos de consumo, comparativos entre períodos e alertas críticos, como CAs vencidos e colaboradores com EPI vencido, filtrando por empresa e período.",
+        img: '/images/dashboard.webp'
+    },
+    4: {
+        title: "Registro",
+        description: "Registre e acompanhe cada retirada e requisição de EPI em tempo real, com histórico detalhado por colaborador, produto e data, além de estatísticas como variação mensal e pendências.",
+        img: '/images/registro.webp'
     }
 }
 
 const topics = document.querySelectorAll('.software__singleTopic')
 const active = "software__singleTopic--active"
+
+const img = document.querySelector('.software__img')
 
 let lastTopic = 0
 let automaticId = 1
@@ -42,12 +53,14 @@ function toggleTopic(id) {
     automaticId = id
     topics[id].classList.toggle(active)
     topics[lastTopic].classList.toggle(active)
+    
     lastTopic = id
 
     const data = topicData[id]
     
     topicTitle.textContent = data.title
     topicDescripition.textContent = data.description
+    img.src = data.img
 
 
 
@@ -74,7 +87,7 @@ function resetSlide() {
     initSlide()
 }
 
-// initSlide()
+initSlide()
 
 
 
