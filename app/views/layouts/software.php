@@ -1,6 +1,6 @@
 <section id="software" class="software__container">
     <div>
-        <h1 class="software__section__title">CONHEÇA NOSSO <span class="destaque">SOFTWARE WEB!</span></h1>
+        <h2 class="software__section__title section-heading">CONHEÇA NOSSO <span class="destaque">SOFTWARE WEB!</span></h2>
         <p class="software__section__description">Gerencie EPIs com mais segurança, agilidade e controle em uma única plataforma.</p>
     </div>
     <div class="software__topics__img">
@@ -25,9 +25,9 @@
             <img class="software__img js-expandable" src="/images/inicio.webp" alt="Print da tela inicial do dashboard STW" />
         </div>
         <div class="software__text">
-            <h1 class="software__topic__title">
+            <h3 class="software__topic__title section-heading">
                 Inicio
-            </h1>
+            </h3>
             <p class="software__topic__description">
                 Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.
             </p>

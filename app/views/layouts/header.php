@@ -11,19 +11,23 @@
         </div>
     </div>
     <ul class="header__desktop">
-        <li >
+        <li>
             <a class="header__menu-item" href="#aboutUs">O que é a STW</a>
         </li>
 
-        <li >
+        <li>
             <a class="header__menu-item" href="#software">Software Web</a>
         </li>
 
         <li>
             <a class="header__menu-item" href="#products">Nossos Produtos</a>
         </li>
+        <div class="header__menu__cta">
+            <a href="#form">
+                Entre em contato!
+            </a>
+        </div>
     </ul>
-
 
     <div class="header__mobile">
 

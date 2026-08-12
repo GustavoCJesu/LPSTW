@@ -2,6 +2,15 @@ const image = document.querySelector('.hero__img')
 const track = document.querySelector(".hero__track")
 const dots = document.querySelectorAll(".hero__dot")
 const slides = document.querySelectorAll('.hero__slide')
+const headline = document.querySelector('.hero__headLine > h1')
+
+const headlineText = [
+    'Mantenha sua operação em <span class="destaque">conformidade</span> o tempo todo!',
+    'Controle <span class="destaque">inteligente</span> para uma operação mais <span class="destaque">segura</span>!',
+    'Acompanhe cada retirada em <span class="destaque">tempo real</span>!'
+]
+
+if (headline && headlineText[0]) headline.innerHTML = headlineText[0]
 
 console.log(image, track, dots, slides)
 
@@ -51,6 +60,18 @@ function toggleSlide(id) {
     track.style.transform = `translateX(-${currentDot * 100}%)`
     dots[lastDot].classList.toggle(active)
     lastDot = currentDot
+
+    updateHeadline(currentDot)
+}
+
+function updateHeadline(id) {
+    if (!headline || !headlineText[id]) return
+
+    headline.classList.add('hero__headLine--fading')
+    setTimeout(() => {
+        headline.innerHTML = headlineText[id]
+        headline.classList.remove('hero__headLine--fading')
+    }, 300)
 }
 
 dots.forEach(dot => {

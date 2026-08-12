@@ -20,7 +20,7 @@
         </div>
         <div class="hero__numbers--topic">
             <div>
-                <i class="number__icon" data-lucide="Settings"></i>
+                <i class="number__icon" data-lucide="PackageCheck"></i>
             </div>
             <div class="number__text">
                 <h3>366K+</h3>

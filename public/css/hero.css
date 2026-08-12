@@ -76,6 +76,7 @@
     flex: 1;
     min-width: 0;
     text-align: center;
+    width: 40%;
 }
 
 .hero__numbers--topic>h3 {
@@ -84,7 +85,8 @@
 
 .hero__numbers--topic>p {
     font-size: 12px;
-    color:#fff
+    color:#fff;
+    width: max-content;
 }
 
 
@@ -134,6 +136,11 @@
     .hero__headLine>h1 {
         font-size: 3rem;
         line-height: 1.2;
+        transition: opacity .3s ease;
+    }
+
+    .hero__headLine--fading {
+        opacity: 0;
     }
 
     .hero__headLine>p {

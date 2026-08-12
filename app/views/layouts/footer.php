@@ -1,6 +1,6 @@
-<section class="footer">
+<footer class="footer">
     <div class="footer__img">
-        <img src="/images/logo/logo.png">
+        <img src="/images/logo/logo.png" alt="STW - Safe to Work">
         <p>
             Software e máquinas de liberação inteligente de EPIs para sua operação.
         </p>
@@ -29,14 +29,15 @@
                 <p>contato@stw.com.br</p>
             </div>
         </div>
+        <h5>© 2026 STW — Safe to Work. Todos os direitos reservados.</h5>
         <div class="footer__partnerCompany">
-            <img src="/images/logo/logoSempher.png">
-            <img src="/images/logo/logoASW.png">
+            <img src="/images/logo/logoSempher.png" alt="Sempher">
+            <img src="/images/logo/logoASW.png" alt="ASW">
         </div>
     </div>
-    <h5>© 2026 STW — Safe to Work. Todos os direitos reservados.</h5>
-</section>
+</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script type="module" src="/js/app.js"></script>
 </body>

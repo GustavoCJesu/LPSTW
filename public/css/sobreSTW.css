@@ -35,12 +35,13 @@
     text-align: center;
     line-height: 1;
 
-    & > h2 {
-        color:#279963
+    & > h3 {
+        color:#279963;
+        font-size: 30px;
     }
 }
 
-.aboutUs__card>h2>br {
+.aboutUs__card>h3>br {
 
     display: block;
 
@@ -69,7 +70,7 @@
         display: none;
     }
 
-    .aboutUs__card>h2>br {
+    .aboutUs__card>h3>br {
 
         display: none;
 
@@ -78,16 +79,16 @@
 
     .aboutUs__card>p {
         display: inline-block;
+        color: rgba(0,0,0,0.5); 
     }
 
     .aboutUs__topic {
-        width: 90%;
+        width: 100%;
         pointer-events: none;
     }
 
     .aboutUs__cardsGrid {
-        width: 100%;
-        max-width: 1000px;
+        width: 80%;
         margin: 0 auto;
         column-gap: 60px;
         row-gap: 60px;
@@ -107,7 +108,7 @@
 
 
     .aboutUs__card>img {
-        width: 300px;
+        width: 400px;
     }
 
 

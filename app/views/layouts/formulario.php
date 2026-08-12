@@ -1,9 +1,9 @@
-<section class="form">
+<section class="form" id="form">
     <div class="form__container__topic">
         <div class="form__title">
-            <h1>
+            <h2 class="section-heading">
                 Como funciona nossa <span class="destaque"> análise!</span>
-            </h1>
+            </h2>
             <p>
                 Em apenas três etapas, nossa equipe avalia sua necessidade e prepara uma proposta personalizada para a sua operação.
             </p>
@@ -11,28 +11,28 @@
         <div class="form__topics">
             <div class="form__topic">
                 <div class="form__topic__title">
-                    <h2>1</h2>
+                    <h3>1</h3>
                 </div>
                 <div class="form__text__topic">
-                    <h2>Você envia seus dados!</h2>
-                    <p>Preenche o formulário ao lado com as informações da sua empresa.</p>
+                    <h3>Você envia seus dados!</h3>
+                    <p>Preencha o formulário ao lado com as informações da sua empresa.</p>
                 </div>
             </div>
             <div class="form__topic">
                 <div class="form__topic__title">
-                    <h2>2</h2>
+                    <h3>2</h3>
                 </div>
                 <div class="form__text__topic">
-                    <h2>Nosso time analisa sua operação!</h2>
+                    <h3>Nosso time analisa sua operação!</h3>
                     <p>Avaliamos o porte e a necessidade da sua empresa.</p>
                 </div>
             </div>
             <div class="form__topic" id="form">
                 <div class="form__topic__title">
-                    <h2>3</h2>
+                    <h3>3</h3>
                 </div>
                 <div class="form__text__topic">
-                    <h2>Você recebe uma proposta!</h2>
+                    <h3>Você recebe uma proposta!</h3>
                     <p>Retorno em até 1 dia útil, direto no seu e-mail.</p>
                 </div>
             </div>
@@ -40,12 +40,13 @@
     </div>
     <div class="form__container">
         <div class="form__container__title">
-            <h1>
+            <h2 class="section-heading">
                 Solicite um <span class="destaque">orçamento!</span>
-            </h1>
+            </h2>
             <p>
                 Nossa equipe entra em contato em até 1 dia útil
             </p>
+            
         </div>
         <div>
             <form class="form__inputs" id="leadForm">
@@ -63,6 +64,7 @@
                     <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="N° Colaboradores" />
                 </div>
                 <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem"></textarea>
+                <span class="form__obs">(*) indicam uma informação obrigatória.</span>
                 <button class="mobile__cta" type="submit">
                     ENVIAR <i data-lucide="MoveRight"></i>
                 </button>

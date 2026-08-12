@@ -15,7 +15,7 @@ function ProductCard(array $product, int $id)
         </div>
         <div class="card__description__topics">
             <div class="card__container__img">
-                <img class="card__img js-expandable" src="<?= $product['image'] ?>" alt="<?= $product['title'] ?>" />
+                <img class="card__img" src="<?= $product['image'] ?>" alt="<?= $product['title'] ?>" />
             </div>
             <div class="card__list__topics">
                 <ul>
@@ -37,7 +37,7 @@ function ProductCard(array $product, int $id)
             </div>
         </div>
         <div class="card__cta">
-            <a class="card__cta__btn" href="#leadForm" data-id="<?= $id ?>">Solicitar um orçamento</a><i data-lucide="ChevronRight"></i>
+            <a class="card__cta__btn" href="#form" data-id="<?= $id ?>">Solicitar um orçamento</a><i data-lucide="ChevronRight"></i>
         </div>
     </div>
 

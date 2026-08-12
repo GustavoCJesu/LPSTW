@@ -40,11 +40,22 @@
 
 }
 
+.footer__menu__link {
+    display: inline-block;
+    transition: color .3s ease, transform .3s ease;
+
+    &:hover {
+        color: #2ec07c;
+        transform: translateX(4px);
+    }
+}
+
 .footer__contact__email {
 
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 1;
 
     & > p {
         color: #fff;
@@ -55,6 +66,7 @@
 .footer__contact__partner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .footer__partnerCompany {

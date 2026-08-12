@@ -1,33 +1,35 @@
 <section class="hero">
     <div class="hero__headLine">
         <h3 class="hero__topTitle">Safe to Work</h3>
-        <h1>
-            Controle <span class="destaque">inteligente</span> para uma operação mais <span class="destaque">segura!</span>
+        <h1 class="letters'">
+            Controle <span class="destaque">inteligente</span> para uma operação mais <span class="destaque">segura</span>!
         </h1>
         <p>
             Automatize a gestão de EPIs, acompanhe cada entrega em tempo real e reduza desperdícios com uma plataforma completa.
         </p>
-        <?php $text = 'Conheça nossas soluções!'; $link = '#leadForm' ; require __DIR__ . '/../components/ctaMobile.php' ?>
+        <?php $text = 'Conheça nossas soluções!';
+        $link = '#products';
+        require __DIR__ . '/../components/ctaMobile.php' ?>
     </div>
     <div class="hero__viewrPoint">
         <div class="hero__track">
             <div class="hero__slide">
-                <h1 class="hero__title">
+                <h2 class="hero__title">
                     Conformidade Garantida
-                </h1>
-                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg1.svg" alt="Banner" />
+                </h2>
+                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg1.svg" alt="Ilustração de conformidade garantida na gestão de EPIs" />
             </div>
             <div class="hero__slide">
-                <h1 class="hero__title">
+                <h2 class="hero__title">
                     Gestão Inteligente
-                </h1>
-                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg2.svg" alt="Banner" />
+                </h2>
+                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg2.svg" alt="Ilustração de gestão inteligente de EPIs" />
             </div>
             <div class="hero__slide">
-                <h1 class="hero__title">
+                <h2 class="hero__title">
                     Controle em tempo real
-                </h1>
-                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg2.svg" alt="Banner" />
+                </h2>
+                <img class="hero__img" src="/icons/ilustracoes/hero/heroimg3.svg" alt="Ilustração de controle em tempo real de EPIs" />
             </div>
         </div>
 
@@ -52,6 +54,8 @@
         </div>
     </div>
     <div class="hero__cta">
-        <?php $text = "Conheça nossas soluções!"; $link = "#leadForm"; require __DIR__ . "/../components/ctaMobile.php"?>
+        <?php $text = "Conheça nossas soluções!";
+        $link = "#products";
+        require __DIR__ . "/../components/ctaMobile.php" ?>
     </div>
 </section>
