@@ -1,6 +1,8 @@
 const form = document.querySelector('#leadForm')
 const successCard = document.querySelector('.feedback__card:not(.error)')
 const errorCard = document.querySelector('.feedback__card.error')
+const errorMessage = errorCard.querySelector('.feedback__card__message')
+const errorMessageDefault = errorMessage.textContent.trim()
 
 const FEEDBACK_DURATION = 5000
 
@@ -52,7 +54,12 @@ form.addEventListener('submit', async (event) => {
         form.reset()
         showFeedback(successCard)
     } else {
+        errorMessage.textContent = result.message || errorMessageDefault
         showFeedback(errorCard)
+    }
+
+    if (window.grecaptcha) {
+        grecaptcha.reset()
     }
 })
 

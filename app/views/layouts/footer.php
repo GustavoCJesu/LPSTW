@@ -19,6 +19,9 @@
             <li>
                 <a class="footer__menu__link" href="#products">Nossos Produtos</a>
             </li>
+            <li>
+                <a class="footer__menu__link" href="#evidence">Depoimentos</a>
+            </li>
         </ul>
     </div>
     <hr class="footer__hr">

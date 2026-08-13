@@ -24,7 +24,7 @@
             <h2>
                 Opa algo deu errado :( <i data-lucide="X"></i>
             </h2>
-            <p>
+            <p class="feedback__card__message">
                 Opa, parece que sua mensagem não foi enviada. <br>
                 Tente novamente.
             </p>

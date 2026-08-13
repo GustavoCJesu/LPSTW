@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Services\TrelloService;
+use App\Services\RecaptchaService;
+use GuzzleHttp\Client;
 use LDAP\Result;
 
 class FormReader
@@ -10,6 +12,20 @@ class FormReader
 
     public function getForm()
     {
+        header('Content-Type: application/json');
+
+        $token = $_POST['g-recaptcha-response'] ?? '';
+        $client = new Client();
+
+        $recaptcha = new RecaptchaService($client, $_ENV['SECRET_KEY']);
+
+        if (!$recaptcha->verify($token, $_SERVER['REMOTE_ADDR'] ?? null)) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Não foi possível validar o captcha. Marque a verificação novamente e reenvie.'
+            ]);
+            return;
+        }
 
         $data = [
             'name' => 'Lead - ' . $_POST['nome'] ?? 'Não informado',
@@ -22,12 +38,9 @@ class FormReader
             'date' => date('d/m/y'),
         ];
 
-
         $trelloService = new TrelloService();
 
         $result = $trelloService->createCard($data);
-
-        header('Content-Type: Application/json');
 
         if ($result) {
             echo json_encode([

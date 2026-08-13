@@ -65,6 +65,7 @@
                 </div>
                 <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem"></textarea>
                 <span class="form__obs">(*) indicam uma informação obrigatória.</span>
+                <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars($_ENV['SITE_KEY']) ?>"></div>
                 <button class="mobile__cta" type="submit">
                     ENVIAR <i data-lucide="MoveRight"></i>
                 </button>

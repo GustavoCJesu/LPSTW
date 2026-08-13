@@ -55,6 +55,9 @@
     <!--lucide -->
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
+    <!-- Google Captcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
