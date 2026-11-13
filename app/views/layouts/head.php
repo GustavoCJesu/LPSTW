@@ -9,7 +9,8 @@
     <meta name="description" content="Automatize a gestão de EPIs com a STW: armários inteligentes, controle de retiradas em tempo real e software web completo para reduzir desperdícios e garantir conformidade.">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph -->
+    <link rel="canonical" href="https://www.seudominio.com.br/">
+
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="STW - Safe to Work">
@@ -18,7 +19,6 @@
     <meta property="og:url" content="https://www.seudominio.com.br/">
     <meta property="og:image" content="https://www.seudominio.com.br/images/logo/logo.png">
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="STW - Soluções Inteligentes para Gestão de EPIs">
     <meta name="twitter:description" content="Automatize a gestão de EPIs com a STW: armários inteligentes, controle de retiradas em tempo real e software web completo para reduzir desperdícios e garantir conformidade.">
@@ -30,8 +30,6 @@
 
     <link rel="preconnect" href="https://unpkg.com">
 
-
-    <!-- CSS layouts -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/hero.css">
