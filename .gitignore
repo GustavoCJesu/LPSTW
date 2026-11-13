@@ -1,1 +1,10 @@
+# Senhas e configurações que ficam só no servidor
+config.php
 .env
+
+# Configuração do VS Code (pode ter senha de FTP)
+.vscode/sftp.json
+
+# Arquivos gerados pelo servidor
+error_log
+.ftp-deploy-sync-state.json

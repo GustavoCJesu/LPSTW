@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-    lucide.createIcons();
-});
-
 import './header.js'
 import './hero.js'
 import './produtos.js'

@@ -1,4 +1,4 @@
-<section class="evidence" id="evidence">
+<section class="evidence" id="evidence" style="display:none">
     <div class="evidence__title">
         <h2 class="section-heading">
             O QUE NOSSOS CLEINTES DIZEM!

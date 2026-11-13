@@ -8,8 +8,6 @@
     <title>STW - Soluções Inteligentes para Gestão de EPIs</title>
     <meta name="description" content="Automatize a gestão de EPIs com a STW: armários inteligentes, controle de retiradas em tempo real e software web completo para reduzir desperdícios e garantir conformidade.">
     <meta name="robots" content="index, follow">
-    <!-- TODO: substituir pelo domínio definitivo assim que o site estiver publicado -->
-    <link rel="canonical" href="https://www.seudominio.com.br/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -53,7 +51,7 @@
     <link rel="stylesheet" href="/css/componentsCSS/lightbox.css">
 
     <!--lucide -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Google Captcha -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

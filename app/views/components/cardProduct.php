@@ -13,10 +13,11 @@ function ProductCard(array $product, int $id)
                 <?= $product['description'] ?>
             </p>
         </div>
-        <div class="card__description__topics">
-            <div class="card__container__img">
+        <div class="card__container__img">
                 <img class="card__img" src="<?= $product['image'] ?>" alt="<?= $product['title'] ?>" />
             </div>
+        <div class="card__description__topics">
+            
             <div class="card__list__topics">
                 <ul>
                     <li><i class="card__icon" data-lucide="<?= $product['icons'][0] ?>"></i>

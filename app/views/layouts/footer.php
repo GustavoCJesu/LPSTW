@@ -43,6 +43,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="https://unpkg.com/imask"></script>
 <script type="module" src="/js/app.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) lucide.createIcons();
+        else console.error("Lucide não carregou: /js/vendor/lucide.min.js");
+    });
+</script>
 </body>
 
 </html>

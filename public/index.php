@@ -1,14 +1,19 @@
 <?php
 
+
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\HomeController;
 use App\Controllers\FormReader;
 
+
+
 use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
+
 
 
 $uri = $_SERVER['REQUEST_URI'];
