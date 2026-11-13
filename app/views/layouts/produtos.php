@@ -50,7 +50,7 @@ $products = [
             "building",
             "wifi"
         ],
-        "image" => "/images/maquinas/Dispenser.png"
+        "image" => "/images/maquinas/Dispenser36.png"
     ],
     [
         "title" => "Dispenser 60 Slots",
@@ -67,7 +67,7 @@ $products = [
             "unlock",
             "wifi"
         ],
-        "image" => "/images/maquinas/Dispenser.png"
+        "image" => "/images/maquinas/Dispenser60.png"
     ],
 ];
 

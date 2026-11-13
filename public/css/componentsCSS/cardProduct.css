@@ -1,13 +1,13 @@
 .card {
     box-sizing: border-box;
-    width: calc(100% - 40px);
-    max-width: 500px;
-    margin: 20px;
-    padding: 20px;
+    width: calc(100% - 32px);
+    max-width: 340px;
+    margin: 12px 16px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    gap: 12px;
     align-self: stretch;
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
@@ -16,12 +16,13 @@
 }
 
 .card__title {
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .card__description {
     color: rgba(0, 0, 0, 0.6);
     text-align: left;
+    font-size: 13px;
 }
 
 .card__container__img {
@@ -31,7 +32,7 @@
 
 .card__img {
     width: 100%;
-    height: 200px;
+    height: 120px;
     object-fit: contain;
 }
 
@@ -47,21 +48,21 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .card__list__topics > ul > li {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     
     text-align: left;
 }
 
 .card__icon {
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     line-height: 1;
 }
 
@@ -69,7 +70,7 @@
     flex: 1;
     min-width: 0;
     margin: 0;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .card__cta {
@@ -84,7 +85,7 @@
 .card__cta__btn {
     color: inherit;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 15px;
 }
 
 .card__cta svg {
@@ -97,74 +98,74 @@
         width: 100%;
         max-width: none;
         margin: 0;
-        padding: 14px;
-        gap: 12px;
+        padding: 12px;
+        gap: 10px;
     }
 
     .card__title {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .card__description {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .card__img {
-        height: 110px;
+        height: 90px;
     }
 
     .card__list__topics > ul {
-        gap: 8px;
+        gap: 6px;
     }
 
     .card__list__topics > ul > li {
-        font-size: 12px;
-        gap: 8px;
+        font-size: 11px;
+        gap: 6px;
     }
 
     .card__icon {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
     }
 
     .card__cta__btn {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
 @media (min-width: 1600px) {
 
     .card {
-        padding: 20px;
-        gap: 20px;
+        padding: 16px;
+        gap: 14px;
     }
 
     .card__title {
-        font-size: 25px;
+        font-size: 19px;
     }
 
     .card__description {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .card__img {
-        height: 200px;
+        height: 140px;
     }
 
     .card__list__topics > ul {
-        gap: 10px;
+        gap: 8px;
     }
 
     .card__list__topics > ul > li {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .card__icon {
-        width: 28px;
-        height: 28px;
+        width: 22px;
+        height: 22px;
     }
 
     .card__cta__btn {
-        font-size: 18px;
+        font-size: 15px;
     }
 }

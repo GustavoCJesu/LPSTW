@@ -1,0 +1,134 @@
+            .quem-somos {
+                --fundo: #FFFFFF;
+                --rotulo: #1D5239;
+                --titulo: #0F3D26;
+                --texto: #4A524D;
+                --ano: #1D5239;
+
+                --tam: 58px;
+                --circulo: #1D5239;
+                --icone: #FFFFFF;
+                --borda: #FFFFFF;
+                --borda-w: 4px;
+
+                --linha: #1D5239;
+                --linha-h: 3px;
+
+                --dest-circulo: #0F3D26;
+                --dest-icone: #FFFFFF;
+                --dest-anel: 0 0 0 3px #279963;
+                --dest-ano: #1D5239;
+
+                background: var(--fundo);
+                padding: 64px 24px;
+            }
+
+            .quem-somos.tema-escuro {
+                --fundo: #0F3D26;
+                --rotulo: #C6FFC1;
+                --titulo: #FFFFFF;
+                --texto: #CFE0D5;
+                --ano: #C6FFC1;
+                --tam: 56px;
+                --circulo: #1B7A45;
+                --borda: #5FB67E;
+                --borda-w: 2px;
+                --linha: #3E7A58;
+                --linha-h: 2px;
+                --dest-circulo: #FFFFFF;
+                --dest-icone: #0F3D26;
+                --dest-anel: none;
+                --dest-ano: #FFFFFF;
+            }
+
+            .quem-somos__topo {
+                max-width: 760px;
+                margin: 0 auto 48px;
+                text-align: center;
+            }
+            .quem-somos__rotulo {
+                font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+                color: var(--rotulo);
+            }
+            .quem-somos__titulo {
+                margin: 12px 0;
+                font-family: "Ropa Sans", sans-serif; font-weight: bold;
+                font-size: 40px; line-height: 1.25; letter-spacing: .04em; text-transform: uppercase;
+                color: var(--titulo);
+            }
+            .tema-escuro .quem-somos__titulo { font-family: "Geist", sans-serif; font-weight: 700; font-size: 32px; }
+            .quem-somos__intro { margin: 0; font-size: 17px; line-height: 1.6; color: var(--texto); }
+
+            .linha-do-tempo {
+                list-style: none; margin: 0 auto; padding: 0;
+                max-width: 1120px;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .marco {
+                position: relative;
+                padding: 0 12px;
+                text-align: center;
+            }
+
+            .marco:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                top: calc((var(--tam) - var(--linha-h)) / 2);
+                left: 50%;
+                width: 100%;
+                height: var(--linha-h);
+                background: var(--linha);
+                border-radius: var(--linha-h);
+            }
+
+            .marco__circulo {
+                position: relative;
+                z-index: 1;
+                box-sizing: border-box;
+                width: var(--tam); height: var(--tam);
+                margin: 0 auto 16px;
+                border-radius: 50%;
+                display: grid; place-items: center;
+                background: var(--circulo);
+                border: var(--borda-w) solid var(--borda);
+                color: var(--icone);
+            }
+            .marco__circulo svg { width: 24px; height: 24px; }
+
+            .marco--destaque .marco__circulo {
+                background: var(--dest-circulo);
+                color: var(--dest-icone);
+                box-shadow: var(--dest-anel);
+            }
+            .marco--destaque .marco__ano { color: var(--dest-ano); }
+
+            .marco__ano { display: block; font-size: 24px; font-weight: 600; color: var(--ano); }
+            .marco__titulo { margin: 6px 0; font-size: 16px; font-weight: 700; color: var(--titulo); }
+            .marco__texto { margin: 0 auto; max-width: 230px; font-size: 14px; line-height: 1.5; color: var(--texto); }
+
+            @media (max-width: 760px) {
+                .quem-somos { padding: 48px 16px; }
+                .quem-somos__topo { margin-bottom: 32px; }
+                .quem-somos .quem-somos__titulo { font-size: 28px; }
+                .linha-do-tempo { grid-template-columns: 1fr; }
+
+                .marco {
+                    display: grid;
+                    grid-template-columns: var(--tam) minmax(0, 1fr);
+                    column-gap: 16px;
+                    padding: 0 0 24px;
+                    text-align: left;
+                }
+                .marco__circulo { grid-row: 1 / span 3; margin: 0; }
+                .marco__ano, .marco__titulo, .marco__texto { grid-column: 2; }
+                .marco__texto { margin: 0; max-width: none; }
+
+                .marco:not(:last-child)::after {
+                    top: calc(var(--tam) / 2);
+                    left: calc((var(--tam) - var(--linha-h)) / 2);
+                    width: var(--linha-h);
+                    height: 100%;
+                }
+            }
