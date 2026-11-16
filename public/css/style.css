@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+/* garante que o atributo hidden esconda o elemento mesmo com display definido no CSS */
+[hidden] {
+    display: none !important;
+}
+
 :root {
     --container-max: 1760px;
     --container-wide: 1800px;
@@ -89,6 +94,19 @@ p {
 
 .destaque{
     color: #1B7A45;
+}
+
+.errorMsg {
+    font-size: 15px;
+    color: #d93025;
+    text-align: start;
+    padding-top: 5px;
+    /* reserva a altura de uma linha para o layout não pular quando o erro aparece */
+    min-height: calc(1.5em + 5px);
+}
+
+.hidden {
+    visibility: hidden;
 }
 
 @media (min-width: 1024px) {

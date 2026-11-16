@@ -48,16 +48,19 @@
             </p>
             
         </div>
-        <div>
-            <form class="form__inputs" id="leadForm">
+        <div class="form__wrapper">
+            <form class="form__inputs" id="leadForm" novalidate>
                 <div class="form__input">
-                    <input class="inputFocus" id="nome" type="text" name="nome" placeholder="Nome completo*" required>
+                    <input class="inputFocus" id="nome" type="text" name="nome" placeholder="Nome completo*" aria-describedby="nomeError" required>
+                    <p id="nomeError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" id="cnpj" type="text" name="cnpj" placeholder="CNPJ da empresa*" required>
+                    <input class="inputFocus" id="cnpj" type="text" name="cnpj" placeholder="CNPJ da empresa*" inputmode="numeric" aria-describedby="cnpjError" required>
+                    <p id="cnpjError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" id="email" type="email" name="email" placeholder="Email corporativo*" required/>
+                    <input class="inputFocus" id="email" type="email" name="email" placeholder="Email corporativo*" aria-describedby="emailError" required/>
+                    <p id="emailError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__line__input">
                     <input class="inputFocus" id="telefone" type="text" name="telefone" placeholder="Telefone" />
@@ -70,6 +73,22 @@
                     ENVIAR <i data-lucide="MoveRight"></i>
                 </button>
             </form>
+            <button onclick="">
+                Teste
+            </button>
+        </div>
+        <div class="form__success" id="formSuccess" tabindex="-1" hidden>
+            <div class="form__success__icon">
+                <i data-lucide="Check"></i>
+            </div>
+            <h3>Solicitação enviada!</h3>
+            <p>
+                Recebemos seus dados e nossa equipe já vai analisar sua operação.
+                Você recebe a proposta em até 1 dia útil, no email informado.
+            </p>
+            <button class="form__success__reset" id="formSuccessReset" type="button">
+                Enviar nova solicitação
+            </button>
         </div>
     </div>
 </section>

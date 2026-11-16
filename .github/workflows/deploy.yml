@@ -25,6 +25,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # ftps = FTP criptografado. Se der erro de conexão ou de certificado, troque para: ftp
           protocol: ftps
+          security: loose
           # "./" = pasta raiz da conta FTP. Se a conta FTP abre na sua home (e não no site),
           # troque para: public_html/   (precisa terminar com barra)
           server-dir: ./
