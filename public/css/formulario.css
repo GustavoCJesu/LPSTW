@@ -107,7 +107,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
 }
 
 .form__feedback {
@@ -156,6 +155,12 @@
     box-shadow: 2px 2px 2px 1px rgba(39, 153, 99, 0.3);
 }
 
+.inputFocus.input--invalid,
+.inputFocus.input--invalid:focus {
+    border: solid #d93025 2px;
+    box-shadow: 2px 2px 2px 1px rgba(217, 48, 37, 0.3);
+}
+
 .form__line__input {
     display: flex;
     gap: 10px;
@@ -179,6 +184,79 @@
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Mensagem de sucesso que substitui o formulário após o envio */
+
+.form__success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 520px;
+    margin-top: 20px;
+    padding: 40px 24px;
+    border: solid rgba(0, 0, 0, 0.3) 1px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    outline: none;
+    animation: formSuccessIn .5s ease both;
+}
+
+.form__success__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    background-color: rgba(39, 153, 99, 0.12);
+
+    &>svg {
+        width: 32px;
+        height: 32px;
+        color: #279963;
+    }
+}
+
+.form__success h3 {
+    font-family: "Ropa Sans", sans-serif;
+    font-size: 24px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #1B7A45;
+}
+
+.form__success p {
+    max-width: 380px;
+    font-size: 15px;
+}
+
+.form__success__reset {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #1B7A45;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@keyframes formSuccessIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .form__success {
+        animation: none;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -228,7 +306,7 @@
     }
 
     .form__inputs {
-        gap: 20px
+        gap:10px
     }
 
     .form__input>input {
@@ -245,6 +323,33 @@
     .form__input__mensage {
         font-size: 15px;
         min-height: 250px;
+    }
+
+    .form__success {
+        padding: 56px 32px;
+    }
+
+    .form__success__icon {
+        width: 80px;
+        height: 80px;
+
+        &>svg {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .form__success h3 {
+        font-size: 32px;
+    }
+
+    .form__success p {
+        max-width: 420px;
+        font-size: 18px;
+    }
+
+    .form__success__reset {
+        font-size: 16px;
     }
 
     .form__text__topic {
