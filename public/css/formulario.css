@@ -103,6 +103,17 @@
     color: rgba(0, 0, 0, 0.7);
 }
 
+.form__privacidade {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+
+    & a {
+        color: #1B7A45;
+        text-decoration: underline;
+    }
+}
+
 .form__inputs {
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 const topicData = {
     0: {
-        title: "Inicio",
+        title: "Início",
         description: "Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.",
         img: '/images/inicio.webp'
     },
@@ -10,7 +10,7 @@ const topicData = {
         img: '/images/ghe.webp'
     },
     2: {
-        title: "Relatorios",
+        title: "Relatórios",
         description: "Acesse um catálogo completo de relatórios: retiradas, saldos, vencimentos e pendências por colaborador, além de entregas por responsável e abastecimento das máquinas.",
         img: '/images/relatorios.webp'
     },

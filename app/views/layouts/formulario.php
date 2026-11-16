@@ -27,7 +27,7 @@
                     <p>Avaliamos o porte e a necessidade da sua empresa.</p>
                 </div>
             </div>
-            <div class="form__topic" id="form">
+            <div class="form__topic">
                 <div class="form__topic__title">
                     <h3>3</h3>
                 </div>
@@ -51,7 +51,7 @@
         <div class="form__wrapper">
             <form class="form__inputs" id="leadForm" novalidate>
                 <div class="form__input">
-                    <input class="inputFocus" id="nome" type="text" name="nome" placeholder="Nome completo*" aria-describedby="nomeError" required>
+                    <input class="inputFocus" id="nome" type="text" name="nome" placeholder="Nome completo*" maxlength="150" aria-describedby="nomeError" required>
                     <p id="nomeError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">
@@ -59,15 +59,19 @@
                     <p id="cnpjError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" id="email" type="email" name="email" placeholder="Email corporativo*" aria-describedby="emailError" required/>
+                    <input class="inputFocus" id="email" type="email" name="email" placeholder="Email corporativo*" maxlength="254" aria-describedby="emailError" required/>
                     <p id="emailError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__line__input">
                     <input class="inputFocus" id="telefone" type="text" name="telefone" placeholder="Telefone" />
-                    <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="N° Colaboradores" />
+                    <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="N° Colaboradores" maxlength="20" />
                 </div>
-                <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem"></textarea>
+                <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem" maxlength="5000"></textarea>
                 <span class="form__obs">(*) indicam uma informação obrigatória.</span>
+                <p class="form__privacidade">
+                    Usamos esses dados apenas para responder à sua solicitação.
+                    Saiba mais na nossa <a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.
+                </p>
                 <div class="g-recaptcha" data-sitekey="<?= htmlspecialchars($_ENV['SITE_KEY']) ?>"></div>
                 <button class="mobile__cta" type="submit">
                     ENVIAR <i data-lucide="MoveRight"></i>

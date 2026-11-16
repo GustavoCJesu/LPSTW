@@ -190,6 +190,17 @@ function mostrarFormulario() {
 
 formSuccessReset.addEventListener('click', mostrarFormulario)
 
+// Mostra os erros devolvidos pelo servidor embaixo de cada campo.
+// Retorna false se algum erro não tiver campo correspondente na tela.
+function mostrarErrosDoServidor(erros) {
+    const comCampo = campos.filter((campo) => erros[campo.input.id])
+
+    comCampo.forEach((campo) => mostrarErro(campo, erros[campo.input.id]))
+    comCampo[0]?.input.focus()
+
+    return comCampo.length === Object.keys(erros).length
+}
+
 function limparFormulario() {
     form.reset()
     cnpjMask.updateValue()
@@ -219,7 +230,7 @@ form.addEventListener('submit', async (event) => {
     if (result.success) {
         limparFormulario()
         mostrarSucesso()
-    } else {
+    } else if (!(result.errors && mostrarErrosDoServidor(result.errors))) {
         errorMessage.textContent = result.message || errorMessageDefault
         showFeedback(errorCard)
     }

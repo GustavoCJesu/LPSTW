@@ -1,7 +1,7 @@
 <section class="evidence" id="evidence" style="display:none">
     <div class="evidence__title">
         <h2 class="section-heading">
-            O QUE NOSSOS CLEINTES DIZEM!
+            O QUE NOSSOS CLIENTES DIZEM!
         </h2>
         <p>
             Veja como nossas soluções ajudam empresas a otimizar operações e simplificar a gestão de EPIs.
