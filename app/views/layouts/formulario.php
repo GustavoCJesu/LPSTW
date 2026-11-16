@@ -55,7 +55,7 @@
                     <p id="nomeError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" id="cnpj" type="text" name="cnpj" placeholder="CNPJ da empresa*" inputmode="numeric" aria-describedby="cnpjError" required>
+                    <input class="inputFocus" id="cnpj" type="text" name="cnpj" placeholder="CNPJ da empresa*" autocapitalize="characters" autocomplete="off" spellcheck="false" aria-describedby="cnpjError" required>
                     <p id="cnpjError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">

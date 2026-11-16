@@ -186,8 +186,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Mensagem de sucesso que substitui o formulário após o envio */
-
 .form__success {
     display: flex;
     flex-direction: column;
