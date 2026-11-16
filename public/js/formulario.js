@@ -1,3 +1,5 @@
+import { buscarCnpj } from './cnpjApi.js'
+
 const form = document.querySelector('#leadForm')
 const formWrapper = document.querySelector('.form__wrapper')
 const formSuccess = document.querySelector('#formSuccess')
@@ -6,11 +8,13 @@ const errorCard = document.querySelector('.feedback__card.error')
 const errorMessage = errorCard.querySelector('.feedback__card__message')
 const errorMessageDefault = errorMessage.textContent.trim()
 
-// Máscaras: precisam ser registradas antes da validação,
-// para que o listener de "input" leia o valor já formatado
 const cnpj = document.querySelector('#cnpj')
 const cnpjMask = IMask(cnpj, {
-    mask: '00.000.000/0000-00'
+    mask: '##.###.###/####-00',
+    definitions: {
+        '#': /[0-9A-Za-z]/,
+    },
+    prepareChar: (str) => str.toUpperCase(),
 })
 
 const telefone = document.querySelector('#telefone')
@@ -18,26 +22,23 @@ const telefoneMask = IMask(telefone, {
     mask: '(00) 00000-0000'
 })
 
-// ---------- Validação dos campos ----------
-
 const PESOS_DV1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 const PESOS_DV2 = [6, ...PESOS_DV1]
 
-function digitoVerificador(numeros, pesos) {
-    const soma = pesos.reduce((total, peso, i) => total + Number(numeros[i]) * peso, 0)
+function digitoVerificador(codigo, pesos) {
+    const soma = pesos.reduce((total, peso, i) => total + (codigo.charCodeAt(i) - 48) * peso, 0)
     const resto = soma % 11
     return resto < 2 ? 0 : 11 - resto
 }
 
-function cnpjValido(numeros) {
-    if (numeros.length !== 14 || /^(\d)\1+$/.test(numeros)) return false
+function cnpjValido(codigo) {
+    if (!/^[0-9A-Z]{12}\d{2}$/.test(codigo) || /^(.)\1+$/.test(codigo)) return false
 
-    const dv1 = digitoVerificador(numeros, PESOS_DV1)
-    const dv2 = digitoVerificador(numeros, PESOS_DV2)
-    return numeros.endsWith(`${dv1}${dv2}`)
+    const dv1 = digitoVerificador(codigo, PESOS_DV1)
+    const dv2 = digitoVerificador(codigo, PESOS_DV2)
+    return codigo.endsWith(`${dv1}${dv2}`)
 }
 
-// Cada regra recebe o valor do campo e retorna a mensagem de erro (ou '' se estiver ok)
 const regras = {
     nome(valor) {
         if (!valor) return 'Informe seu nome completo.'
@@ -45,10 +46,10 @@ const regras = {
         return ''
     },
     cnpj(valor) {
-        const numeros = valor.replace(/\D/g, '')
-        if (!numeros) return 'Informe o CNPJ da empresa.'
-        if (numeros.length < 14) return 'O CNPJ deve ter 14 dígitos.'
-        if (!cnpjValido(numeros)) return 'CNPJ inválido. Confira os números digitados.'
+        const codigo = valor.toUpperCase().replace(/[^0-9A-Z]/g, '')
+        if (!codigo) return 'Informe o CNPJ da empresa.'
+        if (codigo.length < 14) return 'O CNPJ deve ter 14 caracteres.'
+        if (!cnpjValido(codigo)) return 'CNPJ inválido. Confira o que foi digitado.'
         return ''
     },
     email(valor) {
@@ -71,6 +72,15 @@ function mostrarErro({ input, erro }, mensagem) {
     input.setAttribute('aria-invalid', String(invalido))
     erro.textContent = mensagem
     erro.classList.toggle('hidden', !invalido)
+    erro.classList.remove('errorMsg--info')
+}
+
+function mostrarInfo({ input, erro }, mensagem) {
+    input.classList.remove('input--invalid')
+    input.setAttribute('aria-invalid', 'false')
+    erro.textContent = mensagem
+    erro.classList.remove('hidden')
+    erro.classList.add('errorMsg--info')
 }
 
 function validarCampo(campo) {
@@ -86,14 +96,12 @@ function limparErros() {
 campos.forEach((campo) => {
     const { input } = campo
 
-    // Valida ao sair do campo (sem acusar erro em campo que só recebeu foco)
     input.addEventListener('blur', () => {
         if (input.value.trim() || input.classList.contains('input--invalid')) {
             validarCampo(campo)
         }
     })
 
-    // Se já está com erro, revalida enquanto digita para o erro sumir assim que corrigir
     input.addEventListener('input', () => {
         if (input.classList.contains('input--invalid')) {
             validarCampo(campo)
@@ -101,7 +109,35 @@ campos.forEach((campo) => {
     })
 })
 
-// ---------- Feedback de envio ----------
+const campoCnpj = campos.find((campo) => campo.input === cnpj)
+
+async function consultarCnpj() {
+    const codigo = cnpjMask.unmaskedValue
+
+    mostrarInfo(campoCnpj, 'Consultando CNPJ...')
+    const { empresa } = await buscarCnpj(codigo)
+
+    if (cnpjMask.unmaskedValue !== codigo) return
+
+    const nome = empresa?.nome_fantasia || empresa?.razao_social
+    if (nome) {
+        mostrarInfo(campoCnpj, `Empresa: ${nome}`)
+    } else {
+        mostrarErro(campoCnpj, '')
+    }
+}
+
+cnpj.addEventListener('blur', () => {
+    if (!regras.cnpj(cnpj.value.trim())) {
+        consultarCnpj()
+    }
+})
+
+cnpj.addEventListener('input', () => {
+    if (!cnpj.classList.contains('input--invalid')) {
+        mostrarErro(campoCnpj, '')
+    }
+})
 
 const FEEDBACK_DURATION = 5000
 
@@ -135,15 +171,12 @@ document.addEventListener('click', (event) => {
     }
 })
 
-// ---------- Troca formulário <-> mensagem de sucesso ----------
-
 function mostrarSucesso() {
     hideFeedback(errorCard)
 
     formWrapper.hidden = true
     formSuccess.hidden = false
 
-    // o formulário encolhe ao sumir, então centraliza a mensagem na tela
     formSuccess.focus({ preventScroll: true })
     formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' })
 }
@@ -159,7 +192,6 @@ formSuccessReset.addEventListener('click', mostrarFormulario)
 
 function limparFormulario() {
     form.reset()
-    // o reset altera os inputs "por fora" do IMask, então sincroniza as máscaras
     cnpjMask.updateValue()
     telefoneMask.updateValue()
     limparErros()

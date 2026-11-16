@@ -17,7 +17,7 @@ class TrelloService
     public function createCard(array $data) : bool
     {
         try {
-            $response = $this->client->post(
+            $this->client->post(
                 $_ENV['BASE_URL'],
                 [
                     'query' => [
@@ -27,14 +27,11 @@ class TrelloService
                     ],
                     'json' => [
                         'name' => $data['name'],
-                        'desc' => "**Nome:** {$data['name']} \nCNPJ: {$data['cnpj']} \n \nEmail: {$data['email']} \nTelefone: {$data['telefone']} \nColaboradores: {$data['colaboradores']} \n \nMensagem: {$data['mensagem']}",
-                        'pos' => $data['pos'],
-                        'date' => $data['date']
+                        'desc' => $data['desc'],
+                        'pos' => $data['pos'] ?? 'bottom',
                     ]
                 ]
             );
-            // var_dump($response->getStatusCode());
-            // return json_decode($response->getBody(), true);
             return true;
         } catch (GuzzleException $e) {
 
