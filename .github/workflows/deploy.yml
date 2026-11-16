@@ -26,7 +26,6 @@ jobs:
           protocol: ftps
           security: loose
           server-dir: ./
-          dry-run: true
           exclude: |
             **/.git*
             **/.git*/**
