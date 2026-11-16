@@ -7,20 +7,20 @@
     </div>
     <div class="footer__quickAccess">
         <h3>
-            Acesso Rapido
+            Acesso Rápido
         </h3>
         <ul class="footer__menu">
             <li>
-                <a class="footer__menu__link" href="#aboutUs">O que é a STW?</a>
+                <a class="footer__menu__link" href="<?= $prefixoAncora ?>#aboutUs">O que é a STW?</a>
             </li>
             <li>
-                <a class="footer__menu__link" href="#software">Software WEB</a>
+                <a class="footer__menu__link" href="<?= $prefixoAncora ?>#software">Software WEB</a>
             </li>
             <li>
-                <a class="footer__menu__link" href="#products">Nossos Produtos</a>
+                <a class="footer__menu__link" href="<?= $prefixoAncora ?>#products">Nossos Produtos</a>
             </li>
             <li>
-                <a class="footer__menu__link" href="#evidence">Depoimentos</a>
+                <a class="footer__menu__link" href="/politica-de-privacidade">Política de Privacidade</a>
             </li>
         </ul>
     </div>
@@ -40,9 +40,13 @@
     </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script src="https://unpkg.com/imask"></script>
-<script type="module" src="/js/app.js"></script>
+<?php if ($pagina === 'home'): ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script type="module" src="/js/app.js"></script>
+<?php else: ?>
+    <script type="module" src="/js/header.js"></script>
+<?php endif; ?>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         if (window.lucide) lucide.createIcons();

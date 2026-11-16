@@ -12,19 +12,19 @@
     </div>
     <ul class="header__desktop">
         <li>
-            <a class="header__menu-item" href="#aboutUs">O que é a STW</a>
+            <a class="header__menu-item" href="<?= $prefixoAncora ?>#aboutUs">O que é a STW</a>
         </li>
 
         <li>
-            <a class="header__menu-item" href="#software">Software Web</a>
+            <a class="header__menu-item" href="<?= $prefixoAncora ?>#software">Software Web</a>
         </li>
 
         <li>
-            <a class="header__menu-item" href="#products">Nossos Produtos</a>
+            <a class="header__menu-item" href="<?= $prefixoAncora ?>#products">Nossos Produtos</a>
         </li>
 
         <div class="header__menu__cta">
-            <a href="#form">
+            <a href="<?= $prefixoAncora ?>#form">
                 Entre em contato!
             </a>
         </div>
@@ -36,19 +36,19 @@
             <nav class="nav__menu">
                 <ul class="header__menu-list">
                     <li class="header__menu-item">
-                        <a href="#aboutUs">O que é a STW</a>
+                        <a href="<?= $prefixoAncora ?>#aboutUs">O que é a STW</a>
                     </li>
 
                     <li class="header__menu-item">
-                        <a href="#software">Nosso Software Web</a>
+                        <a href="<?= $prefixoAncora ?>#software">Nosso Software Web</a>
                     </li>
 
                     <li class="header__menu-item">
-                        <a href="#products">Nossos Produtos</a>
+                        <a href="<?= $prefixoAncora ?>#products">Nossos Produtos</a>
                     </li>
                 </ul>
             </nav>
-            <a href="#leadForm" class="header__cta">
+            <a href="<?= $prefixoAncora ?>#leadForm" class="header__cta">
                 Entre em contato!
             </a>
         </div>

@@ -1,0 +1,74 @@
+.privacidade {
+    padding: 0 20px;
+}
+
+.privacidade__conteudo {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.privacidade__topo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.privacidade__data {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.privacidade section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.privacidade h2 {
+    font-family: "Ropa Sans", sans-serif;
+    font-size: 1.4rem;
+    color: #1D5239;
+}
+
+.privacidade ul {
+    list-style: disc;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.privacidade li {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.privacidade a:not(.privacidade__voltar) {
+    color: #1B7A45;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+.privacidade__voltar {
+    align-self: flex-start;
+    font-weight: 700;
+    color: #1B7A45;
+}
+
+.privacidade__voltar:hover {
+    color: #2ec07c;
+}
+
+@media (min-width: 1024px) {
+    .privacidade p,
+    .privacidade li {
+        font-size: 1.1rem;
+    }
+
+    .privacidade h2 {
+        font-size: 1.6rem;
+    }
+}

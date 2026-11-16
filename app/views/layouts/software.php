@@ -7,13 +7,13 @@
         <div class="software__topics__text">
             <div class="software__topics">
                 <div data-id="0" class="software__singleTopic software__singleTopic--active">
-                    <span class="software__singleTopic__label">Inicio</span>
+                    <span class="software__singleTopic__label">Início</span>
                 </div>
                 <div data-id="1" class="software__singleTopic">
                     <span class="software__singleTopic__label">GHE</span>
                 </div>
                 <div data-id="2" class="software__singleTopic">
-                    <span class="software__singleTopic__label">Relatorios</span>
+                    <span class="software__singleTopic__label">Relatórios</span>
                 </div>
                 <div data-id="3" class="software__singleTopic">
                     <span class="software__singleTopic__label">Dashboard</span>
@@ -26,7 +26,7 @@
         </div>
         <div class="software__text">
             <h3 class="software__topic__title section-heading">
-                Inicio
+                Início
             </h3>
             <p class="software__topic__description">
                 Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.

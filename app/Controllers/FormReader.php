@@ -4,10 +4,10 @@ namespace App\Controllers;
 
 use App\Services\CnpjService;
 use App\Services\LeadCard;
+use App\Services\LeadValidator;
 use App\Services\TrelloService;
 use App\Services\RecaptchaService;
 use GuzzleHttp\Client;
-use LDAP\Result;
 
 class FormReader
 {
@@ -15,6 +15,32 @@ class FormReader
     public function getForm()
     {
         header('Content-Type: application/json');
+
+        if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+            http_response_code(405);
+            header('Allow: POST');
+            echo json_encode([
+                'success' => false,
+                'message' => 'Método não permitido.'
+            ]);
+            return;
+        }
+
+        $lead = [];
+        foreach (['nome', 'cnpj', 'email', 'telefone', 'colaboradores', 'mensagem'] as $campo) {
+            $lead[$campo] = trim((string) ($_POST[$campo] ?? ''));
+        }
+
+        $erros = (new LeadValidator())->validar($lead);
+        if ($erros) {
+            http_response_code(422);
+            echo json_encode([
+                'success' => false,
+                'message' => 'Confira os campos do formulário e tente novamente.',
+                'errors' => $erros,
+            ]);
+            return;
+        }
 
         $token = $_POST['g-recaptcha-response'] ?? '';
         $client = new Client();
@@ -27,11 +53,6 @@ class FormReader
                 'message' => 'Não foi possível validar o captcha. Marque a verificação novamente e reenvie.'
             ]);
             return;
-        }
-
-        $lead = [];
-        foreach (['nome', 'cnpj', 'email', 'telefone', 'colaboradores', 'mensagem'] as $campo) {
-            $lead[$campo] = trim((string) ($_POST[$campo] ?? ''));
         }
 
         $empresa = (new CnpjService($client))->consultar($lead['cnpj']);

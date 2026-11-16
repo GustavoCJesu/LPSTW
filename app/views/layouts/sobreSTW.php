@@ -23,7 +23,7 @@
                 <h3>Controle<br /> Total</h3>
                 <img src="/icons/ilustracoes/sobreSTW/ilu2_SobreSTW.svg" alt="" />
                 <p>
-                    Centralize informações e acompanhe indicadores em tempo real para uma gestão mais estratégica dos EPIs.
+                    Saiba quem retirou cada EPI, quando e em qual equipamento, com visão completa de colaboradores e estoque.
                 </p>
                 <i class="aboutUs__icon__cta" data-lucide="ArrowRight"></i>
             </div>
@@ -33,7 +33,7 @@
                 <h3>Conformidade<br /> Garantida</h3>
                 <img src="/icons/ilustracoes/sobreSTW/ilu3_SobreSTW.svg" alt="" />
                 <p>
-                    Centralize informações e acompanhe indicadores em tempo real para uma gestão mais estratégica dos EPIs.
+                    Registros automáticos e rastreabilidade de cada entrega deixam sua empresa pronta para auditorias.
                 </p>
                 <i class="aboutUs__icon__cta" data-lucide="ArrowRight"></i>
             </div>
@@ -43,7 +43,7 @@
                 <h3>Mais <br> Eficiência</h3>
                 <img src="/icons/ilustracoes/sobreSTW/ilu4_SobreSTW.svg" alt="" />
                 <p>
-                    Centralize informações e acompanhe indicadores em tempo real para uma gestão mais estratégica dos EPIs.
+                    Automatize a entrega de EPIs, reduza processos manuais e elimine desperdícios na rotina da equipe.
                 </p>
                 <i class="aboutUs__icon__cta" data-lucide="ArrowRight"></i>
             </div>
