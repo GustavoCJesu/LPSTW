@@ -73,9 +73,6 @@
                     ENVIAR <i data-lucide="MoveRight"></i>
                 </button>
             </form>
-            <button onclick="">
-                Teste
-            </button>
         </div>
         <div class="form__success" id="formSuccess" tabindex="-1" hidden>
             <div class="form__success__icon">
