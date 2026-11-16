@@ -1,13 +1,10 @@
-# Coloque este arquivo em: .github/workflows/deploy.yml
-# A cada push na branch main, envia para a HostGator só os arquivos que mudaram.
-
 name: Deploy na HostGator
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch: # permite rodar manualmente pela aba "Actions" do GitHub
+  workflow_dispatch:
 
 jobs:
   deploy:

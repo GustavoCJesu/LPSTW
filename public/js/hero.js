@@ -44,11 +44,6 @@ track.addEventListener("touchend", (e) => {
 function toggleSlide(id) {
 
     console.log('Função chamada')
-    // console.log('---------------------')
-    // console.log('ID: ', id)
-    // console.log('CurrentDot: ', currentDot)
-    // console.log('LastDot: ', lastDot)
-    // console.log('---------------------')
 
     if (id > slides.length - 1) {
         currentDot = 0

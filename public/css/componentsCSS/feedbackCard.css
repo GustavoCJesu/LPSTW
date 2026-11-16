@@ -147,8 +147,6 @@
     background-color: #ff0000;
 }
 
-/* Added via JS right as the card becomes active, timed to match the
-   auto-hide delay, so the bar visually counts down until it dismisses. */
 .feedback__card--timer::before {
     width: 100%;
     transition: width 5s linear;

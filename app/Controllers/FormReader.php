@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Services\CnpjService;
+use App\Services\LeadCard;
 use App\Services\TrelloService;
 use App\Services\RecaptchaService;
 use GuzzleHttp\Client;
@@ -27,20 +29,21 @@ class FormReader
             return;
         }
 
-        $data = [
-            'name' => 'Lead - ' . $_POST['nome'] ?? 'Não informado',
-            'cnpj' => $_POST['cnpj'] ?? 'Não informado',
-            'email' => $_POST['email'] ?? 'Não informado',
-            'telefone' => $_POST['telefone'] ?? 'Não informado',
-            'colaboradores' => $_POST['colaboradores'] ?? 'Não informado',
-            'mensagem' => "\n" . $_POST['mensagem'] ?? 'Não informado',
-            'pos' => 'bottom',
-            'date' => date('d/m/y'),
-        ];
+        $lead = [];
+        foreach (['nome', 'cnpj', 'email', 'telefone', 'colaboradores', 'mensagem'] as $campo) {
+            $lead[$campo] = trim((string) ($_POST[$campo] ?? ''));
+        }
+
+        $empresa = (new CnpjService($client))->consultar($lead['cnpj']);
+        $card = new LeadCard($lead, $empresa);
 
         $trelloService = new TrelloService();
 
-        $result = $trelloService->createCard($data);
+        $result = $trelloService->createCard([
+            'name' => $card->titulo(),
+            'desc' => $card->descricao(),
+            'pos' => 'bottom',
+        ]);
 
         if ($result) {
             echo json_encode([

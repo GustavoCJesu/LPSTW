@@ -41,7 +41,6 @@
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/sobreASW.css">
 
-    <!-- CSS components -->
     <link rel="stylesheet" href="/css/componentsCSS/ctaMobile.css">
     <link rel="stylesheet" href="/css/componentsCSS/modal.css">
     <link rel="stylesheet" href="/css/componentsCSS/cardProduct.css">
@@ -49,10 +48,8 @@
     <link rel="stylesheet" href="/css/componentsCSS/feedbackCard.css">
     <link rel="stylesheet" href="/css/componentsCSS/lightbox.css">
 
-    <!--lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Captcha -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script type="application/ld+json">

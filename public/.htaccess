@@ -1,10 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Se o arquivo ou pasta existir (CSS, JS, imagens), entrega direto
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    # Caso contrário, manda para o index.php
     RewriteRule ^ index.php [L]
 </IfModule>
