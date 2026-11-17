@@ -5,3 +5,6 @@ config.php
 
 error_log
 .ftp-deploy-sync-state.json
+
+# Dados gerados em produção (ex.: limite de envios por IP)
+storage/
