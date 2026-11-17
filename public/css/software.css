@@ -1,146 +1,312 @@
+/* Seção "Software Web": janela do sistema + lista de módulos */
 .software__container {
-    text-align: center;
-    padding: 20px;
+    --verde: #279963;
+    --verde-escuro: #1D5239;
+    --verde-mais-escuro: #0F3D26;
+    --verde-claro: #e9f5ee;
+    --borda: #d9e6de;
+    --linhas-descricao: 6;
+    --duracao-modulo: 7s;
+
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    height: auto;
+    gap: 28px;
+    text-align: center;
 }
-
-
 
 .software__section__title {
     line-height: 1;
 }
 
-.software__topic__description {
-    text-align: justify;
+.software__section__description {
+    margin-top: 10px;
+}
+
+.software__conteudo {
     width: 100%;
-    max-width: 380px;
-}
-
-.software__topics__img {
-    width: 100%;
-}
-
-.software__img {
-    width: 100%;
-    height: auto;
-    border: solid #279963 2px;
-}
-
-.software__topics {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    height: 50px;
-}
-
-.software__text {
+    max-width: 640px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 20px;
+    gap: 28px;
 }
 
-.software__topics__bottom {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: start;
+/* ---------- Janela do sistema ---------- */
+
+.software__janela {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--borda);
+    box-shadow: 0 2px 6px rgba(15, 61, 38, .06), 0 24px 48px -12px rgba(15, 61, 38, .28);
 }
 
-.software__singleTopic {
-    background-color: #279963;
-    color: white;
-    gap: 2px;
-    border-radius: 5px 5px 0 0;
+.software__janela__barra {
+    position: relative;
+    height: 34px;
+    padding: 0 14px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: var(--verde-escuro);
+    color: rgba(255, 255, 255, .85);
     font-size: 12px;
-    width: 90px;
-    padding: 0 4px;
+    letter-spacing: .02em;
+}
 
-    height: 25px;
-    transition: all .3s ease;
+.software__janela__bolinhas {
+    position: absolute;
+    left: 14px;
+    display: flex;
+    gap: 6px;
+}
 
+.software__janela__bolinhas i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .35);
+}
+
+.software__telas {
+    position: relative;
+    aspect-ratio: 1024 / 534;
+    background: #f2f5f3;
+}
+
+/* Telas empilhadas. A ativa entra por cima com fade; a anterior só some depois, sem "piscar" o fundo. */
+.software__tela {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+    opacity: 0;
+    visibility: hidden;
+    cursor: zoom-in;
+    transition: opacity 0s linear .45s, visibility 0s linear .45s;
+}
+
+.software__tela--ativa {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .45s ease;
+}
+
+/* ---------- Lista de módulos ---------- */
+
+.software__lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.software__modulos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.software__modulo {
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease, padding .35s ease;
+}
+
+.software__modulo--ativo {
+    padding-bottom: 16px;
+    background: #fff;
+    border-color: var(--borda);
+    box-shadow: 0 12px 28px -12px rgba(15, 61, 38, .25);
+}
+
+.software__modulo__botao {
+    width: 100%;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 0;
+    border-radius: 14px;
+    background: none;
+    color: #3b3b3b;
+    font: inherit;
+    text-align: left;
     cursor: pointer;
 }
 
-.software__singleTopic__label {
+.software__modulo__botao:focus-visible {
+    outline: 3px solid var(--verde);
+    outline-offset: -3px;
+}
+
+.software__modulo__icone {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: var(--verde-claro);
+    color: var(--verde);
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.software__modulo__icone svg {
+    width: 19px;
+    height: 19px;
+}
+
+.software__modulo--ativo .software__modulo__icone {
+    background: var(--verde);
+    color: #fff;
+}
+
+.software__modulo__titulo {
+    font-family: "Ropa Sans", sans-serif;
+    font-size: 21px;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+}
+
+.software__modulo--ativo .software__modulo__titulo {
+    color: var(--verde-mais-escuro);
+}
+
+/* Descrição: abre animando a linha do grid de 0fr para 1fr */
+.software__modulo__texto {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+}
+
+.software__modulo__texto > div {
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    visibility: hidden;
+    transition: visibility 0s linear .35s;
 }
 
-.software__singleTopic--active {
-    height: 35px;
-    font-weight: 900;
-
+.software__modulo__texto p {
+    /* Altura mínima igual para todos: a lista não muda de tamanho a cada troca */
+    min-height: calc(1.55em * var(--linhas-descricao));
+    padding: 0 16px 0 64px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(0, 0, 0, .7);
 }
 
+.software__modulo--ativo .software__modulo__texto {
+    grid-template-rows: 1fr;
+}
+
+.software__modulo--ativo .software__modulo__texto > div {
+    visibility: visible;
+    transition: visibility 0s;
+}
+
+/* Barra de progresso do avanço automático (o software.js avança no animationend) */
+.software__progresso {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 8px;
+    height: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--verde-claro);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.software__progresso > span {
+    display: block;
+    height: 100%;
+    background: var(--verde);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.software--automatico .software__modulo--ativo .software__progresso {
+    opacity: 1;
+}
+
+.software--automatico .software__modulo--ativo .software__progresso > span {
+    animation: software-progresso var(--duracao-modulo) linear forwards;
+    animation-play-state: paused;
+}
+
+.software--automatico.software--visivel .software__modulo--ativo .software__progresso > span {
+    animation-play-state: running;
+}
+
+@keyframes software-progresso {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@media (hover: hover) {
+    .software__modulo:not(.software__modulo--ativo):hover {
+        background: #f3f8f5;
+    }
+
+    /* Pausa enquanto o mouse está sobre a janela ou a lista */
+    .software--automatico .software__conteudo:hover .software__modulo--ativo .software__progresso > span {
+        animation-play-state: paused;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .software__tela,
+    .software__tela--ativa,
+    .software__modulo,
+    .software__modulo__texto {
+        transition: none;
+    }
+}
 
 @media (min-width: 1024px) {
 
-    .software__container{
+    .software__container {
+        --linhas-descricao: 5;
+
         width: 100%;
         max-width: var(--container-max);
         margin: 0 auto;
-        height: auto;
+        padding: 72px 40px;
+        gap: 48px;
     }
 
-    .software__topics__img{
-        width: 100%;
-        display: flex;
-        justify-content: center
-    }
-
-    .software__singleTopic{
-        font-size: 1rem;
-        width: 18%;
-    }
-
-    .software__section__description{
+    .software__section__description {
         font-size: 1.3rem;
-        text-align: start;
     }
 
-    .software__topics__text{
-
-        width: 55%;
-        display: flex;
-        flex-direction: column;
-
-        & > img {
-            width: 100%;
-        }
+    .software__conteudo {
+        max-width: 1280px;
+        display: grid;
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        align-items: center;
+        gap: 56px;
     }
 
-    .software__text{
-        width: 35%;
-        text-align: start;
-        justify-content: space-around;
-        align-items: start;
-
-        padding: 50px 20px;
-
-        & > a {
-            align-self: flex-start;
-            
-        }
+    .software__lateral .mobile__cta {
+        align-self: flex-start;
     }
-    
-    .software__topic__title{
-        width: 100%;
-        font-size: 2.5rem;
+}
 
-    }
+/* Telas largas: janela maior (2/3 da largura) */
+@media (min-width: 1280px) {
 
-    .software__topic__description {
-        width: 100%;
-        font-size: 1.2rem;
-        text-align: start;
+    .software__conteudo {
+        max-width: 1360px;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        gap: 48px;
     }
 }
