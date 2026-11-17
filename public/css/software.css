@@ -99,12 +99,6 @@
 
 /* ---------- Lista de módulos ---------- */
 
-.software__lateral {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .software__modulos {
     list-style: none;
     display: flex;
@@ -294,10 +288,6 @@
         grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
         align-items: center;
         gap: 56px;
-    }
-
-    .software__lateral .mobile__cta {
-        align-self: flex-start;
     }
 }
 

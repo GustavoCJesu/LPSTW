@@ -139,11 +139,6 @@
     .hero__headLine>h1 {
         font-size: 3rem;
         line-height: 1.2;
-        transition: opacity .3s ease;
-    }
-
-    .hero__headLine--fading {
-        opacity: 0;
     }
 
     .hero__headLine>p {
@@ -152,5 +147,66 @@
 
     .hero__img {
         width: 70%;
+    }
+}
+
+/* ---------- Título digitado (hero.js) ---------- */
+
+/* Letras ainda não digitadas ocupam o espaço, mas ficam invisíveis */
+.hero__letra {
+    visibility: hidden;
+}
+
+.hero__letra--visivel {
+    visibility: visible;
+}
+
+/* Cursor: absoluto, não ocupa espaço nem muda a quebra de linha */
+.hero__letra--cursor {
+    position: relative;
+}
+
+.hero__letra--cursor::after {
+    content: '';
+    position: absolute;
+    top: .1em;
+    bottom: .05em;
+    left: calc(100% + .04em);
+    width: .07em;
+    background: #279963;
+    visibility: visible;
+    animation: hero-cursor 1s steps(1) infinite;
+}
+
+/* Nenhuma letra visível: cursor antes da primeira */
+.hero__letra--inicio::after {
+    left: auto;
+    right: calc(100% + .04em);
+}
+
+/* Enquanto digita ou apaga, o cursor fica fixo (pisca só parado) */
+.hero__titulo--digitando .hero__letra--cursor::after {
+    animation: none;
+}
+
+@keyframes hero-cursor {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Frase completa só para leitores de tela */
+.hero__titulo-leitor {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero__letra--cursor::after {
+        display: none;
     }
 }

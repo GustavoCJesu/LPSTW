@@ -1,4 +1,4 @@
-<section class="quem-somos tema-escuro">
+<section id="quemSomos" class="quem-somos tema-escuro">
     <div class="quem-somos__topo" data-anim-grupo="sobe">
         <span class="quem-somos__rotulo">ASW Presvida · desde 1999</span>
         <h2 class="quem-somos__titulo">Quem está por trás do Safe to Work</h2>

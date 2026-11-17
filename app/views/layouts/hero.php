@@ -1,8 +1,8 @@
 <section class="hero">
     <div class="hero__headLine" data-anim-grupo="sobe">
         <h3 class="hero__topTitle">Safe to Work</h3>
-        <h1 class="letters'">
-            Controle <span class="destaque">inteligente</span> para uma operação mais <span class="destaque">segura</span>!
+        <h1 class="hero__titulo">
+            Mantenha sua operação em <span class="destaque">conformidade</span> o tempo todo!
         </h1>
         <p>
             Automatize a gestão de EPIs, acompanhe cada entrega em tempo real e reduza desperdícios com uma plataforma completa.

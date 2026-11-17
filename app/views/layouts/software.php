@@ -60,26 +60,24 @@ $modulos = [
             </div>
         </figure>
 
-        <div class="software__lateral">
-            <ul class="software__modulos" data-anim-grupo="sobe">
-                <?php foreach ($modulos as $i => $modulo): ?>
-                    <li class="software__modulo<?= $i === 0 ? ' software__modulo--ativo' : '' ?>">
-                        <button class="software__modulo__botao" type="button"
-                            aria-expanded="<?= $i === 0 ? 'true' : 'false' ?>" aria-controls="software-modulo-<?= $i ?>">
-                            <span class="software__modulo__icone"><i data-lucide="<?= $modulo['icone'] ?>"></i></span>
-                            <span class="software__modulo__titulo"><?= $modulo['titulo'] ?></span>
-                        </button>
-                        <div class="software__modulo__texto" id="software-modulo-<?= $i ?>">
-                            <div><p><?= $modulo['descricao'] ?></p></div>
-                        </div>
-                        <span class="software__progresso" aria-hidden="true"><span></span></span>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-
-            <?php $text = "Solicitar um orçamento!";
-            $link = "#leadForm";
-            require __DIR__ . "/../components/ctaMobile.php" ?>
-        </div>
+        <ul class="software__modulos" data-anim-grupo="sobe">
+            <?php foreach ($modulos as $i => $modulo): ?>
+                <li class="software__modulo<?= $i === 0 ? ' software__modulo--ativo' : '' ?>">
+                    <button class="software__modulo__botao" type="button"
+                        aria-expanded="<?= $i === 0 ? 'true' : 'false' ?>" aria-controls="software-modulo-<?= $i ?>">
+                        <span class="software__modulo__icone"><i data-lucide="<?= $modulo['icone'] ?>"></i></span>
+                        <span class="software__modulo__titulo"><?= $modulo['titulo'] ?></span>
+                    </button>
+                    <div class="software__modulo__texto" id="software-modulo-<?= $i ?>">
+                        <div><p><?= $modulo['descricao'] ?></p></div>
+                    </div>
+                    <span class="software__progresso" aria-hidden="true"><span></span></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
+
+    <?php $text = "Solicitar um orçamento!";
+    $link = "#leadForm";
+    require __DIR__ . "/../components/ctaMobile.php" ?>
 </section>
