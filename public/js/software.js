@@ -1,99 +1,49 @@
-// Conteúdo de cada tópico do software (chave = data-id).
-const topicData = {
-    0: {
-        title: "Início",
-        description: "Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.",
-        img: '/images/inicio.webp'
-    },
-    1: {
-        title: "GHE",
-        description: "Configure os Grupos Homogêneos de Exposição e defina quais EPIs cada categoria pode utilizar, com regras de quantidade, período de uso e alertas de vencimento personalizados por grupo.",
-        img: '/images/ghe.webp'
-    },
-    2: {
-        title: "Relatórios",
-        description: "Acesse um catálogo completo de relatórios: retiradas, saldos, vencimentos e pendências por colaborador, além de entregas por responsável e abastecimento das máquinas.",
-        img: '/images/relatorios.webp'
-    },
-    3: {
-        title: "Dashboard",
-        description: "Acompanhe indicadores em tempo real com gráficos de consumo, comparativos entre períodos e alertas críticos, como CAs vencidos e colaboradores com EPI vencido, filtrando por empresa e período.",
-        img: '/images/dashboard.webp'
-    },
-    4: {
-        title: "Registro",
-        description: "Registre e acompanhe cada retirada e requisição de EPI em tempo real, com histórico detalhado por colaborador, produto e data, além de estatísticas como variação mensal e pendências.",
-        img: '/images/registro.webp'
-    }
+// Seção "Software Web": a lista de módulos troca a tela exibida na janela.
+// O avanço automático é guiado pela barra de progresso (animação CSS): quando ela termina, vai
+// para o próximo módulo. Pausa fora da tela e no hover; para de vez quando o usuário clica.
+
+const secao = document.querySelector('#software')
+const modulos = [...secao.querySelectorAll('.software__modulo')]
+const telas = [...secao.querySelectorAll('.software__tela')]
+const nomeNaJanela = secao.querySelector('.software__janela__modulo')
+
+let atual = 0
+
+// Ativa o módulo: expande o texto, mostra a tela e atualiza o nome na barra da janela.
+function ativar(indice) {
+    atual = indice
+
+    modulos.forEach((modulo, i) => {
+        const ativo = i === indice
+        modulo.classList.toggle('software__modulo--ativo', ativo)
+        modulo.querySelector('.software__modulo__botao').setAttribute('aria-expanded', String(ativo))
+    })
+    telas.forEach((tela, i) => tela.classList.toggle('software__tela--ativa', i === indice))
+
+    nomeNaJanela.textContent = modulos[indice].querySelector('.software__modulo__titulo').textContent
 }
 
-const topics = document.querySelectorAll('.software__singleTopic')
-const active = "software__singleTopic--active"
-
-const img = document.querySelector('.software__img')
-
-let lastTopic = 0
-let automaticId = 1
-
-let intervalo
-
-// Clique troca o tópico e reinicia o timer.
-topics.forEach(topic => {
-    topic.addEventListener('click', (e) => {
-        const id = topic.dataset.id
-        toggleTopic(id)
-        resetSlide()
+// Clique: mostra o módulo e desliga o avanço automático (o usuário assumiu o controle).
+modulos.forEach((modulo, i) => {
+    modulo.querySelector('.software__modulo__botao').addEventListener('click', () => {
+        secao.classList.remove('software--automatico')
+        ativar(i)
     })
-
 })
 
-// Ativa o tópico e atualiza título, descrição e imagem.
-function toggleTopic(id) {
+// Fim da barra de progresso do módulo ativo: avança para o próximo.
+modulos.forEach((modulo) => {
+    modulo.querySelector('.software__progresso > span').addEventListener('animationend', () => {
+        ativar((atual + 1) % modulos.length)
+    })
+})
 
-    const topicTitle = document.querySelector('.software__topic__title')
-    const topicDescripition = document.querySelector('.software__topic__description')
+// Avanço automático só para quem não pediu menos movimento, e só com a seção na tela.
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    secao.classList.add('software--automatico')
 
-    automaticId = id
-    topics[id].classList.toggle(active)
-    topics[lastTopic].classList.toggle(active)
-    
-    lastTopic = id
-
-    const data = topicData[id]
-    
-    topicTitle.textContent = data.title
-    topicDescripition.textContent = data.description
-    img.src = data.img
-
-
-
+    // "Na tela" = a seção cruza a faixa do meio da viewport (funciona mesmo se ela for mais alta que a tela).
+    new IntersectionObserver(([entrada]) => {
+        secao.classList.toggle('software--visivel', entrada.isIntersecting)
+    }, { rootMargin: '-35% 0px -35% 0px' }).observe(secao)
 }
-
-// Avança para o próximo tópico (volta ao primeiro no fim).
-function automaticTopic() {
-    if (automaticId >= topics.length - 1) {
-        toggleTopic(automaticId)
-        automaticId = 0
-    } else {
-        toggleTopic(automaticId)
-        automaticId++
-    }
-}
-
-// Troca de tópico a cada 5s.
-function initSlide() {
-    intervalo = setInterval(() => {
-        automaticTopic()
-    }, 5000)
-}
-
-// Reinicia o timer.
-function resetSlide() {
-    clearInterval(intervalo)
-    initSlide()
-}
-
-initSlide()
-
-
-
