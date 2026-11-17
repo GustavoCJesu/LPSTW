@@ -13,7 +13,7 @@ use GuzzleHttp\Client;
 /** Recebe o formulário de orçamento e cria o card do lead no Trello. */
 class FormReader
 {
-    /** Envios por IP: no máximo 5 a cada 10 minutos e 20 por dia. */
+    /** Envios por IP: no máximo 2 a cada 10 minutos e 4 por dia. */
     private const LIMITES = [600 => 2, 86400 => 4];
 
     /** Onde o RateLimiter guarda as tentativas (fora da pasta public). */
