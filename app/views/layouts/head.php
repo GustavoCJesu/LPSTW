@@ -74,7 +74,9 @@ $organizacao = [
     <link rel="stylesheet" href="/css/sobreSTW.css">
     <link rel="stylesheet" href="/css/software.css">
     <link rel="stylesheet" href="/css/produtos.css">
-    <link rel="stylesheet" href="/css/depoimento.css">
+    <?php if (!empty($mostrarDepoimentos)): ?>
+        <link rel="stylesheet" href="/css/depoimento.css">
+    <?php endif; ?>
     <link rel="stylesheet" href="/css/formulario.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/sobreASW.css">

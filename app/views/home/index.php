@@ -1,4 +1,7 @@
 <?php
+// Depoimentos fora da página até a seção ficar pronta (true para mostrar).
+$mostrarDepoimentos = false;
+
 require_once __DIR__ . '/../layouts/head.php';
 require_once __DIR__ . '/../layouts/header.php';
 ?>
@@ -18,7 +21,9 @@ require_once __DIR__ . '/../layouts/header.php';
     require_once __DIR__ . '/../layouts/software.php';
     require_once __DIR__ . '/../components/modal.php';
     require_once __DIR__ . '/../layouts/produtos.php';
-    require_once __DIR__ . '/../layouts/depoimentos.php';
+    if ($mostrarDepoimentos) {
+        require_once __DIR__ . '/../layouts/depoimentos.php';
+    }
     require_once __DIR__ . '/../layouts/formulario.php';
     require_once __DIR__ . '/../components/feedbackCard.php';
     require_once __DIR__ . '/../components/lightbox.php';
