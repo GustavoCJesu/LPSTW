@@ -1,5 +1,5 @@
 <?php
-// Rodapé: marca, navegação, produtos e contato; faixa final com copyright, privacidade e logos.
+// Produtos listados no rodapé.
 $produtosRodape = ['Locker Inteligente', 'Balcão de Atendimento', 'Dispenser 36 Slots', 'Dispenser 60 Slots'];
 ?>
 <footer class="footer">

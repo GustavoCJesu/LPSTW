@@ -56,7 +56,7 @@
         display: none;
     }
 
-    /* Desktop: grade (2 colunas; 4 a partir de 1280px). O hover fica no .card. */
+    /* Desktop: grade de 2 colunas (4 a partir de 1280px) */
     .product__list {
         box-sizing: border-box;
         max-width: 1280px;

@@ -2,19 +2,13 @@
 
 namespace App\Services;
 
-/**
- * Limita tentativas por chave (ex.: IP) em uma ou mais janelas de tempo.
- * Guarda os horários em arquivos, sem banco nem extensão extra (serve em hospedagem compartilhada).
- * A chave vira um hash: o IP não fica salvo em texto puro (LGPD).
- */
+/** Limite de tentativas por IP, salvo em arquivos (o IP vira hash). */
 class RateLimiter
 {
-    /** Chance de limpar arquivos antigos a cada chamada (1 em N). */
+    /** Chance de limpar arquivos antigos (1 em N). */
     private const CHANCE_LIMPEZA = 100;
 
-    /**
-     * @param array<int, int> $limites segundos da janela => máximo de tentativas nela
-     */
+    /** $limites: segundos da janela => máximo de tentativas. */
     public function __construct(
         private string $pasta,
         private array $limites,
@@ -22,10 +16,7 @@ class RateLimiter
     ) {
     }
 
-    /**
-     * Registra uma tentativa. Retorna 0 se liberada, ou quantos segundos faltam para liberar.
-     * Tentativas bloqueadas não contam. Se não conseguir gravar, libera (não perde lead por erro de disco).
-     */
+    /** Registra a tentativa; retorna 0 (liberada) ou os segundos de espera. */
     public function tentar(string $chave, ?int $agora = null): int
     {
         $agora ??= time();
@@ -43,7 +34,6 @@ class RateLimiter
         }
 
         try {
-            // Trava o arquivo: requisições simultâneas do mesmo IP esperam a vez.
             flock($handle, LOCK_EX);
 
             $maiorJanela = max(array_keys($this->limites));
@@ -71,7 +61,7 @@ class RateLimiter
         }
     }
 
-    /** Segundos até liberar, considerando a janela mais restritiva (0 se dentro dos limites). */
+    /** Segundos até liberar (0 se dentro dos limites). */
     private function espera(array $horarios, int $agora): int
     {
         $espera = 0;
@@ -81,7 +71,6 @@ class RateLimiter
             sort($naJanela);
 
             if (count($naJanela) >= $maximo) {
-                // Libera quando a tentativa que estourou o limite sair da janela.
                 $libera = $naJanela[count($naJanela) - $maximo] + $janela;
                 $espera = max($espera, $libera - $agora);
             }
@@ -90,7 +79,7 @@ class RateLimiter
         return $espera;
     }
 
-    /** Apaga arquivos de quem não aparece há mais tempo que a maior janela. */
+    /** Apaga arquivos mais antigos que a maior janela. */
     private function limparAntigos(int $agora): void
     {
         $limite = $agora - max(array_keys($this->limites));

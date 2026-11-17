@@ -1,4 +1,4 @@
-/* Rodapé: colunas (marca, navegação, produtos, contato) + faixa final */
+/* Rodapé */
 .footer {
     --fundo: #0F3D26;
     --fundo-base: #0b311e;
@@ -21,13 +21,13 @@
     gap: 36px 24px;
 }
 
-/* Mobile: marca e contato ocupam a linha toda; navegação e produtos lado a lado */
+/* Mobile: navegação e produtos lado a lado */
 .footer__marca,
 .footer__contato {
     grid-column: 1 / -1;
 }
 
-/* ---------- Marca ---------- */
+/* Marca */
 
 .footer__logo {
     width: 140px;
@@ -50,7 +50,7 @@
     line-height: 1.5;
 }
 
-/* ---------- Colunas ---------- */
+/* Colunas */
 
 .footer__titulo {
     margin-bottom: 16px;
@@ -82,7 +82,7 @@
     transform: translateX(4px);
 }
 
-/* ---------- Contato ---------- */
+/* Contato */
 
 .footer__email,
 .footer__prazo {
@@ -161,7 +161,7 @@
     border-radius: 4px;
 }
 
-/* ---------- Faixa final ---------- */
+/* Faixa final */
 
 .footer__base {
     background: var(--fundo-base);
@@ -233,7 +233,7 @@
     }
 }
 
-/* ---------- Desktop ---------- */
+/* Desktop */
 
 @media (min-width: 1024px) {
 

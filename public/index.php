@@ -11,8 +11,7 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-// URL pública do site (canonical, compartilhamento, robots e sitemap).
-// Vem do APP_URL no .env; sem ele, usa o domínio acessado.
+// URL pública do site (APP_URL no .env ou o domínio acessado).
 $siteUrl = $_ENV['APP_URL'] ?? '';
 if ($siteUrl === '') {
     $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';

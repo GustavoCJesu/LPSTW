@@ -150,9 +150,9 @@
     }
 }
 
-/* ---------- Título digitado (hero.js) ---------- */
+/* Título digitado (hero.js) */
 
-/* Letras ainda não digitadas ocupam o espaço, mas ficam invisíveis */
+/* Letras ainda não digitadas */
 .hero__letra {
     visibility: hidden;
 }
@@ -161,7 +161,7 @@
     visibility: visible;
 }
 
-/* Cursor: absoluto, não ocupa espaço nem muda a quebra de linha */
+/* Cursor */
 .hero__letra--cursor {
     position: relative;
 }
@@ -178,13 +178,13 @@
     animation: hero-cursor 1s steps(1) infinite;
 }
 
-/* Nenhuma letra visível: cursor antes da primeira */
+/* Cursor antes da primeira letra */
 .hero__letra--inicio::after {
     left: auto;
     right: calc(100% + .04em);
 }
 
-/* Enquanto digita ou apaga, o cursor fica fixo (pisca só parado) */
+/* Cursor fixo enquanto digita */
 .hero__titulo--digitando .hero__letra--cursor::after {
     animation: none;
 }
@@ -195,7 +195,7 @@
     }
 }
 
-/* Frase completa só para leitores de tela */
+/* Texto para leitores de tela */
 .hero__titulo-leitor {
     position: absolute;
     width: 1px;

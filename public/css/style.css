@@ -12,7 +12,7 @@
     display: none !important;
 }
 
-/* Animações (animacoes.js): esconde os elementos até o JS assumir. */
+/* Animações: esconde até o JS assumir */
 .anim-pendente [data-anim],
 .anim-pendente [data-anim-grupo] {
     opacity: 0;
@@ -92,7 +92,7 @@ p {
     color: #1B7A45;
 }
 
-/* Mensagem embaixo do campo. A abertura é animada no .form__input (formulario.css). */
+/* Mensagem embaixo do campo */
 .errorMsg {
     font-size: 15px;
     color: #d93025;

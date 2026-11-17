@@ -1,7 +1,6 @@
 <?php
 
-// Card "vitrine": a máquina em destaque no topo, recursos em lista e CTA no rodapé.
-// O produtos.js usa .card (clique no card) e .card__cta__btn[data-id] (mensagem automática).
+// Card de produto: imagem, selo, recursos e botão de orçamento.
 function ProductCard(array $product, int $id)
 {
     $e = fn (string $texto) => htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');

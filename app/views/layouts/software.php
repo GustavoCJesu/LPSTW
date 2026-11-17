@@ -1,5 +1,5 @@
 <?php
-// Módulos mostrados na seção. A ordem define a sequência do avanço automático (software.js).
+// Módulos da seção (a ordem é a do avanço automático).
 $modulos = [
     [
         'titulo' => 'Início',
@@ -45,7 +45,6 @@ $modulos = [
     </div>
 
     <div class="software__conteudo">
-        <!-- Janela do sistema: as telas ficam empilhadas e a ativa aparece por cima -->
         <figure class="software__janela" data-anim="zoom">
             <div class="software__janela__barra" aria-hidden="true">
                 <span class="software__janela__bolinhas"><i></i><i></i><i></i></span>

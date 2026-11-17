@@ -1,6 +1,4 @@
-// Seção "Software Web": a lista de módulos troca a tela exibida na janela.
-// O avanço automático é guiado pela barra de progresso (animação CSS): quando ela termina, vai
-// para o próximo módulo. Pausa fora da tela e no hover; para de vez quando o usuário clica.
+// Seção do software: lista de módulos com avanço automático.
 
 const secao = document.querySelector('#software')
 const modulos = [...secao.querySelectorAll('.software__modulo')]
@@ -9,7 +7,7 @@ const nomeNaJanela = secao.querySelector('.software__janela__modulo')
 
 let atual = 0
 
-// Ativa o módulo: expande o texto, mostra a tela e atualiza o nome na barra da janela.
+// Ativa o módulo: texto, tela e nome na janela.
 function ativar(indice) {
     atual = indice
 
@@ -23,7 +21,7 @@ function ativar(indice) {
     nomeNaJanela.textContent = modulos[indice].querySelector('.software__modulo__titulo').textContent
 }
 
-// Clique: mostra o módulo e desliga o avanço automático (o usuário assumiu o controle).
+// Clique mostra o módulo e desliga o avanço automático.
 modulos.forEach((modulo, i) => {
     modulo.querySelector('.software__modulo__botao').addEventListener('click', () => {
         secao.classList.remove('software--automatico')
@@ -31,18 +29,17 @@ modulos.forEach((modulo, i) => {
     })
 })
 
-// Fim da barra de progresso do módulo ativo: avança para o próximo.
+// Fim da barra de progresso: vai para o próximo módulo.
 modulos.forEach((modulo) => {
     modulo.querySelector('.software__progresso > span').addEventListener('animationend', () => {
         ativar((atual + 1) % modulos.length)
     })
 })
 
-// Avanço automático só para quem não pediu menos movimento, e só com a seção na tela.
+// Avanço automático só com a seção na tela e sem "reduzir movimento".
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     secao.classList.add('software--automatico')
 
-    // "Na tela" = a seção cruza a faixa do meio da viewport (funciona mesmo se ela for mais alta que a tela).
     new IntersectionObserver(([entrada]) => {
         secao.classList.toggle('software--visivel', entrada.isIntersecting)
     }, { rootMargin: '-35% 0px -35% 0px' }).observe(secao)
