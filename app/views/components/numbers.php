@@ -14,7 +14,7 @@
                 <i class="number__icon" data-lucide="HardHat"></i>
             </div>
             <div class="number__text">
-                <h3 data-contar>18K</h3>
+                <h3 data-contar>20K</h3>
                 <p>Colaboradores</p>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <i class="number__icon" data-lucide="PackageCheck"></i>
             </div>
             <div class="number__text">
-                <h3 data-contar>366K+</h3>
+                <h3 data-contar>500K+</h3>
                 <p>Retiradas</p>
             </div>
 
