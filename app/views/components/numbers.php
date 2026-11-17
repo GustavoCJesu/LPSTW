@@ -1,11 +1,11 @@
 <section class="numbers">
-    <div class="hero__numbers">
+    <div class="hero__numbers" data-anim-grupo="sobe">
         <div class="hero__numbers--topic">
             <div>
                 <i class="number__icon" data-lucide="Building"></i>
             </div>
             <div class="number__text">
-                <h3>24</h3>
+                <h3 data-contar>24</h3>
                 <p>Empresas atendidas</p>
             </div>
         </div>
@@ -14,7 +14,7 @@
                 <i class="number__icon" data-lucide="HardHat"></i>
             </div>
             <div class="number__text">
-                <h3>18K</h3>
+                <h3 data-contar>18K</h3>
                 <p>Colaboradores</p>
             </div>
         </div>
@@ -23,7 +23,7 @@
                 <i class="number__icon" data-lucide="PackageCheck"></i>
             </div>
             <div class="number__text">
-                <h3>366K+</h3>
+                <h3 data-contar>366K+</h3>
                 <p>Retiradas</p>
             </div>
 

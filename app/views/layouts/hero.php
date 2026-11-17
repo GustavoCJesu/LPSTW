@@ -1,5 +1,5 @@
 <section class="hero">
-    <div class="hero__headLine">
+    <div class="hero__headLine" data-anim-grupo="sobe">
         <h3 class="hero__topTitle">Safe to Work</h3>
         <h1 class="letters'">
             Controle <span class="destaque">inteligente</span> para uma operação mais <span class="destaque">segura</span>!
@@ -11,7 +11,7 @@
         $link = '#products';
         require __DIR__ . '/../components/ctaMobile.php' ?>
     </div>
-    <div class="hero__viewrPoint">
+    <div class="hero__viewrPoint" data-anim="zoom">
         <div class="hero__track">
             <div class="hero__slide">
                 <h2 class="hero__title">
@@ -39,21 +39,21 @@
             <button data-id="2" class="hero__dot"></button>
         </div>
     </div>
-    <div class="hero__numbers__mobile">
+    <div class="hero__numbers__mobile" data-anim-grupo="sobe">
         <div class="hero__numbers--topic">
-            <h3>24</h3>
+            <h3 data-contar>24</h3>
             <p>Empresas atendidas</p>
         </div>
         <div class="hero__numbers--topic">
-            <h3>18K</h3>
+            <h3 data-contar>18K</h3>
             <p>Colaboradores</p>
         </div>
         <div class="hero__numbers--topic">
-            <h3>366K+</h3>
+            <h3 data-contar>366K+</h3>
             <p>Retiradas</p>
         </div>
     </div>
-    <div class="hero__cta">
+    <div class="hero__cta" data-anim="sobe">
         <?php $text = "Conheça nossas soluções!";
         $link = "#products";
         require __DIR__ . "/../components/ctaMobile.php" ?>

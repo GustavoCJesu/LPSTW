@@ -55,6 +55,17 @@ $organizacao = [
 
     <link rel="icon" href="/favicon.ico">
 
+    <?php if ($pagina === 'home'): ?>
+        <link rel="modulepreload" href="/js/vendor/anime.esm.min.js">
+        <script>
+            // Esconde os [data-anim] até o animacoes.js assumir (evita piscar). Se o JS não rodar, mostra tudo em 2,5s.
+            if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('anim-pendente');
+                setTimeout(() => document.documentElement.classList.remove('anim-pendente'), 2500);
+            }
+        </script>
+    <?php endif; ?>
+
     <link rel="preconnect" href="https://unpkg.com">
 
     <link rel="stylesheet" href="/css/style.css">
