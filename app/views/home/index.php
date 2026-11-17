@@ -11,13 +11,13 @@ require_once __DIR__ . '/../layouts/header.php';
     ?>
     <div>
         <?php
-        require_once __DIR__ . '/../components/numbers.php';
         require_once __DIR__ . '/../layouts/sobreASW.php';
         ?>
     </div>
     
     <?php
     require_once __DIR__ . '/../layouts/sobreSTW.php';
+    require_once __DIR__ . '/../components/numbers.php';
     require_once __DIR__ . '/../layouts/software.php';
     require_once __DIR__ . '/../components/modal.php';
     require_once __DIR__ . '/../layouts/produtos.php';
