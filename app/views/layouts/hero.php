@@ -45,11 +45,11 @@
             <p>Empresas atendidas</p>
         </div>
         <div class="hero__numbers--topic">
-            <h3 data-contar>18K</h3>
+            <h3 data-contar>20K</h3>
             <p>Colaboradores</p>
         </div>
         <div class="hero__numbers--topic">
-            <h3 data-contar>366K+</h3>
+            <h3 data-contar>500K+</h3>
             <p>Retiradas</p>
         </div>
     </div>
