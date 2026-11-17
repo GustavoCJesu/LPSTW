@@ -70,9 +70,12 @@ function mostrarErro({ input, erro }, mensagem) {
 
     input.classList.toggle('input--invalid', invalido)
     input.setAttribute('aria-invalid', String(invalido))
-    erro.textContent = mensagem
+
+    if (invalido) {
+        erro.textContent = mensagem
+        erro.classList.remove('errorMsg--info')
+    }
     erro.classList.toggle('hidden', !invalido)
-    erro.classList.remove('errorMsg--info')
 }
 
 function mostrarInfo({ input, erro }, mensagem) {
@@ -115,15 +118,17 @@ async function consultarCnpj() {
     const codigo = cnpjMask.unmaskedValue
 
     mostrarInfo(campoCnpj, 'Consultando CNPJ...')
-    const { empresa } = await buscarCnpj(codigo)
+    const { status, empresa } = await buscarCnpj(codigo)
 
     if (cnpjMask.unmaskedValue !== codigo) return
 
     const nome = empresa?.nome_fantasia || empresa?.razao_social
     if (nome) {
         mostrarInfo(campoCnpj, `Empresa: ${nome}`)
+    } else if (status === 'nao_encontrado') {
+        mostrarInfo(campoCnpj, 'Não encontramos os dados desta empresa, mas você pode enviar normalmente.')
     } else {
-        mostrarErro(campoCnpj, '')
+        mostrarInfo(campoCnpj, 'Não foi possível consultar o CNPJ agora, mas você pode enviar normalmente.')
     }
 }
 
