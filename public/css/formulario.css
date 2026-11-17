@@ -144,7 +144,7 @@
     color: #b91c1c;
 }
 
-/* 2ª linha do grid = mensagem de erro. Anima de 0fr (fechada) a 1fr (aberta). */
+/* Mensagem de erro: abre de 0fr para 1fr */
 .form__input {
     width: 100%;
     display: grid;

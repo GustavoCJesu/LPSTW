@@ -12,25 +12,24 @@ const headlineText = [
     'Acompanhe cada retirada em <span class="destaque">tempo real</span>!'
 ]
 
-// Título digitado: as letras aparecem uma a uma, com cursor. Ao trocar de slide, apaga e digita o próximo.
-// O texto inteiro já ocupa o espaço desde o início (letras só ficam invisíveis), então nada abaixo se mexe.
+// Título com efeito de digitação.
 const DIGITAR_MS = 35
 const APAGAR_MS = 15
 const ATRASO_INICIAL_MS = 700
 const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches
 
-const tituloLeitor = document.createElement('span')    // frase completa, para leitores de tela
+const tituloLeitor = document.createElement('span')
 tituloLeitor.className = 'hero__titulo-leitor'
-const tituloDigitado = document.createElement('span')  // letras animadas, escondidas dos leitores de tela
+const tituloDigitado = document.createElement('span')
 tituloDigitado.setAttribute('aria-hidden', 'true')
 
 let letras = []
 let letrasVisiveis = 0
-let digitacaoAtual = 0  // cada troca incrementa; uma digitação antiga vê que mudou e para
+let digitacaoAtual = 0
 
 if (headline && headlineText[0]) {
     headline.replaceChildren(tituloLeitor, tituloDigitado)
-    montarLetras(headlineText[0])  // já reserva o espaço da frase, antes de começar a digitar
+    montarLetras(headlineText[0])
     updateHeadline(0, ATRASO_INICIAL_MS)
 }
 
@@ -85,7 +84,7 @@ function toggleSlide(id) {
     updateHeadline(currentDot)
 }
 
-// Apaga o título atual e digita o do slide id. Uma nova chamada cancela a anterior.
+// Apaga o título atual e digita o do slide id.
 async function updateHeadline(id, atraso = 0) {
     if (!headline || !headlineText[id]) return
 
@@ -119,7 +118,7 @@ async function updateHeadline(id, atraso = 0) {
     headline.classList.remove('hero__titulo--digitando')
 }
 
-// Troca o conteúdo pela frase nova com cada letra num <span>, mantendo os destaques (<span class="destaque">).
+// Coloca cada letra da frase num <span>, mantendo os destaques.
 function montarLetras(html) {
     const modelo = document.createElement('template')
     modelo.innerHTML = html
@@ -148,7 +147,7 @@ function montarLetras(html) {
     mostrarLetras(0)
 }
 
-// Deixa as n primeiras letras visíveis e põe o cursor logo depois da última.
+// Mostra as n primeiras letras e posiciona o cursor.
 function mostrarLetras(n) {
     letrasVisiveis = n
     letras.forEach((letra, i) => {
@@ -158,6 +157,7 @@ function mostrarLetras(n) {
     })
 }
 
+// Espera ms milissegundos.
 function esperar(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -177,10 +177,10 @@ function automaticToggle() {
     toggleSlide(currentDot)
 }
 
-// Troca automática a cada 5s. Recomeça a contagem quando o usuário navega,
-// para o slide escolhido não ser trocado logo em seguida (e a frase terminar de ser digitada).
+// Troca automática a cada 5s.
 let intervaloSlides = setInterval(automaticToggle, 5000)
 
+// Recomeça a contagem quando o usuário navega.
 function reiniciarAutomatico() {
     clearInterval(intervaloSlides)
     intervaloSlides = setInterval(automaticToggle, 5000)

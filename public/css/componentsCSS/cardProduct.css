@@ -21,7 +21,7 @@
     transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 
-/* Palco da máquina: fundo verde suave com um "holofote" no chão */
+/* Palco da máquina */
 .card__vitrine {
     position: relative;
     height: 240px;
@@ -40,7 +40,7 @@
     transition: transform .4s ease;
 }
 
-/* Diferencial do produto, no canto do palco */
+/* Selo do produto */
 .card__selo {
     position: absolute;
     top: 14px;
@@ -111,7 +111,7 @@
     height: 17px;
 }
 
-/* CTA em tom claro; fica sólido no hover do card */
+/* Botão de orçamento */
 .card__cta__btn {
     margin: 20px 22px 22px;
     padding: 13px 16px;
@@ -195,8 +195,7 @@
         font-size: 24px;
     }
 
-    /* Subgrid: título, descrição, recursos e CTA alinhados entre os cards da mesma linha.
-       O .products__card (produtos.css) repassa as 5 linhas da grade para o .card. */
+    /* Subgrid: alinha as partes entre os cards da mesma linha */
     @supports (grid-template-rows: subgrid) {
         .card {
             display: grid;

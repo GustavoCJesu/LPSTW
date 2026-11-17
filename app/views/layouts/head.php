@@ -58,7 +58,7 @@ $organizacao = [
     <?php if ($pagina === 'home'): ?>
         <link rel="modulepreload" href="/js/vendor/anime.esm.min.js">
         <script>
-            // Esconde os [data-anim] até o animacoes.js assumir (evita piscar). Se o JS não rodar, mostra tudo em 2,5s.
+            // Esconde os [data-anim] até o JS assumir (mostra tudo em 2,5s se ele não rodar).
             if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 document.documentElement.classList.add('anim-pendente');
                 setTimeout(() => document.documentElement.classList.remove('anim-pendente'), 2500);

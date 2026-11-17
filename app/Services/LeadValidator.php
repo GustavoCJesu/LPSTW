@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-/** Validação do formulário no servidor. Mesmas regras e mensagens de public/js/formulario.js. */
+/** Validação do formulário no servidor (mesmas regras do formulario.js). */
 class LeadValidator
 {
     /** Pesos dos dígitos verificadores do CNPJ. */
@@ -37,7 +37,7 @@ class LeadValidator
         return $erros;
     }
 
-    /** Regras por campo: retornam a mensagem de erro ou '' se válido. */
+    /** Erro do nome ('' se válido). */
     private function nome(string $valor): string
     {
         if ($valor === '') return 'Informe seu nome completo.';
@@ -45,6 +45,7 @@ class LeadValidator
         return '';
     }
 
+    /** Erro do CNPJ ('' se válido). */
     private function cnpj(string $valor): string
     {
         $codigo = preg_replace('/[^0-9A-Z]/', '', strtoupper($valor));
@@ -55,6 +56,7 @@ class LeadValidator
         return '';
     }
 
+    /** Erro do email ('' se válido). */
     private function email(string $valor): string
     {
         if ($valor === '') return 'Informe seu email corporativo.';
@@ -64,7 +66,7 @@ class LeadValidator
         return '';
     }
 
-    /** Confere os dígitos verificadores. Aceita CNPJ numérico e alfanumérico. */
+    /** Valida o CNPJ (numérico ou alfanumérico). */
     private function cnpjValido(string $codigo): bool
     {
         if (!preg_match('/^[0-9A-Z]{12}\d{2}$/', $codigo) || preg_match('/^(.)\1+$/', $codigo)) {

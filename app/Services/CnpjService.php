@@ -9,10 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 /** Consulta os dados da empresa pelo CNPJ em APIs públicas. */
 class CnpjService
 {
-    /**
-     * APIs em ordem de consulta. A Minha Receita cobre CNPJs que faltam na BrasilAPI.
-     * confirmarNaoEncontrado: no 404, repete furando o cache (a Cloudflare guarda 404 por até 5 dias).
-     */
+    /** APIs em ordem; confirmarNaoEncontrado refaz o 404 furando o cache. */
     private const FONTES = [
         ['url' => 'https://brasilapi.com.br/api/cnpj/v1/', 'confirmarNaoEncontrado' => false],
         ['url' => 'https://minhareceita.org/', 'confirmarNaoEncontrado' => true],

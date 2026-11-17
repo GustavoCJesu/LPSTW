@@ -8,7 +8,7 @@ const errorCard = document.querySelector('.feedback__card.error')
 const errorMessage = errorCard.querySelector('.feedback__card__message')
 const errorMessageDefault = errorMessage.textContent.trim()
 
-// Máscaras. O CNPJ aceita letras nas 12 primeiras posições.
+// Máscaras (o CNPJ aceita letras).
 const cnpj = document.querySelector('#cnpj')
 const cnpjMask = IMask(cnpj, {
     mask: '##.###.###/####-00',
@@ -34,7 +34,7 @@ function digitoVerificador(codigo, pesos) {
     return resto < 2 ? 0 : 11 - resto
 }
 
-// Confere os dígitos verificadores. Aceita CNPJ numérico e alfanumérico.
+// Valida o CNPJ (numérico ou alfanumérico).
 function cnpjValido(codigo) {
     if (!/^[0-9A-Z]{12}\d{2}$/.test(codigo) || /^(.)\1+$/.test(codigo)) return false
 
@@ -43,7 +43,7 @@ function cnpjValido(codigo) {
     return codigo.endsWith(`${dv1}${dv2}`)
 }
 
-// Regras por campo: retornam a mensagem de erro ou '' se válido. Iguais às do LeadValidator.php.
+// Regras por campo (iguais às do LeadValidator.php).
 const regras = {
     nome(valor) {
         if (!valor) return 'Informe seu nome completo.'
@@ -94,7 +94,7 @@ function mostrarInfo({ input, erro }, mensagem) {
     erro.classList.add('errorMsg--info')
 }
 
-// Valida e mostra o erro. Retorna true se o campo estiver válido.
+// Valida e mostra o erro; true se válido.
 function validarCampo(campo) {
     const mensagem = campo.validar(campo.input.value.trim())
     mostrarErro(campo, mensagem)
@@ -106,7 +106,7 @@ function limparErros() {
     campos.forEach((campo) => mostrarErro(campo, ''))
 }
 
-// Valida ao sair do campo; se já tem erro, revalida a cada digitação.
+// Valida ao sair do campo e, se já tiver erro, ao digitar.
 campos.forEach((campo) => {
     const { input } = campo
 
@@ -125,14 +125,13 @@ campos.forEach((campo) => {
 
 const campoCnpj = campos.find((campo) => campo.input === cnpj)
 
-// Busca a empresa e mostra o nome embaixo do campo. Não impede o envio.
+// Busca a empresa e mostra o nome embaixo do campo.
 async function consultarCnpj() {
     const codigo = cnpjMask.unmaskedValue
 
     mostrarInfo(campoCnpj, 'Consultando CNPJ...')
     const { status, empresa } = await buscarCnpj(codigo)
 
-    // Ignora a resposta se o CNPJ mudou durante a consulta.
     if (cnpjMask.unmaskedValue !== codigo) return
 
     const nome = empresa?.nome_fantasia || empresa?.razao_social
@@ -179,7 +178,6 @@ function showFeedback(card) {
     card.classList.add('feedback__card--actvie')
 
     card.classList.remove('feedback__card--timer')
-    // Força reflow para reiniciar a barra de tempo.
     void card.offsetWidth
     requestAnimationFrame(() => {
         card.classList.add('feedback__card--timer')
@@ -217,7 +215,7 @@ function mostrarFormulario() {
 
 formSuccessReset.addEventListener('click', mostrarFormulario)
 
-// Mostra os erros do servidor nos campos. Retorna false se algum erro não tiver campo na tela.
+// Mostra os erros do servidor nos campos; false se algum não tiver campo.
 function mostrarErrosDoServidor(erros) {
     const comCampo = campos.filter((campo) => erros[campo.input.id])
 
@@ -263,7 +261,6 @@ form.addEventListener('submit', async (event) => {
         showFeedback(errorCard)
     }
 
-    // O token do reCAPTCHA vale para um envio só.
     if (window.grecaptcha) {
         grecaptcha.reset()
     }

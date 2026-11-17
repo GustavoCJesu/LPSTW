@@ -1,13 +1,6 @@
 import { animate, stagger } from './vendor/anime.esm.min.js'
 
-// Animações de entrada da página (anime.js v4).
-//
-// Uso no HTML:
-//   data-anim="sobe"          o elemento sobe e aparece ao entrar na tela (padrão)
-//   data-anim="zoom"          cresce um pouco e aparece
-//   data-anim="surge"         só aparece (fade)
-//   data-anim-grupo="sobe"    aplica o efeito em cada filho; os que entram juntos animam em sequência
-//   data-contar               conta de 0 até o número do texto (ex.: "366K+")
+// Animações de entrada: data-anim, data-anim-grupo (filhos em sequência) e data-contar.
 
 const EFEITOS = {
     sobe: { y: { from: 24, to: 0 } },
@@ -21,11 +14,12 @@ const DURACAO_CONTADOR = 1600
 
 const html = document.documentElement
 
-// Sem a classe, ou o usuário prefere menos movimento, ou o fallback do head já mostrou tudo.
+// Sem a classe do head, não anima.
 if (html.classList.contains('anim-pendente')) {
     iniciar()
 }
 
+// Prepara os alvos e revela cada um ao entrar na tela.
 function iniciar() {
     const efeitoDe = new Map()
 
@@ -42,7 +36,6 @@ function iniciar() {
     const alvos = [...efeitoDe.keys()]
     const contadores = [...document.querySelectorAll('[data-contar]')].filter(estaNaTela)
 
-    // Tudo no mesmo frame: tira a classe do head e esconde via inline, sem piscar.
     html.classList.remove('anim-pendente')
     const opacidade = preparar(alvos)
     contadores.forEach(zerarContador)
@@ -70,12 +63,12 @@ function iniciar() {
     pendentes.forEach((el) => observador.observe(el))
 }
 
-// Ignora o que está com display: none (ex.: blocos só de mobile no desktop).
+// Ignora elementos com display: none.
 function estaNaTela(el) {
     return el.getClientRects().length > 0
 }
 
-// Carrosséis: filhos do grupo fora da tela na horizontal nunca "entram" sozinhos, então aparecem junto.
+// Irmãos fora da tela na horizontal (carrossel) aparecem junto.
 function irmaosForaDaTela(el) {
     const grupo = el.parentElement
     if (!grupo?.hasAttribute('data-anim-grupo')) return []
@@ -86,8 +79,7 @@ function irmaosForaDaTela(el) {
     })
 }
 
-// Esconde os alvos e desliga a transition do CSS (ela brigaria com o anime.js a cada frame).
-// Retorna a opacidade original de cada um, para animar até ela.
+// Esconde os alvos e desliga a transition; retorna a opacidade original.
 function preparar(alvos) {
     const opacidade = new Map(alvos.map((el) => [el, Number(getComputedStyle(el).opacity)]))
 
@@ -99,7 +91,7 @@ function preparar(alvos) {
     return opacidade
 }
 
-// Anima os elementos em sequência e, no fim, devolve o controle ao CSS (:hover etc.).
+// Anima em sequência e devolve o controle ao CSS no fim.
 function revelar(els, efeito, opacidade) {
     animate(els, {
         ...(EFEITOS[efeito] ?? EFEITOS.sobe),
@@ -111,6 +103,7 @@ function revelar(els, efeito, opacidade) {
     })
 }
 
+// Remove os estilos inline da animação.
 function limpar(el) {
     el.style.removeProperty('opacity')
     el.style.removeProperty('transform')
@@ -123,13 +116,14 @@ function partesDoNumero(el) {
     return numero ? { antes, numero: Number(numero), depois } : null
 }
 
+// Guarda o texto original e mostra 0.
 function zerarContador(el) {
     el.dataset.contarTexto = el.textContent.trim()
     const partes = partesDoNumero(el)
     if (partes) el.textContent = `${partes.antes}0${partes.depois}`
 }
 
-// Conta de 0 até o valor original, mantendo prefixo e sufixo.
+// Conta de 0 até o valor original.
 function contar(el) {
     const partes = partesDoNumero(el)
     if (!partes) return

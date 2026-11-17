@@ -1,4 +1,4 @@
-/* Seção "Software Web": janela do sistema + lista de módulos */
+/* Seção do software */
 .software__container {
     --verde: #279963;
     --verde-escuro: #1D5239;
@@ -32,7 +32,7 @@
     gap: 28px;
 }
 
-/* ---------- Janela do sistema ---------- */
+/* Janela do sistema */
 
 .software__janela {
     margin: 0;
@@ -76,7 +76,7 @@
     background: #f2f5f3;
 }
 
-/* Telas empilhadas. A ativa entra por cima com fade; a anterior só some depois, sem "piscar" o fundo. */
+/* Telas empilhadas: a ativa entra com fade */
 .software__tela {
     position: absolute;
     inset: 0;
@@ -97,7 +97,7 @@
     transition: opacity .45s ease;
 }
 
-/* ---------- Lista de módulos ---------- */
+/* Lista de módulos */
 
 .software__modulos {
     list-style: none;
@@ -174,7 +174,7 @@
     color: var(--verde-mais-escuro);
 }
 
-/* Descrição: abre animando a linha do grid de 0fr para 1fr */
+/* Descrição: abre de 0fr para 1fr */
 .software__modulo__texto {
     display: grid;
     grid-template-rows: 0fr;
@@ -188,7 +188,7 @@
 }
 
 .software__modulo__texto p {
-    /* Altura mínima igual para todos: a lista não muda de tamanho a cada troca */
+    /* Altura igual para todos os módulos */
     min-height: calc(1.55em * var(--linhas-descricao));
     padding: 0 16px 0 64px;
     font-size: 15px;
@@ -205,7 +205,7 @@
     transition: visibility 0s;
 }
 
-/* Barra de progresso do avanço automático (o software.js avança no animationend) */
+/* Barra de progresso do avanço automático */
 .software__progresso {
     position: absolute;
     left: 16px;
@@ -251,7 +251,7 @@
         background: #f3f8f5;
     }
 
-    /* Pausa enquanto o mouse está sobre a janela ou a lista */
+    /* Pausa com o mouse em cima */
     .software--automatico .software__conteudo:hover .software__modulo--ativo .software__progresso > span {
         animation-play-state: paused;
     }
@@ -291,7 +291,7 @@
     }
 }
 
-/* Telas largas: janela maior (2/3 da largura) */
+/* Telas largas: janela maior */
 @media (min-width: 1280px) {
 
     .software__conteudo {

@@ -16,10 +16,10 @@ class FormReader
     /** Envios por IP: no máximo 2 a cada 10 minutos e 4 por dia. */
     private const LIMITES = [600 => 2, 86400 => 4];
 
-    /** Onde o RateLimiter guarda as tentativas (fora da pasta public). */
+    /** Pasta onde o RateLimiter guarda as tentativas. */
     private const PASTA_LIMITES = __DIR__ . '/../../storage/limites';
 
-    /** POST /sendForm: limita por IP, valida, confere o reCAPTCHA, consulta o CNPJ e cria o card. Responde em JSON. */
+    /** POST /sendForm: valida o lead e cria o card no Trello (responde em JSON). */
     public function getForm()
     {
         header('Content-Type: application/json');
@@ -77,7 +77,6 @@ class FormReader
             return;
         }
 
-        // null se a consulta falhar; o card é criado mesmo assim.
         $empresa = (new CnpjService($client))->consultar($lead['cnpj']);
         $card = new LeadCard($lead, $empresa);
 
@@ -103,10 +102,7 @@ class FormReader
         ]);
     }
 
-    /**
-     * IP de quem enviou. Atrás de proxy/CDN (ex.: Cloudflare) todo mundo chega com o IP do proxy:
-     * nesse caso, defina IP_HEADER no .env com o cabeçalho do IP real (ex.: HTTP_CF_CONNECTING_IP).
-     */
+    /** IP do visitante (atrás de proxy, defina IP_HEADER no .env). */
     private function ipDoCliente(): string
     {
         $cabecalho = $_ENV['IP_HEADER'] ?? '';

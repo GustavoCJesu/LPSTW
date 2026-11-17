@@ -1,15 +1,14 @@
-// APIs em ordem de consulta. A Minha Receita cobre CNPJs que faltam na BrasilAPI.
-// confirmarNaoEncontrado: no 404, repete furando o cache (a Cloudflare guarda 404 por até 5 dias).
+// APIs em ordem; confirmarNaoEncontrado refaz o 404 furando o cache.
 const FONTES = [
     { url: 'https://brasilapi.com.br/api/cnpj/v1/', confirmarNaoEncontrado: false },
     { url: 'https://minhareceita.org/', confirmarNaoEncontrado: true },
 ]
 const TIMEOUT_MS = 5000
 
-// Guarda a Promise de cada CNPJ para não repetir a consulta.
+// Cache das consultas por CNPJ.
 const cache = new Map()
 
-// Consulta com cache. Em caso de erro, sai do cache para tentar de novo depois.
+// Consulta com cache (erros não ficam no cache).
 export function buscarCnpj(cnpj) {
     if (!cache.has(cnpj)) {
         const consulta = consultar(cnpj)
@@ -23,7 +22,7 @@ export function buscarCnpj(cnpj) {
     return cache.get(cnpj)
 }
 
-// Tenta cada API em ordem. Status: 'encontrado', 'nao_encontrado' ou 'erro' (vale tentar de novo).
+// Tenta cada API: 'encontrado', 'nao_encontrado' ou 'erro'.
 async function consultar(cnpj) {
     let status = 'nao_encontrado'
 
