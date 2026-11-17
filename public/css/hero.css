@@ -308,6 +308,19 @@
     }
 }
 
+/* Frases empilhadas no mesmo lugar: o título reserva a altura da maior */
+.hero__titulo {
+    display: grid;
+}
+
+.hero__titulo > * {
+    grid-area: 1 / 1;
+}
+
+.hero__titulo-medida {
+    visibility: hidden;
+}
+
 /* Texto para leitores de tela */
 .hero__titulo-leitor {
     position: absolute;

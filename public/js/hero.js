@@ -26,8 +26,17 @@ let letras = []
 let letrasVisiveis = 0
 let digitacaoAtual = 0
 
+// Cópias invisíveis de todas as frases: o título fica com a altura da maior e a hero não muda de tamanho.
+const medidas = headlineText.map((html) => {
+    const medida = document.createElement('span')
+    medida.className = 'hero__titulo-medida'
+    medida.setAttribute('aria-hidden', 'true')
+    medida.innerHTML = html
+    return medida
+})
+
 if (headline && headlineText[0]) {
-    headline.replaceChildren(tituloLeitor, tituloDigitado)
+    headline.replaceChildren(tituloLeitor, tituloDigitado, ...medidas)
     montarLetras(headlineText[0])
     updateHeadline(0, ATRASO_INICIAL_MS)
 }
