@@ -1,3 +1,4 @@
+// Carrossel de produtos e mensagem automática do formulário.
 const track = document.querySelector('.product__list')
 const btns = document.querySelectorAll('.product__single__brt')
 const products = document.querySelectorAll('.products__card')
@@ -5,6 +6,7 @@ const products = document.querySelectorAll('.products__card')
 const btnOrcamento = document.querySelectorAll('.card__cta__btn')
 const cards = document.querySelectorAll('.card')
 
+// Texto que vai para o campo de mensagem ao pedir orçamento (mesma ordem dos produtos).
 const mensagens = ['Olá, gostaria de conhecer melhor o locker inteligente para armazenamento e controle de retirada de EPIs. Tenho interesse em entender suas funcionalidades e como essa solução pode otimizar a gestão dos equipamentos.',
 
 'Olá, gostaria de obter mais informações sobre o balcão de atendimento para gerenciamento e distribuição de EPIs. Tenho interesse em conhecer melhor a solução e entender como ela pode atender às necessidades da minha operação.',
@@ -18,6 +20,7 @@ const mensagens = ['Olá, gostaria de conhecer melhor o locker inteligente para 
 let currentProduct = 0
 let startX = 0
 
+// Setas: data-id 0 = anterior, 1 = próximo.
 btns.forEach(btn => {
     btn.addEventListener('click', () => {
         const id = btn.dataset.id
@@ -35,6 +38,7 @@ btns.forEach(btn => {
     })
 });
 
+// Swipe no mobile (mínimo de 50px).
 track.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
 });
@@ -54,6 +58,7 @@ track.addEventListener("touchend", (e) => {
     }
 });
 
+// Mostra o produto id (dá a volta nas pontas).
 function toggleProduct(id) {
 
     if(id < 0) {
@@ -66,6 +71,7 @@ function toggleProduct(id) {
 
 }
 
+// Botão de orçamento preenche a mensagem do formulário.
 btnOrcamento.forEach(btn => {
     btn.addEventListener('click', ()=>{
         const id = btn.dataset.id
@@ -73,6 +79,7 @@ btnOrcamento.forEach(btn => {
     })
 })
 
+// Clicar no card equivale ao botão de orçamento (exceto na imagem, que abre o lightbox).
 cards.forEach(card => {
     card.addEventListener('click', (event) => {
         if (event.target.closest('.js-expandable')) return
@@ -84,6 +91,7 @@ cards.forEach(card => {
 
 const mensage = document.querySelector('#mensage')
 
+// Substitui o texto do campo de mensagem pelo do produto.
 function automaticMSG(id){
 
     if(mensage.value != ''){

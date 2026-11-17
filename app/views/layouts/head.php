@@ -1,17 +1,18 @@
 <?php
-// Cada página pode definir estas variáveis antes de incluir o head.
+// Valores padrão; cada página pode definir antes de incluir o head.
 $pagina ??= 'home';
 $pageTitle ??= 'STW - Soluções Inteligentes para Gestão de EPIs';
 $pageDescription ??= 'Automatize a gestão de EPIs com a STW: armários inteligentes, controle de retiradas em tempo real e software web completo para reduzir desperdícios e garantir conformidade.';
 $pagePath ??= '/';
 $pageStyles ??= [];
 
-// Fora da home, os links de âncora (#products, #form...) precisam voltar para a home.
+// Fora da home, as âncoras (#form, #products...) apontam para a home.
 $prefixoAncora = $pagina === 'home' ? '' : '/';
 
 $pageUrl = SITE_URL . $pagePath;
 $logoUrl = SITE_URL . '/images/logo/logo.png';
 
+// Escape para HTML.
 $e = fn (string $texto) => htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
 
 $organizacao = [

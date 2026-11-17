@@ -8,6 +8,7 @@ btn.addEventListener('click', ()=>{
 
 
 
+// Abre/fecha o menu mobile e alterna o ícone (menu/X).
 function toggleMenu() {
     const menuIcon = document.querySelector("#menu-icon--Menu")
     const XIcon = document.querySelector("#menu-icon--X")

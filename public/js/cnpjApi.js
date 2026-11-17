@@ -1,17 +1,15 @@
-// Fontes consultadas em ordem. A BrasilAPI não tem alguns CNPJs ativos,
-// então, se ela não encontrar ou falhar, tentamos a Minha Receita (mesmo formato de resposta).
-//
-// A Minha Receita fica atrás de um cache da Cloudflare que guarda respostas por até 5 dias,
-// inclusive "não encontrado". Por isso, quando ela diz que não encontrou, confirmamos uma vez
-// direto na origem (o parâmetro extra na URL fura o cache).
+// APIs em ordem de consulta. A Minha Receita cobre CNPJs que faltam na BrasilAPI.
+// confirmarNaoEncontrado: no 404, repete furando o cache (a Cloudflare guarda 404 por até 5 dias).
 const FONTES = [
     { url: 'https://brasilapi.com.br/api/cnpj/v1/', confirmarNaoEncontrado: false },
     { url: 'https://minhareceita.org/', confirmarNaoEncontrado: true },
 ]
 const TIMEOUT_MS = 5000
 
+// Guarda a Promise de cada CNPJ para não repetir a consulta.
 const cache = new Map()
 
+// Consulta com cache. Em caso de erro, sai do cache para tentar de novo depois.
 export function buscarCnpj(cnpj) {
     if (!cache.has(cnpj)) {
         const consulta = consultar(cnpj)
@@ -25,8 +23,7 @@ export function buscarCnpj(cnpj) {
     return cache.get(cnpj)
 }
 
-// 'encontrado' se alguma fonte tiver o CNPJ; 'erro' se alguma falhou e nenhuma encontrou
-// (vale tentar de novo depois); 'nao_encontrado' se todas responderam que não existe.
+// Tenta cada API em ordem. Status: 'encontrado', 'nao_encontrado' ou 'erro' (vale tentar de novo).
 async function consultar(cnpj) {
     let status = 'nao_encontrado'
 
@@ -44,6 +41,7 @@ async function consultar(cnpj) {
     return { status }
 }
 
+// Consulta uma URL e traduz a resposta em status.
 async function consultarUrl(url) {
     try {
         const response = await fetch(url, {

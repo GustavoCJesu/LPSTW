@@ -1,3 +1,4 @@
+// Conteúdo do modal de cada tópico (chave = data-id).
 const modalDate = {
     0: {
         title: "Gestão Inteligente",
@@ -27,6 +28,7 @@ const aboutUsTopicBtns = document.querySelectorAll('.aboutUs__topic')
 const modalOverlay = document.querySelector(".modal__overlay")
 const modal = document.querySelector('.modal')
 
+// Clique no tópico abre o modal; clique no modal fecha.
 aboutUsTopicBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const id = btn.dataset.id
@@ -39,6 +41,7 @@ modal.addEventListener('click',()=>{
 })
 
 
+// Abre o modal com o conteúdo do tópico.
 function openModal(id) {
 
     const date = modalDate[id]
@@ -56,6 +59,7 @@ function openModal(id) {
 
 }
 
+// Fecha o modal.
 function closeModal() {
     const modalOverlay = document.querySelector(".modal__overlay")
     const modal = document.querySelector('.modal')

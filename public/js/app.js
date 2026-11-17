@@ -1,3 +1,4 @@
+// Carrega os scripts de cada seção da página.
 import './header.js'
 import './hero.js'
 import './produtos.js'

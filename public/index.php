@@ -7,12 +7,12 @@ use App\Controllers\HomeController;
 use App\Controllers\SeoController;
 use Dotenv\Dotenv;
 
+// Carrega o .env
 $dotenv = Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-// Endereço público do site, usado no canonical, nas tags de compartilhamento,
-// no robots.txt e no sitemap. Defina APP_URL no .env (ex.: https://www.stw.com.br);
-// sem ele, usa o domínio pelo qual o site foi acessado.
+// URL pública do site (canonical, compartilhamento, robots e sitemap).
+// Vem do APP_URL no .env; sem ele, usa o domínio acessado.
 $siteUrl = $_ENV['APP_URL'] ?? '';
 if ($siteUrl === '') {
     $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
@@ -23,6 +23,7 @@ define('SITE_URL', rtrim($siteUrl, '/'));
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 $path = rtrim($path, '/') ?: '/';
 
+// Rotas
 switch ($path) {
     case '/sendForm':
         (new FormReader())->getForm();

@@ -9,9 +9,11 @@ use App\Services\TrelloService;
 use App\Services\RecaptchaService;
 use GuzzleHttp\Client;
 
+/** Recebe o formulário de orçamento e cria o card do lead no Trello. */
 class FormReader
 {
 
+    /** POST /sendForm: valida, confere o reCAPTCHA, consulta o CNPJ e cria o card. Responde em JSON. */
     public function getForm()
     {
         header('Content-Type: application/json');
@@ -55,6 +57,7 @@ class FormReader
             return;
         }
 
+        // null se a consulta falhar; o card é criado mesmo assim.
         $empresa = (new CnpjService($client))->consultar($lead['cnpj']);
         $card = new LeadCard($lead, $empresa);
 

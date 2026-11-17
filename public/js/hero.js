@@ -1,9 +1,11 @@
+// Carrossel do hero: slide, bolinha e título mudam juntos.
 const image = document.querySelector('.hero__img')
 const track = document.querySelector(".hero__track")
 const dots = document.querySelectorAll(".hero__dot")
 const slides = document.querySelectorAll('.hero__slide')
 const headline = document.querySelector('.hero__headLine > h1')
 
+// Título de cada slide (mesma ordem dos slides).
 const headlineText = [
     'Mantenha sua operação em <span class="destaque">conformidade</span> o tempo todo!',
     'Controle <span class="destaque">inteligente</span> para uma operação mais <span class="destaque">segura</span>!',
@@ -21,6 +23,7 @@ var currentDot = 0
 
 var lastDot = 0
 
+// Swipe no mobile (mínimo de 50px).
 let startX = 0;
 
 track.addEventListener("touchstart", (e) => {
@@ -41,6 +44,7 @@ track.addEventListener("touchend", (e) => {
     }
 });
 
+// Vai para o slide id (dá a volta nas pontas) e atualiza bolinha e título.
 function toggleSlide(id) {
 
     console.log('Função chamada')
@@ -59,6 +63,7 @@ function toggleSlide(id) {
     updateHeadline(currentDot)
 }
 
+// Troca o título com fade de 300ms.
 function updateHeadline(id) {
     if (!headline || !headlineText[id]) return
 
@@ -69,6 +74,7 @@ function updateHeadline(id) {
     }, 300)
 }
 
+// Clique na bolinha vai direto para o slide.
 dots.forEach(dot => {
     dot.addEventListener('click', () => {
         currentDot = dot.dataset.id
@@ -76,10 +82,12 @@ dots.forEach(dot => {
     })
 });
 
+// Avança para o próximo slide.
 function automaticToggle() {
     currentDot++
     toggleSlide(currentDot)
 }
 
 
+// Troca automática a cada 5s.
 setInterval(automaticToggle, 5000)

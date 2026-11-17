@@ -6,15 +6,12 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
+/** Consulta os dados da empresa pelo CNPJ em APIs públicas. */
 class CnpjService
 {
     /**
-     * Fontes consultadas em ordem. A BrasilAPI não tem alguns CNPJs ativos,
-     * então, se ela não encontrar ou falhar, tentamos a Minha Receita (mesmo formato de resposta).
-     *
-     * A Minha Receita fica atrás de um cache da Cloudflare que guarda respostas por até 5 dias,
-     * inclusive "não encontrado". Por isso, quando ela diz que não encontrou, confirmamos uma vez
-     * direto na origem (o parâmetro extra na URL fura o cache).
+     * APIs em ordem de consulta. A Minha Receita cobre CNPJs que faltam na BrasilAPI.
+     * confirmarNaoEncontrado: no 404, repete furando o cache (a Cloudflare guarda 404 por até 5 dias).
      */
     private const FONTES = [
         ['url' => 'https://brasilapi.com.br/api/cnpj/v1/', 'confirmarNaoEncontrado' => false],
@@ -28,6 +25,7 @@ class CnpjService
         $this->client = $client;
     }
 
+    /** Dados da empresa, ou null se nenhuma API encontrar. */
     public function consultar(string $cnpj): ?array
     {
         $cnpj = preg_replace('/[^0-9A-Z]/', '', strtoupper($cnpj));
@@ -54,6 +52,7 @@ class CnpjService
         return null;
     }
 
+    /** GET com timeout curto. Retorna null em falha de rede. */
     private function requisitar(string $url): ?ResponseInterface
     {
         try {
