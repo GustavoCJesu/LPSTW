@@ -1,5 +1,4 @@
 // Carrossel do hero: slide, bolinha e título mudam juntos.
-const image = document.querySelector('.hero__img')
 const track = document.querySelector(".hero__track")
 const dots = document.querySelectorAll(".hero__dot")
 const slides = document.querySelectorAll('.hero__slide')
@@ -33,8 +32,6 @@ if (headline && headlineText[0]) {
     updateHeadline(0, ATRASO_INICIAL_MS)
 }
 
-console.log(image, track, dots, slides)
-
 const active = "hero__dot--active"
 
 var slide = 0
@@ -48,8 +45,6 @@ let startX = 0;
 track.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
 });
-
-console.log('JS Hero funcionando')
 
 track.addEventListener("touchend", (e) => {
     const endX = e.changedTouches[0].clientX;
@@ -67,9 +62,6 @@ track.addEventListener("touchend", (e) => {
 
 // Vai para o slide id (dá a volta nas pontas) e atualiza bolinha e título.
 function toggleSlide(id) {
-
-    console.log('Função chamada')
-
     if (id > slides.length - 1) {
         currentDot = 0
     }else if(id < 0){
