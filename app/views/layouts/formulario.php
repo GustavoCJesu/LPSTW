@@ -1,6 +1,6 @@
 <section class="form" id="form">
     <div class="form__container__topic">
-        <div class="form__title">
+        <div class="form__title" data-anim-grupo="sobe">
             <h2 class="section-heading">
                 Como funciona nossa <span class="destaque"> análise!</span>
             </h2>
@@ -8,7 +8,7 @@
                 Em apenas três etapas, nossa equipe avalia sua necessidade e prepara uma proposta personalizada para a sua operação.
             </p>
         </div>
-        <div class="form__topics">
+        <div class="form__topics" data-anim-grupo="sobe">
             <div class="form__topic">
                 <div class="form__topic__title">
                     <h3>1</h3>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="form__container">
+    <div class="form__container" data-anim-grupo="sobe">
         <div class="form__container__title">
             <h2 class="section-heading">
                 Solicite um <span class="destaque">orçamento!</span>

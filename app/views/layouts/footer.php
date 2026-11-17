@@ -41,7 +41,6 @@
 </footer>
 
 <?php if ($pagina === 'home'): ?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
     <script type="module" src="/js/app.js"></script>
 <?php else: ?>

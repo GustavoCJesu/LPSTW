@@ -1,5 +1,5 @@
 <section id="aboutUs" class="aboutUs">
-    <div>
+    <div data-anim-grupo="sobe">
         <h2 class="aboutUs__title section-heading">
             O QUE É A <span class="destaque">STW?</span>
         </h2>
@@ -7,7 +7,7 @@
             Conheça a STW e entenda nosso propósito.
         </p>
     </div>
-    <div class="aboutUs__cardsGrid">
+    <div class="aboutUs__cardsGrid" data-anim-grupo="sobe">
         <button class="aboutUs__topic" data-id="0">
             <div class="aboutUs__card">
                 <h3>Gestão<br /> Inteligente</h3>
