@@ -12,7 +12,7 @@ require_once __DIR__ . '/../layouts/header.php';
     <article class="privacidade__conteudo">
         <header class="privacidade__topo">
             <h1>Política de <span class="destaque">Privacidade</span></h1>
-            <p class="privacidade__data">Última atualização: 16 de novembro de 2026</p>
+            <p class="privacidade__data">Última atualização: 17 de novembro de 2026</p>
             <p>
                 Esta política explica como a STW trata os dados pessoais enviados por este site,
                 de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).
@@ -38,7 +38,7 @@ require_once __DIR__ . '/../layouts/header.php';
                 </li>
                 <li>
                     <strong>Dados públicos da empresa:</strong> a partir do CNPJ informado, consultamos a base
-                    pública da Receita Federal (por meio da BrasilAPI) para obter dados cadastrais, como razão
+                    pública da Receita Federal (por meio dos serviços BrasilAPI e Minha Receita) para obter dados cadastrais, como razão
                     social, endereço, atividade econômica e quadro de sócios e administradores.
                 </li>
                 <li>
@@ -74,7 +74,7 @@ require_once __DIR__ . '/../layouts/header.php';
             <ul>
                 <li><strong>Trello (Atlassian):</strong> ferramenta em que nossa equipe organiza as solicitações recebidas;</li>
                 <li><strong>Google (reCAPTCHA):</strong> verificação contra spam;</li>
-                <li><strong>BrasilAPI:</strong> recebe apenas o CNPJ informado, para consultar os dados públicos da empresa;</li>
+                <li><strong>BrasilAPI e Minha Receita:</strong> recebem apenas o CNPJ informado, para consultar os dados públicos da empresa;</li>
                 <li><strong>Empresa de hospedagem:</strong> onde o site e seus registros de acesso ficam armazenados;</li>
                 <li><strong>Autoridades públicas:</strong> somente quando exigido por lei ou ordem judicial.</li>
             </ul>
