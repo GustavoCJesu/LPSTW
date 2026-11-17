@@ -12,7 +12,27 @@ const headlineText = [
     'Acompanhe cada retirada em <span class="destaque">tempo real</span>!'
 ]
 
-if (headline && headlineText[0]) headline.innerHTML = headlineText[0]
+// Título digitado: as letras aparecem uma a uma, com cursor. Ao trocar de slide, apaga e digita o próximo.
+// O texto inteiro já ocupa o espaço desde o início (letras só ficam invisíveis), então nada abaixo se mexe.
+const DIGITAR_MS = 35
+const APAGAR_MS = 15
+const ATRASO_INICIAL_MS = 700
+const semMovimento = matchMedia('(prefers-reduced-motion: reduce)').matches
+
+const tituloLeitor = document.createElement('span')    // frase completa, para leitores de tela
+tituloLeitor.className = 'hero__titulo-leitor'
+const tituloDigitado = document.createElement('span')  // letras animadas, escondidas dos leitores de tela
+tituloDigitado.setAttribute('aria-hidden', 'true')
+
+let letras = []
+let letrasVisiveis = 0
+let digitacaoAtual = 0  // cada troca incrementa; uma digitação antiga vê que mudou e para
+
+if (headline && headlineText[0]) {
+    headline.replaceChildren(tituloLeitor, tituloDigitado)
+    montarLetras(headlineText[0])  // já reserva o espaço da frase, antes de começar a digitar
+    updateHeadline(0, ATRASO_INICIAL_MS)
+}
 
 console.log(image, track, dots, slides)
 
@@ -38,9 +58,11 @@ track.addEventListener("touchend", (e) => {
     if (distance > 50) {
         currentDot++
         toggleSlide(currentDot)
+        reiniciarAutomatico()
     } else if (distance < -50) {
         currentDot--
         toggleSlide(currentDot)
+        reiniciarAutomatico()
     }
 });
 
@@ -63,15 +85,81 @@ function toggleSlide(id) {
     updateHeadline(currentDot)
 }
 
-// Troca o título com fade de 300ms.
-function updateHeadline(id) {
+// Apaga o título atual e digita o do slide id. Uma nova chamada cancela a anterior.
+async function updateHeadline(id, atraso = 0) {
     if (!headline || !headlineText[id]) return
 
-    headline.classList.add('hero__headLine--fading')
-    setTimeout(() => {
-        headline.innerHTML = headlineText[id]
-        headline.classList.remove('hero__headLine--fading')
-    }, 300)
+    const minha = ++digitacaoAtual
+    tituloLeitor.innerHTML = headlineText[id]
+
+    if (semMovimento) {
+        montarLetras(headlineText[id])
+        mostrarLetras(letras.length)
+        return
+    }
+
+    headline.classList.add('hero__titulo--digitando')
+    await esperar(atraso)
+
+    while (letrasVisiveis > 0) {
+        if (minha !== digitacaoAtual) return
+        mostrarLetras(letrasVisiveis - 1)
+        await esperar(APAGAR_MS)
+    }
+
+    if (minha !== digitacaoAtual) return
+    montarLetras(headlineText[id])
+
+    while (letrasVisiveis < letras.length) {
+        await esperar(DIGITAR_MS)
+        if (minha !== digitacaoAtual) return
+        mostrarLetras(letrasVisiveis + 1)
+    }
+
+    headline.classList.remove('hero__titulo--digitando')
+}
+
+// Troca o conteúdo pela frase nova com cada letra num <span>, mantendo os destaques (<span class="destaque">).
+function montarLetras(html) {
+    const modelo = document.createElement('template')
+    modelo.innerHTML = html
+    letras = []
+
+    const separar = (no) => {
+        for (const filho of [...no.childNodes]) {
+            if (filho.nodeType !== Node.TEXT_NODE) {
+                separar(filho)
+                continue
+            }
+
+            const spans = [...filho.textContent].map((caractere) => {
+                const letra = document.createElement('span')
+                letra.className = 'hero__letra'
+                letra.textContent = caractere
+                return letra
+            })
+            letras.push(...spans)
+            filho.replaceWith(...spans)
+        }
+    }
+
+    separar(modelo.content)
+    tituloDigitado.replaceChildren(modelo.content)
+    mostrarLetras(0)
+}
+
+// Deixa as n primeiras letras visíveis e põe o cursor logo depois da última.
+function mostrarLetras(n) {
+    letrasVisiveis = n
+    letras.forEach((letra, i) => {
+        letra.classList.toggle('hero__letra--visivel', i < n)
+        letra.classList.toggle('hero__letra--cursor', i === Math.max(n - 1, 0))
+        letra.classList.toggle('hero__letra--inicio', n === 0 && i === 0)
+    })
+}
+
+function esperar(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
 // Clique na bolinha vai direto para o slide.
@@ -79,6 +167,7 @@ dots.forEach(dot => {
     dot.addEventListener('click', () => {
         currentDot = dot.dataset.id
         toggleSlide(currentDot)
+        reiniciarAutomatico()
     })
 });
 
@@ -88,6 +177,11 @@ function automaticToggle() {
     toggleSlide(currentDot)
 }
 
+// Troca automática a cada 5s. Recomeça a contagem quando o usuário navega,
+// para o slide escolhido não ser trocado logo em seguida (e a frase terminar de ser digitada).
+let intervaloSlides = setInterval(automaticToggle, 5000)
 
-// Troca automática a cada 5s.
-setInterval(automaticToggle, 5000)
+function reiniciarAutomatico() {
+    clearInterval(intervaloSlides)
+    intervaloSlides = setInterval(automaticToggle, 5000)
+}

@@ -1,109 +1,271 @@
+/* Rodapé: colunas (marca, navegação, produtos, contato) + faixa final */
 .footer {
-    background-color: #1D5239;
-    text-align: center;
+    --fundo: #0F3D26;
+    --fundo-base: #0b311e;
+    --verde: #279963;
+    --verde-claro: #8fd3ae;
+    --texto: rgba(255, 255, 255, .78);
+    --linha: rgba(255, 255, 255, .12);
+
+    background: var(--fundo);
     color: #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
     overflow-x: clip;
 }
 
-.footer__img {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    & > p {
-        color: #fff;
-    }
+.footer__conteudo {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 48px 24px 36px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 24px;
 }
 
-.footer__img > img {
-    width: 150px;
-    max-width: 100%;
-    align-self: center;
+/* Mobile: marca e contato ocupam a linha toda; navegação e produtos lado a lado */
+.footer__marca,
+.footer__contato {
+    grid-column: 1 / -1;
 }
 
-.footer__hr {
-    background-color: #fff;
+/* ---------- Marca ---------- */
+
+.footer__logo {
+    width: 140px;
+    height: auto;
 }
 
-.footer__quickAccess {
-    margin: 10px 0;
+.footer__slogan {
+    margin-top: 16px;
+    max-width: 340px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-.footer__menu__link {
+.footer__origem {
+    margin-top: 10px;
+    max-width: 340px;
+    color: var(--texto);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* ---------- Colunas ---------- */
+
+.footer__titulo {
+    margin-bottom: 16px;
+    color: var(--verde-claro);
+    font-family: "Ropa Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.footer__lista {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.footer__lista a {
     display: inline-block;
-    transition: color .3s ease, transform .3s ease;
-
-    &:hover {
-        color: #2ec07c;
-        transform: translateX(4px);
-    }
+    color: var(--texto);
+    font-size: 15px;
+    text-decoration: none;
+    transition: color .2s ease, transform .2s ease;
 }
 
-.footer__contact__partner {
+.footer__lista a:hover,
+.footer__lista a:focus-visible {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+/* ---------- Contato ---------- */
+
+.footer__email,
+.footer__prazo {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 16px;
-}
-
-.footer__contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer__contact__email {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    line-height: 1;
-    min-width: 0;
-
-    & > p {
-        color: #fff;
-        overflow-wrap: anywhere;
-    }
-}
-
-.footer__contact__partner h5 {
-    margin: 0;
+    gap: 12px;
+    color: #fff;
+    font-size: 15px;
     overflow-wrap: anywhere;
 }
 
-.footer__partnerCompany {
+.footer__email {
+    text-decoration: none;
+}
+
+.footer__email:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer__prazo {
+    margin-top: 12px;
+    color: var(--texto);
+}
+
+.footer__icone {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, .08);
+    color: var(--verde-claro);
+}
+
+.footer__icone svg {
+    width: 17px;
+    height: 17px;
+}
+
+.footer__cta {
+    margin-top: 20px;
+    padding: 11px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 100px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+
+.footer__cta svg {
+    width: 17px;
+    height: 17px;
+    transition: transform .2s ease;
+}
+
+.footer__cta:hover,
+.footer__cta:focus-visible {
+    background: var(--verde);
+    border-color: var(--verde);
+}
+
+.footer__cta:hover svg {
+    transform: translateX(3px);
+}
+
+.footer a:focus-visible {
+    outline: 2px solid var(--verde-claro);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ---------- Faixa final ---------- */
+
+.footer__base {
+    background: var(--fundo-base);
+    border-top: 1px solid var(--linha);
+}
+
+.footer__base__conteudo {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
     align-items: center;
+    gap: 14px 28px;
+    text-align: center;
 }
 
-.footer__partnerCompany > img {
-    height: 28px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
+.footer__copyright {
+    width: 100%;
+    color: rgba(255, 255, 255, .6);
+    font-size: 13px;
 }
+
+.footer__base__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, .75);
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer__base__link:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer__base__link svg {
+    width: 14px;
+    height: 14px;
+}
+
+.footer__parceiros {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    order: -1;
+}
+
+.footer__parceiros img {
+    width: auto;
+    height: 26px;
+    opacity: .85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer__lista a,
+    .footer__cta svg {
+        transition: none;
+    }
+
+    .footer__lista a:hover,
+    .footer__cta:hover svg {
+        transform: none;
+    }
+}
+
+/* ---------- Desktop ---------- */
 
 @media (min-width: 1024px) {
-    .footer {
-        padding: 40px 20px;
+
+    .footer__conteudo {
+        padding: 64px 40px 48px;
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr);
+        gap: 48px;
     }
 
-    .footer__contact__partner {
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: var(--container-max);
-        width: 100%;
-        margin: 0 auto;
+    .footer__marca,
+    .footer__contato {
+        grid-column: auto;
     }
 
-    .footer__contact {
-        align-items: flex-start;
+    .footer__logo {
+        width: 160px;
+    }
+
+    .footer__base__conteudo {
+        padding: 18px 40px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .footer__copyright {
+        width: auto;
+        margin-right: auto;
+    }
+
+    .footer__parceiros {
+        width: auto;
+        order: 0;
     }
 }

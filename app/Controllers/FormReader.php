@@ -14,7 +14,7 @@ use GuzzleHttp\Client;
 class FormReader
 {
     /** Envios por IP: no máximo 5 a cada 10 minutos e 20 por dia. */
-    private const LIMITES = [600 => 5, 86400 => 20];
+    private const LIMITES = [600 => 2, 86400 => 4];
 
     /** Onde o RateLimiter guarda as tentativas (fora da pasta public). */
     private const PASTA_LIMITES = __DIR__ . '/../../storage/limites';
