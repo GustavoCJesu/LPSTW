@@ -56,27 +56,39 @@
         display: none;
     }
 
+    /* Desktop: grade (2 colunas; 4 a partir de 1280px). O hover fica no .card. */
     .product__list {
         box-sizing: border-box;
         max-width: 1280px;
         margin: 0 auto;
-        padding: 20px;              
+        padding: 20px 20px 32px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px;
-        align-items: stretch;
-        transform: none !important; 
+        transform: none !important;
     }
 
     .products__card {
-        flex: 1 1 0;                
         min-width: 0;
-        transition: transform .3s ease;
-    }
-
-    .products__card:hover {
-        transform: scale(1.05);
     }
 
     .products__card > * {
-        width: 100%;                
+        width: 100%;
+    }
+
+    @supports (grid-template-rows: subgrid) {
+        .products__card {
+            display: grid;
+            grid-row: span 5;
+            grid-template-rows: subgrid;
+            row-gap: 0;
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+
+    .product__list {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }

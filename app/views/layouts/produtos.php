@@ -3,6 +3,7 @@
 $products = [
     [
         "title" => "Locker Inteligente",
+        "selo" => "24 horas",
         "description" => "Automatize a entrega de EPIs com controle total sobre retiradas, colaboradores autorizados e histórico de utilização.",
         "topics" => [
             "Entrega automatizada de EPIs",
@@ -20,6 +21,7 @@ $products = [
     ],
     [
         "title" => "Balcão de Atendimento",
+        "selo" => "Atendimento assistido",
         "description" => "Centralize a distribuição de EPIs em um ponto de atendimento com gestão completa de estoque e colaboradores.",
         "topics" => [
             "Atendimento assistido via terminal",
@@ -37,6 +39,7 @@ $products = [
     ],
     [
         "title" => "Dispenser 36 Slots",
+        "selo" => "36 slots",
         "description" => "Distribua EPIs automaticamente em até 36 compartimentos individuais, com liberação rápida e sem intervenção manual.",
         "topics" => [
             "36 compartimentos individuais",
@@ -54,6 +57,7 @@ $products = [
     ],
     [
         "title" => "Dispenser 60 Slots",
+        "selo" => "60 slots",
         "description" => "Versão de maior capacidade, com 60 compartimentos para atender operações de grande porte com máxima disponibilidade de EPIs.",
         "topics" => [
             "60 compartimentos individuais",
@@ -76,7 +80,7 @@ require_once __DIR__ . "/../components/cardProduct.php"
 ?>
 
 <section id="products" class="products">
-    <div class="products__title">
+    <div class="products__title" data-anim-grupo="sobe">
         <h2 class="section-heading">
             QUAIS SÃO OS <span class="destaque">NOSSOS PRODUTOS?</span>
         </h2>
@@ -84,7 +88,7 @@ require_once __DIR__ . "/../components/cardProduct.php"
             Conheça as soluções da STW
         </p>
     </div>
-    <div class="product__list">
+    <div class="product__list" data-anim-grupo="sobe">
         <?php
         $id = 0;
         foreach ($products as $product): ?>
