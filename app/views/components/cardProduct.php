@@ -1,46 +1,36 @@
 <?php
 
+// Card "vitrine": a máquina em destaque no topo, recursos em lista e CTA no rodapé.
+// O produtos.js usa .card (clique no card) e .card__cta__btn[data-id] (mensagem automática).
 function ProductCard(array $product, int $id)
 {
+    $e = fn (string $texto) => htmlspecialchars($texto, ENT_QUOTES, 'UTF-8');
 ?>
 
-    <div class="card">
-        <div>
-            <h3 class="card__title">
-                <?= $product['title'] ?>
-            </h3>
-            <p class="card__description">
-                <?= $product['description'] ?>
-            </p>
+    <article class="card">
+        <div class="card__vitrine">
+            <span class="card__selo"><?= $e($product['selo']) ?></span>
+            <img class="card__img" src="<?= $e($product['image']) ?>" alt="<?= $e($product['title']) ?>" loading="lazy" />
         </div>
-        <div class="card__container__img">
-                <img class="card__img" src="<?= $product['image'] ?>" alt="<?= $product['title'] ?>" />
-            </div>
-        <div class="card__description__topics">
-            
-            <div class="card__list__topics">
-                <ul>
-                    <li><i class="card__icon" data-lucide="<?= $product['icons'][0] ?>"></i>
-                        <p class="card__icon__description"><?= $product['topics'][0] ?></p>
-                    </li>
-                    <li><i class="card__icon" data-lucide="<?= $product['icons'][1] ?>"></i>
-                        <p class="card__icon__description"><?= $product['topics'][1] ?></p>
-                    </li>
-                    <li><i class="card__icon" data-lucide="<?= $product['icons'][2] ?>"></i>
-                        <p class="card__icon__description"><?= $product['topics'][2] ?></p>
-                    </li>
-                    <li><i class="card__icon" data-lucide="<?= $product['icons'][3] ?>"></i>
-                        <p class="card__icon__description"><?= $product['topics'][3] ?></p>
-                    </li>
 
-                </ul>
+        <div class="card__corpo">
+            <h3 class="card__title"><?= $e($product['title']) ?></h3>
+            <p class="card__description"><?= $e($product['description']) ?></p>
 
-            </div>
+            <ul class="card__recursos">
+                <?php foreach ($product['topics'] as $i => $topico): ?>
+                    <li>
+                        <span class="card__recurso__icone"><i data-lucide="<?= $e($product['icons'][$i]) ?>"></i></span>
+                        <?= $e($topico) ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
-        <div class="card__cta">
-            <a class="card__cta__btn" href="#form" data-id="<?= $id ?>">Solicitar um orçamento</a><i data-lucide="ChevronRight"></i>
-        </div>
-    </div>
+
+        <a class="card__cta__btn" href="#form" data-id="<?= $id ?>">
+            Solicitar orçamento <i data-lucide="arrow-right"></i>
+        </a>
+    </article>
 
 <?php
 }
