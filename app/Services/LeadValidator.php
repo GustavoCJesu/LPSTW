@@ -2,15 +2,14 @@
 
 namespace App\Services;
 
-/**
- * Valida no servidor os dados do formulário de orçamento.
- * As regras e mensagens espelham as de public/js/formulario.js.
- */
+/** Validação do formulário no servidor. Mesmas regras e mensagens de public/js/formulario.js. */
 class LeadValidator
 {
+    /** Pesos dos dígitos verificadores do CNPJ. */
     private const PESOS_DV1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
     private const PESOS_DV2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
+    /** Campo => [rótulo, tamanho máximo]. */
     private const LIMITES = [
         'nome' => ['Nome', 150],
         'cnpj' => ['CNPJ', 18],
@@ -20,10 +19,7 @@ class LeadValidator
         'mensagem' => ['Mensagem', 5000],
     ];
 
-    /**
-     * @param array<string, string> $lead
-     * @return array<string, string> mensagens de erro por campo (vazio se estiver tudo certo)
-     */
+    /** Retorna campo => mensagem de erro (vazio se estiver tudo certo). */
     public function validar(array $lead): array
     {
         $erros = array_filter([
@@ -41,6 +37,7 @@ class LeadValidator
         return $erros;
     }
 
+    /** Regras por campo: retornam a mensagem de erro ou '' se válido. */
     private function nome(string $valor): string
     {
         if ($valor === '') return 'Informe seu nome completo.';
@@ -67,7 +64,7 @@ class LeadValidator
         return '';
     }
 
-    /** Aceita o CNPJ numérico e o alfanumérico (letras nas 12 primeiras posições). */
+    /** Confere os dígitos verificadores. Aceita CNPJ numérico e alfanumérico. */
     private function cnpjValido(string $codigo): bool
     {
         if (!preg_match('/^[0-9A-Z]{12}\d{2}$/', $codigo) || preg_match('/^(.)\1+$/', $codigo)) {
@@ -80,6 +77,7 @@ class LeadValidator
         return str_ends_with($codigo, "{$dv1}{$dv2}");
     }
 
+    /** Dígito verificador (módulo 11). */
     private function digitoVerificador(string $codigo, array $pesos): int
     {
         $soma = 0;

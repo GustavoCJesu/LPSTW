@@ -2,13 +2,16 @@
 
 namespace App\Controllers;
 
+/** robots.txt e sitemap.xml. */
 class SeoController
 {
+    /** Páginas do sitemap. */
     private const PAGINAS = [
         '/' => ['changefreq' => 'monthly', 'priority' => '1.0'],
         '/politica-de-privacidade' => ['changefreq' => 'yearly', 'priority' => '0.3'],
     ];
 
+    /** Gera o robots.txt apontando para o sitemap. */
     public function robots(): void
     {
         header('Content-Type: text/plain; charset=UTF-8');
@@ -18,6 +21,7 @@ class SeoController
         echo 'Sitemap: ' . SITE_URL . "/sitemap.xml\n";
     }
 
+    /** Gera o sitemap.xml com as PAGINAS. */
     public function sitemap(): void
     {
         header('Content-Type: application/xml; charset=UTF-8');

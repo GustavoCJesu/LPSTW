@@ -108,7 +108,7 @@
     color: rgba(0, 0, 0, 0.7);
     text-align: center;
 
-    /* Acompanha a largura do formulário sem alargá-lo por causa do texto longo */
+    /* Usa a largura do formulário sem alargá-lo */
     align-self: stretch;
     contain: inline-size;
 
@@ -144,8 +144,7 @@
     color: #b91c1c;
 }
 
-/* A segunda linha do grid é a mensagem de erro: 0fr = fechada, 1fr = do tamanho do texto.
-   Animar entre as duas abre a mensagem suavemente, sem reservar espaço quando não há erro. */
+/* 2ª linha do grid = mensagem de erro. Anima de 0fr (fechada) a 1fr (aberta). */
 .form__input {
     width: 100%;
     display: grid;

@@ -8,6 +8,7 @@ const errorCard = document.querySelector('.feedback__card.error')
 const errorMessage = errorCard.querySelector('.feedback__card__message')
 const errorMessageDefault = errorMessage.textContent.trim()
 
+// Máscaras. O CNPJ aceita letras nas 12 primeiras posições.
 const cnpj = document.querySelector('#cnpj')
 const cnpjMask = IMask(cnpj, {
     mask: '##.###.###/####-00',
@@ -22,15 +23,18 @@ const telefoneMask = IMask(telefone, {
     mask: '(00) 00000-0000'
 })
 
+// Pesos dos dígitos verificadores do CNPJ.
 const PESOS_DV1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 const PESOS_DV2 = [6, ...PESOS_DV1]
 
+// Dígito verificador (módulo 11).
 function digitoVerificador(codigo, pesos) {
     const soma = pesos.reduce((total, peso, i) => total + (codigo.charCodeAt(i) - 48) * peso, 0)
     const resto = soma % 11
     return resto < 2 ? 0 : 11 - resto
 }
 
+// Confere os dígitos verificadores. Aceita CNPJ numérico e alfanumérico.
 function cnpjValido(codigo) {
     if (!/^[0-9A-Z]{12}\d{2}$/.test(codigo) || /^(.)\1+$/.test(codigo)) return false
 
@@ -39,6 +43,7 @@ function cnpjValido(codigo) {
     return codigo.endsWith(`${dv1}${dv2}`)
 }
 
+// Regras por campo: retornam a mensagem de erro ou '' se válido. Iguais às do LeadValidator.php.
 const regras = {
     nome(valor) {
         if (!valor) return 'Informe seu nome completo.'
@@ -59,12 +64,14 @@ const regras = {
     },
 }
 
+// Input, elemento de erro e regra de cada campo validado.
 const campos = Object.entries(regras).map(([id, validar]) => ({
     input: document.getElementById(id),
     erro: document.getElementById(`${id}Error`),
     validar,
 }))
 
+// Mostra o erro embaixo do campo (mensagem vazia esconde).
 function mostrarErro({ input, erro }, mensagem) {
     const invalido = Boolean(mensagem)
 
@@ -78,6 +85,7 @@ function mostrarErro({ input, erro }, mensagem) {
     erro.classList.toggle('hidden', !invalido)
 }
 
+// Mostra uma mensagem informativa (não é erro) embaixo do campo.
 function mostrarInfo({ input, erro }, mensagem) {
     input.classList.remove('input--invalid')
     input.setAttribute('aria-invalid', 'false')
@@ -86,16 +94,19 @@ function mostrarInfo({ input, erro }, mensagem) {
     erro.classList.add('errorMsg--info')
 }
 
+// Valida e mostra o erro. Retorna true se o campo estiver válido.
 function validarCampo(campo) {
     const mensagem = campo.validar(campo.input.value.trim())
     mostrarErro(campo, mensagem)
     return !mensagem
 }
 
+// Esconde todos os erros.
 function limparErros() {
     campos.forEach((campo) => mostrarErro(campo, ''))
 }
 
+// Valida ao sair do campo; se já tem erro, revalida a cada digitação.
 campos.forEach((campo) => {
     const { input } = campo
 
@@ -114,12 +125,14 @@ campos.forEach((campo) => {
 
 const campoCnpj = campos.find((campo) => campo.input === cnpj)
 
+// Busca a empresa e mostra o nome embaixo do campo. Não impede o envio.
 async function consultarCnpj() {
     const codigo = cnpjMask.unmaskedValue
 
     mostrarInfo(campoCnpj, 'Consultando CNPJ...')
     const { status, empresa } = await buscarCnpj(codigo)
 
+    // Ignora a resposta se o CNPJ mudou durante a consulta.
     if (cnpjMask.unmaskedValue !== codigo) return
 
     const nome = empresa?.nome_fantasia || empresa?.razao_social
@@ -132,20 +145,24 @@ async function consultarCnpj() {
     }
 }
 
+// Consulta só quando o CNPJ é válido.
 cnpj.addEventListener('blur', () => {
     if (!regras.cnpj(cnpj.value.trim())) {
         consultarCnpj()
     }
 })
 
+// Esconde a mensagem da consulta ao editar o CNPJ.
 cnpj.addEventListener('input', () => {
     if (!cnpj.classList.contains('input--invalid')) {
         mostrarErro(campoCnpj, '')
     }
 })
 
+// Tempo (ms) que o card de erro fica na tela.
 const FEEDBACK_DURATION = 5000
 
+// Esconde o card de feedback.
 function hideFeedback(card) {
     if (!card) return
 
@@ -153,6 +170,7 @@ function hideFeedback(card) {
     card.classList.remove('feedback__card--actvie', 'feedback__card--timer')
 }
 
+// Mostra o card; ele some sozinho após FEEDBACK_DURATION.
 function showFeedback(card) {
     if (!card) return
 
@@ -161,6 +179,7 @@ function showFeedback(card) {
     card.classList.add('feedback__card--actvie')
 
     card.classList.remove('feedback__card--timer')
+    // Força reflow para reiniciar a barra de tempo.
     void card.offsetWidth
     requestAnimationFrame(() => {
         card.classList.add('feedback__card--timer')
@@ -169,6 +188,7 @@ function showFeedback(card) {
     card._hideTimeout = setTimeout(() => hideFeedback(card), FEEDBACK_DURATION)
 }
 
+// Fecha o card pelo ícone X.
 document.addEventListener('click', (event) => {
     const closeIcon = event.target.closest('.feedback__card h2 svg')
     if (closeIcon) {
@@ -176,6 +196,7 @@ document.addEventListener('click', (event) => {
     }
 })
 
+// Troca o formulário pela mensagem de sucesso.
 function mostrarSucesso() {
     hideFeedback(errorCard)
 
@@ -186,6 +207,7 @@ function mostrarSucesso() {
     formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' })
 }
 
+// Volta da mensagem de sucesso para o formulário.
 function mostrarFormulario() {
     formSuccess.hidden = true
     formWrapper.hidden = false
@@ -195,8 +217,7 @@ function mostrarFormulario() {
 
 formSuccessReset.addEventListener('click', mostrarFormulario)
 
-// Mostra os erros devolvidos pelo servidor embaixo de cada campo.
-// Retorna false se algum erro não tiver campo correspondente na tela.
+// Mostra os erros do servidor nos campos. Retorna false se algum erro não tiver campo na tela.
 function mostrarErrosDoServidor(erros) {
     const comCampo = campos.filter((campo) => erros[campo.input.id])
 
@@ -206,6 +227,7 @@ function mostrarErrosDoServidor(erros) {
     return comCampo.length === Object.keys(erros).length
 }
 
+// Limpa campos, máscaras e erros.
 function limparFormulario() {
     form.reset()
     cnpjMask.updateValue()
@@ -213,6 +235,7 @@ function limparFormulario() {
     limparErros()
 }
 
+// Valida, envia para /sendForm e mostra o resultado.
 form.addEventListener('submit', async (event) => {
 
     event.preventDefault()
@@ -240,6 +263,7 @@ form.addEventListener('submit', async (event) => {
         showFeedback(errorCard)
     }
 
+    // O token do reCAPTCHA vale para um envio só.
     if (window.grecaptcha) {
         grecaptcha.reset()
     }

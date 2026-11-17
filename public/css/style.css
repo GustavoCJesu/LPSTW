@@ -82,8 +82,7 @@ p {
     color: #1B7A45;
 }
 
-/* Mensagem embaixo do campo. Fechada (altura zero) quando não há erro;
-   o .form__input anima a abertura (ver formulario.css). */
+/* Mensagem embaixo do campo. A abertura é animada no .form__input (formulario.css). */
 .errorMsg {
     font-size: 15px;
     color: #d93025;

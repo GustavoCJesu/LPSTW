@@ -1,3 +1,4 @@
+// Conteúdo de cada tópico do software (chave = data-id).
 const topicData = {
     0: {
         title: "Início",
@@ -36,6 +37,7 @@ let automaticId = 1
 
 let intervalo
 
+// Clique troca o tópico e reinicia o timer.
 topics.forEach(topic => {
     topic.addEventListener('click', (e) => {
         const id = topic.dataset.id
@@ -45,6 +47,7 @@ topics.forEach(topic => {
 
 })
 
+// Ativa o tópico e atualiza título, descrição e imagem.
 function toggleTopic(id) {
 
     const topicTitle = document.querySelector('.software__topic__title')
@@ -66,6 +69,7 @@ function toggleTopic(id) {
 
 }
 
+// Avança para o próximo tópico (volta ao primeiro no fim).
 function automaticTopic() {
     if (automaticId >= topics.length - 1) {
         toggleTopic(automaticId)
@@ -76,12 +80,14 @@ function automaticTopic() {
     }
 }
 
+// Troca de tópico a cada 5s.
 function initSlide() {
     intervalo = setInterval(() => {
         automaticTopic()
     }, 5000)
 }
 
+// Reinicia o timer.
 function resetSlide() {
     clearInterval(intervalo)
     initSlide()

@@ -5,10 +5,13 @@ namespace App\Services;
 use DateTime;
 use DateTimeZone;
 
+/** Monta o título e a descrição (markdown) do card do lead no Trello. */
 class LeadCard
 {
+    /** Máximo de sócios listados no card. */
     private const MAX_SOCIOS = 5;
 
+    /** Nome amigável do porte informado pela Receita. */
     private const PORTES = [
         'DEMAIS' => 'Médio/Grande porte',
         'MICRO EMPRESA' => 'Microempresa (ME)',
@@ -18,12 +21,14 @@ class LeadCard
     private array $lead;
     private ?array $empresa;
 
+    /** $empresa é null quando a consulta do CNPJ não retornou dados. */
     public function __construct(array $lead, ?array $empresa)
     {
         $this->lead = $lead;
         $this->empresa = $empresa;
     }
 
+    /** "Lead - Nome | Empresa" */
     public function titulo(): string
     {
         $titulo = 'Lead - ' . ($this->lead['nome'] ?: 'Não informado');
@@ -32,6 +37,7 @@ class LeadCard
         return $nomeEmpresa ? "{$titulo} | {$nomeEmpresa}" : $titulo;
     }
 
+    /** Corpo do card: contato, empresa e mensagem. */
     public function descricao(): string
     {
         return implode("\n\n", [
@@ -42,6 +48,7 @@ class LeadCard
         ]);
     }
 
+    /** Dados informados no formulário. */
     private function secaoContato(): string
     {
         return $this->secao('👤 Contato', [
@@ -52,6 +59,7 @@ class LeadCard
         ]);
     }
 
+    /** Dados da Receita, ou aviso se a consulta falhou. */
     private function secaoEmpresa(): string
     {
         $cnpj = $this->formatarCnpj($this->lead['cnpj']);
@@ -85,6 +93,7 @@ class LeadCard
         return $texto;
     }
 
+    /** Mensagem do lead em citação. */
     private function secaoMensagem(): string
     {
         $mensagem = trim(str_replace("\r\n", "\n", $this->lead['mensagem']));
@@ -96,6 +105,7 @@ class LeadCard
         return "## 💬 Mensagem\n> " . str_replace("\n", "\n> ", $mensagem);
     }
 
+    /** Título + lista "- **Rótulo:** valor", pulando valores vazios. */
     private function secao(string $titulo, array $campos): string
     {
         $linhas = ["## {$titulo}"];
@@ -109,11 +119,13 @@ class LeadCard
         return implode("\n", $linhas);
     }
 
+    /** Campo da empresa como texto ('' se não existir). */
     private function campo(string $chave): string
     {
         return trim((string) ($this->empresa[$chave] ?? ''));
     }
 
+    /** Situação cadastral; destaca quando não está ATIVA. */
     private function situacao(): string
     {
         $situacao = $this->campo('descricao_situacao_cadastral');
@@ -126,12 +138,14 @@ class LeadCard
         return "⚠️ **{$situacao}**" . ($desde ? " desde {$desde}" : '');
     }
 
+    /** Porte com nome amigável. */
     private function porte(): string
     {
         $porte = $this->campo('porte');
         return self::PORTES[$porte] ?? $porte;
     }
 
+    /** Capital social em R$. */
     private function capitalSocial(): string
     {
         $capital = $this->empresa['capital_social'] ?? null;
@@ -143,6 +157,7 @@ class LeadCard
         return 'R$ ' . number_format((float) $capital, 2, ',', '.');
     }
 
+    /** CNAE principal no formato 0000-0/00. */
     private function atividadePrincipal(): string
     {
         $descricao = $this->campo('cnae_fiscal_descricao');
@@ -158,6 +173,7 @@ class LeadCard
         return $descricao ? "{$descricao} (CNAE {$codigo})" : "CNAE {$codigo}";
     }
 
+    /** Data de abertura com a idade da empresa. */
     private function abertura(): string
     {
         $data = $this->campo('data_inicio_atividade');
@@ -177,6 +193,7 @@ class LeadCard
         return "{$formatada} ({$idade})";
     }
 
+    /** Endereço completo em uma linha. */
     private function endereco(): string
     {
         $rua = trim($this->campo('descricao_tipo_de_logradouro') . ' ' . $this->campo('logradouro'));
@@ -196,6 +213,7 @@ class LeadCard
         ]));
     }
 
+    /** Telefones cadastrados na Receita. */
     private function telefonesReceita(): string
     {
         $telefones = array_map(
@@ -206,6 +224,7 @@ class LeadCard
         return implode(' / ', array_filter($telefones));
     }
 
+    /** Sócios, até MAX_SOCIOS. */
     private function socios(): string
     {
         $qsa = $this->empresa['qsa'] ?? [];
@@ -232,6 +251,7 @@ class LeadCard
         return implode("\n", $linhas);
     }
 
+    /** 00.000.000/0000-00 */
     private function formatarCnpj(string $cnpj): string
     {
         $codigo = preg_replace('/[^0-9A-Z]/', '', strtoupper($cnpj));
@@ -244,6 +264,7 @@ class LeadCard
             . '/' . substr($codigo, 8, 4) . '-' . substr($codigo, 12, 2);
     }
 
+    /** (00) 0000-0000 ou (00) 00000-0000 */
     private function formatarTelefone(string $telefone): string
     {
         $numero = preg_replace('/\D/', '', $telefone);
@@ -255,12 +276,14 @@ class LeadCard
         };
     }
 
+    /** Y-m-d → d/m/Y ('' se inválida). */
     private function formatarData(string $data): string
     {
         $dataHora = DateTime::createFromFormat('!Y-m-d', $data);
         return $dataHora ? $dataHora->format('d/m/Y') : '';
     }
 
+    /** Data e hora atuais (horário de Brasília). */
     private function agora(): string
     {
         $agora = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));

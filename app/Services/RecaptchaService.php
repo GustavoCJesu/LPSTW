@@ -2,6 +2,7 @@
 namespace App\Services;
 use GuzzleHttp\Client;
 
+/** Validação do token do Google reCAPTCHA. */
 class RecaptchaService
 {
     private Client $client;
@@ -13,6 +14,7 @@ class RecaptchaService
         $this->secret = $secret;
     }
 
+    /** true se o token for válido; false se inválido ou em falha de rede. */
     public function verify(string $token, ?string $ip = null): bool
     {
 

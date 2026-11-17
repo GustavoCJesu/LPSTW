@@ -5,6 +5,7 @@ namespace App\Services;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
+/** Integração com a API do Trello (credenciais no .env). */
 class TrelloService
 {
     private Client $client;
@@ -14,6 +15,7 @@ class TrelloService
         $this->client = new Client();
     }
 
+    /** Cria um card na lista ID_LIST. Retorna false em caso de falha. */
     public function createCard(array $data) : bool
     {
         try {
