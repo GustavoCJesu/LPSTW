@@ -23,9 +23,6 @@
     }
 }
 
-.form__title>p {
-    font-size: 14px;
-}
 
 .form__topics {
     width: 100%;
@@ -325,11 +322,6 @@
 
             width: max-content;
         }
-    }
-
-    .form__title>p {
-        font-size: 20px;
-        color: rgba(0, 0, 0, 0.7)
     }
 
     .form__inputs {

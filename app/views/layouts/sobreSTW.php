@@ -1,9 +1,9 @@
 <section id="aboutUs" class="aboutUs">
     <div data-anim-grupo="sobe">
         <h2 class="aboutUs__title section-heading">
-            O QUE É A <span class="destaque">STW?</span>
+            O que é a <span class="destaque">STW?</span>
         </h2>
-        <p class="aboutUs__description">
+        <p class="aboutUs__description section-subtitle">
             Conheça a STW e entenda nosso propósito.
         </p>
     </div>

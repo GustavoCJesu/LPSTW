@@ -1,8 +1,8 @@
 <section id="quemSomos" class="quem-somos tema-escuro">
     <div class="quem-somos__topo" data-anim-grupo="sobe">
         <span class="quem-somos__rotulo">ASW Presvida · desde 1999</span>
-        <h2 class="quem-somos__titulo">Quem está por trás do Safe to Work</h2>
-        <p class="quem-somos__intro">Começamos na segurança do trabalho e, quase três décadas depois, criamos nossa própria tecnologia, feita por quem entende do chão de fábrica à diretoria.</p>
+        <h2 class="section-heading">Quem está por trás do <span class="destaque">Safe to Work</span></h2>
+        <p class="quem-somos__intro section-subtitle">Começamos na segurança do trabalho e, quase três décadas depois, criamos nossa própria tecnologia, feita por quem entende do chão de fábrica à diretoria.</p>
     </div>
 
     <ol class="linha-do-tempo" data-anim-grupo="sobe">

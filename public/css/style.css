@@ -83,6 +83,7 @@ h1,
     font-weight: 700;
     line-height: 1;
     text-transform: uppercase;
+    text-wrap: balance;
 }
 p {
     color: rgba(0,0,0, 0.8);
@@ -90,6 +91,20 @@ p {
 
 .destaque{
     color: #1B7A45;
+}
+
+/* Padrão do topo das seções: .section-heading (com .destaque) + .section-subtitle */
+.section-subtitle {
+    margin-top: 12px;
+}
+
+/* Seções com fundo escuro */
+.tema-escuro .section-heading {
+    color: #FFFFFF;
+}
+
+.tema-escuro .destaque {
+    color: #C6FFC1;
 }
 
 /* Mensagem embaixo do campo */

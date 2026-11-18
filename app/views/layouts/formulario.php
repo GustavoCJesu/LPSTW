@@ -2,9 +2,9 @@
     <div class="form__container__topic">
         <div class="form__title" data-anim-grupo="sobe">
             <h2 class="section-heading">
-                Como funciona nossa <span class="destaque"> análise!</span>
+                Como funciona nossa <span class="destaque">análise!</span>
             </h2>
-            <p>
+            <p class="section-subtitle">
                 Em apenas três etapas, nossa equipe avalia sua necessidade e prepara uma proposta personalizada para a sua operação.
             </p>
         </div>
@@ -43,7 +43,7 @@
             <h2 class="section-heading">
                 Solicite um <span class="destaque">orçamento!</span>
             </h2>
-            <p>
+            <p class="section-subtitle">
                 Nossa equipe entra em contato em até 1 dia útil
             </p>
             
@@ -63,7 +63,7 @@
                     <p id="emailError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__line__input">
-                    <input class="inputFocus" id="telefone" type="text" name="telefone" placeholder="Telefone" />
+                    <input class="inputFocus" id="telefone" require type="text" name="telefone" placeholder="Telefone" />
                     <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="N° Colaboradores" maxlength="20" />
                 </div>
                 <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem" maxlength="5000"></textarea>

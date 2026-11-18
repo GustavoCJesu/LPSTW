@@ -40,8 +40,8 @@ $modulos = [
 ?>
 <section id="software" class="software__container">
     <div class="software__cabecalho" data-anim-grupo="sobe">
-        <h2 class="software__section__title section-heading">CONHEÇA NOSSO <span class="destaque">SOFTWARE WEB!</span></h2>
-        <p class="software__section__description">Gerencie EPIs com mais segurança, agilidade e controle em uma única plataforma.</p>
+        <h2 class="section-heading">Conheça nossa <span class="destaque">plataforma web!</span></h2>
+        <p class="section-subtitle">Gerencie EPIs com mais segurança, agilidade e controle em uma única plataforma.</p>
     </div>
 
     <div class="software__conteudo">
