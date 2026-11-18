@@ -31,7 +31,7 @@ $slidesHero = [
             Automatize a gestão de EPIs, acompanhe cada entrega em tempo real e reduza desperdícios com uma plataforma completa.
         </p>
         <?php $text = 'Conheça nossas soluções!';
-        $link = '#products';
+        $link = '#software';
         require __DIR__ . '/../components/ctaMobile.php' ?>
     </div>
     <div class="hero__viewrPoint" data-anim="zoom">
