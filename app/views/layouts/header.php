@@ -40,11 +40,11 @@
                     </li>
 
                     <li class="header__menu-item">
-                        <a href="<?= $prefixoAncora ?>#software">Nosso Software Web</a>
+                        <a href="<?= $prefixoAncora ?>#software">Plataforma Web</a>
                     </li>
 
                     <li class="header__menu-item">
-                        <a href="<?= $prefixoAncora ?>#products">Nossos Produtos</a>
+                        <a href="<?= $prefixoAncora ?>#products">Nossos Equipamentos</a>
                     </li>
                 </ul>
             </nav>

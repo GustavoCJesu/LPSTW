@@ -15,8 +15,8 @@ $produtosRodape = ['Locker Inteligente', 'Balcão de Atendimento', 'Dispenser 36
             <ul class="footer__lista">
                 <li><a href="<?= $prefixoAncora ?>#quemSomos">Quem somos</a></li>
                 <li><a href="<?= $prefixoAncora ?>#aboutUs">O que é a STW?</a></li>
-                <li><a href="<?= $prefixoAncora ?>#software">Software Web</a></li>
-                <li><a href="<?= $prefixoAncora ?>#products">Nossos produtos</a></li>
+                <li><a href="<?= $prefixoAncora ?>#software">Plataforma Web</a></li>
+                <li><a href="<?= $prefixoAncora ?>#products">Nossos equipamentos</a></li>
             </ul>
         </nav>
 

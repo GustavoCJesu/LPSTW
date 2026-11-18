@@ -76,7 +76,7 @@ $modulos = [
         </ul>
     </div>
 
-    <?php $text = "Solicitar um orçamento!";
+    <?php $text = "Solicitar orçamento";
     $link = "#leadForm";
     require __DIR__ . "/../components/ctaMobile.php" ?>
 </section>
