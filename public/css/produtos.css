@@ -15,6 +15,17 @@
     transition: transform .3s ease;
 }
 
+.products__title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-subtitle{
+    width: 75%;
+}
+
 .products__card {
     display: flex;
     justify-content: center;
