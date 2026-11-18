@@ -27,7 +27,7 @@ $products = [
             "Liberação automática",
             "36 compartimentos individuais",
             "Controle por colaborador",
-            "Ideal para médio porte"
+            "Ideal para média demanda"
         ],
         "icons" => [
             "unlock",
@@ -45,7 +45,7 @@ $products = [
             "Liberação automática",
             "60 compartimentos individuais",
             "Controle por colaborador",
-            "Ideal para grande porte"
+            "Ideal para grande demanda"
         ],
         "icons" => [
             "unlock",
