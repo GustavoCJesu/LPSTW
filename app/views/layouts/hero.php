@@ -76,7 +76,7 @@ $slidesHero = [
     </div>
     <div class="hero__cta" data-anim="sobe">
         <?php $text = "Conheça nossas soluções!";
-        $link = "#products";
+        $link = "#software";
         require __DIR__ . "/../components/ctaMobile.php" ?>
     </div>
 </section>
