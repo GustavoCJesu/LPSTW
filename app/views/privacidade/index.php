@@ -102,7 +102,7 @@ require_once __DIR__ . '/../layouts/header.php';
                 <li>Pedir a anonimização, o bloqueio ou a eliminação de dados desnecessários ou excessivos;</li>
                 <li>Pedir a portabilidade dos dados a outro fornecedor;</li>
                 <li>Saber com quem compartilhamos seus dados;</li>
-                <li>Se opor ao tratamento e pedir a eliminação dos seus dados.</li>
+                <li>Opor-se ao tratamento e pedir a eliminação dos seus dados.</li>
             </ul>
             <p>
                 Para exercer qualquer um desses direitos, escreva para

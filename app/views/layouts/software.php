@@ -6,7 +6,7 @@ $modulos = [
         'icone' => 'house',
         'imagem' => '/images/inicio.webp',
         'alt' => 'Tela inicial do software STW com resumo da operação',
-        'descricao' => 'Tenha um resumo completo da operação assim que acessa o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.',
+        'descricao' => 'Tenha um resumo completo da operação assim que acessar o sistema: retiradas, requisições e alertas importantes, como EPIs vencendo ou equipamentos desconectados, com acesso rápido aos principais módulos.',
     ],
     [
         'titulo' => 'GHE',
