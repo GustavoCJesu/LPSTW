@@ -82,10 +82,10 @@ require_once __DIR__ . "/../components/cardProduct.php"
 <section id="products" class="products">
     <div class="products__title" data-anim-grupo="sobe">
         <h2 class="section-heading">
-            QUAIS SÃO OS <span class="destaque">NOSSOS PRODUTOS?</span>
+            Quais são os <span class="destaque">nossos equipamentos?</span>
         </h2>
-        <p>
-            Conheça as soluções da STW
+        <p class="section-subtitle">
+            Com os equipamentos da STW, cada colaborador retira o EPI de que precisa de forma rápida e segura, enquanto você acompanha cada entrega e mantém a operação em conformidade.
         </p>
     </div>
     <div class="product__list" data-anim-grupo="sobe">

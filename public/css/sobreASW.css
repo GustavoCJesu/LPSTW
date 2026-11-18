@@ -41,23 +41,18 @@
                 --dest-ano: #FFFFFF;
             }
 
+            /* Título com a largura da linha do tempo (cabe em uma linha); só o texto fica estreito */
             .quem-somos__topo {
-                max-width: 760px;
+                max-width: 1120px;
                 margin: 0 auto 48px;
                 text-align: center;
             }
             .quem-somos__rotulo {
+                display: block; margin-bottom: 12px;
                 font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
                 color: var(--rotulo);
             }
-            .quem-somos__titulo {
-                margin: 12px 0;
-                font-family: "Ropa Sans", sans-serif; font-weight: bold;
-                font-size: 40px; line-height: 1.25; letter-spacing: .04em; text-transform: uppercase;
-                color: var(--titulo);
-            }
-            .tema-escuro .quem-somos__titulo { font-family: "Geist", sans-serif; font-weight: 700; font-size: 32px; }
-            .quem-somos__intro { margin: 0; font-size: 17px; line-height: 1.6; color: var(--texto); }
+            .quem-somos__intro { max-width: 760px; margin-inline: auto; color: var(--texto); }
 
             .linha-do-tempo {
                 list-style: none; margin: 0 auto; padding: 0;
@@ -111,7 +106,6 @@
             @media (max-width: 760px) {
                 .quem-somos { padding: 48px 16px; }
                 .quem-somos__topo { margin-bottom: 32px; }
-                .quem-somos .quem-somos__titulo { font-size: 28px; }
                 .linha-do-tempo { grid-template-columns: 1fr; }
 
                 .marco {

@@ -16,14 +16,6 @@
     text-align: center;
 }
 
-.software__section__title {
-    line-height: 1;
-}
-
-.software__section__description {
-    margin-top: 10px;
-}
-
 .software__conteudo {
     width: 100%;
     max-width: 640px;
@@ -276,10 +268,6 @@
         margin: 0 auto;
         padding: 72px 40px;
         gap: 48px;
-    }
-
-    .software__section__description {
-        font-size: 1.3rem;
     }
 
     .software__conteudo {
