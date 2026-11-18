@@ -55,7 +55,7 @@
             </div>
             <span class="marco__ano">Hoje</span>
             <h3 class="marco__titulo">Confiança de grandes empresas</h3>
-            <p class="marco__texto">Dezenas de clientes atendidos, grande parte multinacionais.</p>
+            <p class="marco__texto">Dezenas de clientes atendidos, em grande parte multinacionais.</p>
         </li>
     </ol>
 </section>

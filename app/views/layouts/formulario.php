@@ -2,7 +2,7 @@
     <div class="form__container__topic">
         <div class="form__title" data-anim-grupo="sobe">
             <h2 class="section-heading">
-                Como funciona nossa <span class="destaque">análise!</span>
+                Como funciona nossa <span class="destaque">análise?</span>
             </h2>
             <p class="section-subtitle">
                 Em apenas três etapas, nossa equipe avalia sua necessidade e prepara uma proposta personalizada para a sua operação.
@@ -15,7 +15,7 @@
                 </div>
                 <div class="form__text__topic">
                     <h3>Você envia seus dados!</h3>
-                    <p>Preencha o formulário ao lado com as informações da sua empresa.</p>
+                    <p>Preencha o formulário com as informações da sua empresa.</p>
                 </div>
             </div>
             <div class="form__topic">
@@ -44,7 +44,7 @@
                 Solicite um <span class="destaque">orçamento!</span>
             </h2>
             <p class="section-subtitle">
-                Nossa equipe entra em contato em até 1 dia útil
+                Nossa equipe entra em contato em até 1 dia útil.
             </p>
             
         </div>
@@ -64,10 +64,10 @@
                 </div>
                 <div class="form__line__input">
                     <input class="inputFocus" id="telefone" require type="text" name="telefone" placeholder="Telefone" />
-                    <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="N° Colaboradores" maxlength="20" />
+                    <input class="inputFocus" id="colaboradores" type="text" name="colaboradores" placeholder="Nº de colaboradores" maxlength="20" />
                 </div>
                 <textarea class="form__input__mensage inputFocus" id="mensage" name="mensagem" placeholder="Mensagem" maxlength="5000"></textarea>
-                <span class="form__obs">(*) indicam uma informação obrigatória.</span>
+                <span class="form__obs">(*) indica informação obrigatória.</span>
                 <p class="form__privacidade">
                     Usamos esses dados apenas para responder à sua solicitação.
                     Saiba mais na nossa <a href="/politica-de-privacidade" target="_blank" rel="noopener">Política de Privacidade</a>.
