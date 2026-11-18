@@ -13,7 +13,7 @@ class LeadValidator
     private const LIMITES = [
         'nome' => ['Nome', 150],
         'cnpj' => ['CNPJ', 18],
-        'email' => ['Email', 254],
+        'email' => ['E-mail', 254],
         'telefone' => ['Telefone', 20],
         'colaboradores' => ['Nº de colaboradores', 20],
         'mensagem' => ['Mensagem', 5000],
@@ -59,9 +59,9 @@ class LeadValidator
     /** Erro do email ('' se válido). */
     private function email(string $valor): string
     {
-        if ($valor === '') return 'Informe seu email corporativo.';
+        if ($valor === '') return 'Informe seu e-mail corporativo.';
         if (!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/u', $valor)) {
-            return 'Digite um email válido. Ex: nome@empresa.com.br';
+            return 'Digite um e-mail válido. Ex.: nome@empresa.com.br';
         }
         return '';
     }

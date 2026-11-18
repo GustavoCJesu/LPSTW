@@ -59,7 +59,7 @@
                     <p id="cnpjError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__input">
-                    <input class="inputFocus" id="email" type="email" name="email" placeholder="Email corporativo*" maxlength="254" aria-describedby="emailError" required/>
+                    <input class="inputFocus" id="email" type="email" name="email" placeholder="E-mail corporativo*" maxlength="254" aria-describedby="emailError" required/>
                     <p id="emailError" class="errorMsg hidden" aria-live="polite"></p>
                 </div>
                 <div class="form__line__input">
@@ -85,7 +85,7 @@
             <h3>Solicitação enviada!</h3>
             <p>
                 Recebemos seus dados e nossa equipe já vai analisar sua operação.
-                Você recebe a proposta em até 1 dia útil, no email informado.
+                Você recebe a proposta em até 1 dia útil, no e-mail informado.
             </p>
             <button class="form__success__reset" id="formSuccessReset" type="button">
                 Enviar nova solicitação

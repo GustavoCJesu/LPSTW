@@ -58,8 +58,8 @@ const regras = {
         return ''
     },
     email(valor) {
-        if (!valor) return 'Informe seu email corporativo.'
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(valor)) return 'Digite um email válido. Ex: nome@empresa.com.br'
+        if (!valor) return 'Informe seu e-mail corporativo.'
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(valor)) return 'Digite um e-mail válido. Ex.: nome@empresa.com.br'
         return ''
     },
 }
