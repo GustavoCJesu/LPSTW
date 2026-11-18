@@ -63,8 +63,59 @@
 
 }
 
+/* Números no celular: mesma faixa verde-escura da versão desktop, em três colunas */
+.numeros-mobile {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: calc(100% - 32px);
+    max-width: 420px;
+    margin-top: 8px;
+    padding: 14px 6px;
+    border-radius: 12px;
+    background-color: #0F3D26;
+    color: #fff;
+}
+
+.numeros-mobile__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 0 4px;
+    text-align: center;
+}
+
+.numeros-mobile__item + .numeros-mobile__item {
+    border-left: 1px solid rgba(255, 255, 255, .15);
+}
+
+.numeros-mobile__icone {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 2px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: #279963;
+    color: #fff;
+}
+
+.numeros-mobile__valor {
+    font-size: 21px;
+    line-height: 1;
+}
+
+.numeros-mobile__rotulo {
+    font-size: 11px;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, .8);
+}
+
 
 @media (min-width: 1024px) {
+
+    .numeros-mobile {
+        display: none;
+    }
 
     .aboutUs__icon__cta {
         display: none;
