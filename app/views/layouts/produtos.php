@@ -2,76 +2,76 @@
 
 $products = [
     [
-        "title" => "Locker Inteligente",
-        "selo" => "24 horas",
-        "description" => "Automatize a entrega de EPIs com controle total sobre retiradas, colaboradores autorizados e histórico de utilização.",
-        "topics" => [
-            "Entrega automatizada de EPIs",
-            "Controle por colaborador",
-            "Registro de retiradas",
-            "Funcionamento 24 horas"
-        ],
-        "icons" => [
-            "package-check",
-            "user-check",
-            "clipboard-list",
-            "clock"
-        ],
-        "image" => "/images/maquinas/Locker.png"
-    ],
-    [
         "title" => "Balcão de Atendimento",
         "selo" => "Atendimento assistido",
         "description" => "Centralize a distribuição de EPIs em um ponto de atendimento com gestão completa de estoque e colaboradores.",
         "topics" => [
-            "Atendimento assistido via terminal",
-            "Gestão completa de estoque",
-            "Cadastro de colaboradores autorizados",
-            "Conformidade com normas de segurança"
+            "Atendimento com operador",
+            "Gestão completa do estoque",
+            "Controle por colaborador",
+            "Ideal para centralizar a entrega"
         ],
         "icons" => [
             "monitor",
             "package",
-            "users",
-            "shield-check"
+            "user-check",
+            "store"
         ],
         "image" => "/images/maquinas/Balcao.png"
     ],
     [
         "title" => "Dispenser 36 Slots",
-        "selo" => "36 slots",
+        "selo" => "Atendimento automático",
         "description" => "Distribua EPIs automaticamente em até 36 compartimentos individuais, com liberação rápida e sem intervenção manual.",
         "topics" => [
-            "36 compartimentos individuais",
             "Liberação automática",
-            "Ideal para operações de médio porte",
-            "Monitoramento remoto"
+            "36 compartimentos individuais",
+            "Controle por colaborador",
+            "Ideal para médio porte"
         ],
         "icons" => [
-            "layout-grid",
             "unlock",
-            "building",
-            "wifi"
+            "layout-grid",
+            "user-check",
+            "building"
         ],
         "image" => "/images/maquinas/Dispenser36.png"
     ],
     [
         "title" => "Dispenser 60 Slots",
-        "selo" => "60 slots",
+        "selo" => "Atendimento automático",
         "description" => "Versão de maior capacidade, com 60 compartimentos para atender operações de grande porte com máxima disponibilidade de EPIs.",
         "topics" => [
-            "60 compartimentos individuais",
-            "Alta capacidade de armazenamento",
             "Liberação automática",
-            "Monitoramento remoto"
+            "60 compartimentos individuais",
+            "Controle por colaborador",
+            "Ideal para grande porte"
         ],
         "icons" => [
-            "layout-grid",
-            "package",
             "unlock",
-            "wifi"
+            "layout-grid",
+            "user-check",
+            "factory"
         ],
         "image" => "/images/maquinas/Dispenser60.png"
+    ],
+    [
+        "title" => "Locker Inteligente",
+        "selo" => "Atendimento automático",
+        "description" => "Automatize a entrega de EPIs com controle total sobre retiradas, colaboradores autorizados e histórico de utilização.",
+        "topics" => [
+            "Liberação automática",
+            "Portas individuais",
+            "Controle por colaborador",
+            "Ideal para operação 24 horas"
+        ],
+        "icons" => [
+            "unlock",
+            "door-closed",
+            "user-check",
+            "clock"
+        ],
+        "image" => "/images/maquinas/Locker.png"
     ],
 ];
 
@@ -99,8 +99,12 @@ require_once __DIR__ . "/../components/cardProduct.php"
         <?php endforeach; ?>
     </div>
     <div class="product__btns">
-        <button data-id='0' class="product__single__brt"><i data-lucide="ChevronLeft"></i></button>
-        <button data-id='1' class="product__single__brt"><i data-lucide="ChevronRight"></i></button>
+        <button data-id='0' class="product__single__brt">
+            <i data-lucide="ChevronLeft"></i>
+        </button>
+        <button data-id='1' class="product__single__brt">
+            <i data-lucide="ChevronRight"></i>
+        </button>
     </div>
     <?php $text = 'Se interessou? Contate-nos!'; $link = '#form' ; require __DIR__ . '/../components/ctaMobile.php' ?>
 </section>
