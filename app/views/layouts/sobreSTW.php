@@ -1,9 +1,9 @@
 <section id="aboutUs" class="aboutUs">
     <div data-anim-grupo="sobe">
         <h2 class="aboutUs__title section-heading">
-            O que é a <span class="destaque">STW?</span>
+            O QUE É A <span class="destaque">STW?</span>
         </h2>
-        <p class="aboutUs__description section-subtitle">
+        <p class="aboutUs__description">
             Conheça a STW e entenda nosso propósito.
         </p>
     </div>
@@ -48,6 +48,23 @@
                 <i class="aboutUs__icon__cta" data-lucide="ArrowRight"></i>
             </div>
         </button>
+    </div>
+    <div class="numeros-mobile" data-anim-grupo="sobe">
+        <div class="numeros-mobile__item">
+            <i class="numeros-mobile__icone" data-lucide="building"></i>
+            <strong class="numeros-mobile__valor" data-contar>24</strong>
+            <span class="numeros-mobile__rotulo">Empresas atendidas</span>
+        </div>
+        <div class="numeros-mobile__item">
+            <i class="numeros-mobile__icone" data-lucide="hard-hat"></i>
+            <strong class="numeros-mobile__valor" data-contar>20K</strong>
+            <span class="numeros-mobile__rotulo">Colaboradores</span>
+        </div>
+        <div class="numeros-mobile__item">
+            <i class="numeros-mobile__icone" data-lucide="package-check"></i>
+            <strong class="numeros-mobile__valor" data-contar>500K+</strong>
+            <span class="numeros-mobile__rotulo">Retiradas</span>
+        </div>
     </div>
     <?php $text = "Entre em contato";
     $link = "#leadForm";

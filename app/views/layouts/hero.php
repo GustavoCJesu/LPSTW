@@ -60,20 +60,6 @@ $slidesHero = [
             <?php endforeach; ?>
         </div>
     </div>
-    <div class="hero__numbers__mobile" data-anim-grupo="sobe">
-        <div class="hero__numbers--topic">
-            <h3 data-contar>24</h3>
-            <p>Empresas atendidas</p>
-        </div>
-        <div class="hero__numbers--topic">
-            <h3 data-contar>20K</h3>
-            <p>Colaboradores</p>
-        </div>
-        <div class="hero__numbers--topic">
-            <h3 data-contar>500K+</h3>
-            <p>Retiradas</p>
-        </div>
-    </div>
     <div class="hero__cta" data-anim="sobe">
         <?php $text = "Conheça nossas soluções!";
         $link = "#software";
