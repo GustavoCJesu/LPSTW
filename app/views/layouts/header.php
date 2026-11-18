@@ -16,11 +16,11 @@
         </li>
 
         <li>
-            <a class="header__menu-item" href="<?= $prefixoAncora ?>#software">Software Web</a>
+            <a class="header__menu-item" href="<?= $prefixoAncora ?>#software">Plataforma Web</a>
         </li>
 
         <li>
-            <a class="header__menu-item" href="<?= $prefixoAncora ?>#products">Nossos Produtos</a>
+            <a class="header__menu-item" href="<?= $prefixoAncora ?>#products">Nossos Equipamentos</a>
         </li>
 
         <div class="header__menu__cta">
