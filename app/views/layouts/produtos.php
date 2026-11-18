@@ -21,7 +21,7 @@ $products = [
     ],
     [
         "title" => "Dispenser 36 Slots",
-        "selo" => "Atendimento automático",
+        "selo" => "Autoatendimento",
         "description" => "Distribua EPIs automaticamente em até 36 compartimentos individuais, com liberação rápida e sem intervenção manual.",
         "topics" => [
             "Liberação automática",
@@ -39,7 +39,7 @@ $products = [
     ],
     [
         "title" => "Dispenser 60 Slots",
-        "selo" => "Atendimento automático",
+        "selo" => "Autoatendimento",
         "description" => "Versão de maior capacidade, com 60 compartimentos para atender operações de grande porte com máxima disponibilidade de EPIs.",
         "topics" => [
             "Liberação automática",
@@ -57,7 +57,7 @@ $products = [
     ],
     [
         "title" => "Locker Inteligente",
-        "selo" => "Atendimento automático",
+        "selo" => "Autoatendimento",
         "description" => "Automatize a entrega de EPIs com controle total sobre retiradas, colaboradores autorizados e histórico de utilização.",
         "topics" => [
             "Liberação automática",
