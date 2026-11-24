@@ -9,7 +9,7 @@
     background-color: #1D5239;
     color: #fff;
     max-width: 100%;
-    overflow-x: clip;
+    overflow-x: visible;
     z-index: 2;
 
     height: 100px;
