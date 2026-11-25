@@ -69,7 +69,12 @@
     opacity: 0;
     visibility: hidden;
 
-    transition: all .3s ease;
+    transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+
+    /* Safari (iOS/macOS): camada própria para o menu. Sem isso, como ele fica fora
+       dos 100px do header sticky, o Safari corta o desenho e o menu aparece
+       invisível, embora os links continuem clicáveis. */
+    will-change: transform, opacity;
 }
 
 .header__menu--active {

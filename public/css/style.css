@@ -29,6 +29,8 @@
 
 html {
     scroll-behavior: smooth;
+    /* Compensa o header fixo (100px) ao navegar pelas âncoras. */
+    scroll-padding-top: 100px;
 }
 
 body {

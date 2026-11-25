@@ -92,7 +92,7 @@ $organizacao = [
         <link rel="stylesheet" href="<?= $e($estilo) ?>">
     <?php endforeach; ?>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@1.70.0/dist/umd/lucide.min.js"></script>
 
     <?php if ($pagina === 'home'): ?>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>

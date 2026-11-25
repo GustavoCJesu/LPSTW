@@ -5,7 +5,7 @@
             <img src="/images/logo/logo.png" alt="STW">
         </a>
         <div class="header__mobile">
-            <button id="header__btn__menu" class="header__menu-button" aria-label="Abrir menu">
+            <button id="header__btn__menu" class="header__menu-button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile">
                 <i id="menu-icon--Menu" class="header__menu-icon" data-lucide="menu"></i>
                 <i id="menu-icon--X" class="header__menu-icon menu__icon--disabled" data-lucide="x"></i>
             </button>
@@ -24,16 +24,16 @@
             <a class="header__menu-item" href="<?= $prefixoAncora ?>#products">Nossos Equipamentos</a>
         </li>
 
-        <div class="header__menu__cta">
+        <li class="header__menu__cta">
             <a href="<?= $prefixoAncora ?>#form">
                 Entre em contato!
             </a>
-        </div>
+        </li>
     </ul>
 
     <div class="header__mobile">
 
-        <div class="header__menu">
+        <div class="header__menu" id="menu-mobile">
             <nav class="nav__menu">
                 <ul class="header__menu-list">
                     <li class="header__menu-item">
@@ -49,7 +49,7 @@
                     </li>
                 </ul>
             </nav>
-            <a href="<?= $prefixoAncora ?>#leadForm" class="header__cta">
+            <a href="<?= $prefixoAncora ?>#form" class="header__cta">
                 Entre em contato!
             </a>
         </div>

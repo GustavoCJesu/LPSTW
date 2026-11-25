@@ -69,7 +69,7 @@ $produtosRodape = ['Locker Inteligente', 'Balcão de Atendimento', 'Dispenser 36
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         if (window.lucide) lucide.createIcons();
-        else console.error("Lucide não carregou: /js/vendor/lucide.min.js");
+        else console.error("Lucide não carregou (unpkg.com/lucide).");
     });
 </script>
 </body>
